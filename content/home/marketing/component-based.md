@@ -1,8 +1,8 @@
 ---
-title: Component-Based
+title: Компонентно ориентиран
 order: 1
 ---
 
-Build encapsulated components that manage their own state, then compose them to make complex UIs.
+Изгражда добре капсулирани компоненти, които управляват собствено вътрешно състояние. Дава възможност за комбиниране на тези компоненти и създаването на сложни потребителски интерфейси. 
 
-Since component logic is written in JavaScript instead of templates, you can easily pass rich data through your app and keep state out of the DOM.
+Тъй като логиката на компонента е написана в JavaScript вместо в шаблони, лесно можем да предавате данни през приложението си и да се дистанцираме от DOM манипулации.
