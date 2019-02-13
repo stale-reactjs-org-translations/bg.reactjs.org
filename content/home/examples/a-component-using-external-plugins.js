@@ -23,8 +23,8 @@ class MarkdownEditor extends React.Component {
         </label>
         <textarea
           id="markdown-content"
-          onChange={ this.handleChange }
-          defaultValue={ this.state.value }
+          onChange={this.handleChange}
+          defaultValue={this.state.value}
         />
         <h3>Резултат</h3>
         <div

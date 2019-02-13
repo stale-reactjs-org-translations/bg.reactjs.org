@@ -10,8 +10,8 @@ class TodoApp extends React.Component {
     return (
       <div>
         <h3>Задачи</h3>
-        <TodoList items={ this.state.items } />
-        <form onSubmit={ this.handleSubmit }>
+        <TodoList items={this.state.items} />
+        <form onSubmit={this.handleSubmit}>
           <label htmlFor="new-todo">
             Какви са задачите ти днес?
           </label>
