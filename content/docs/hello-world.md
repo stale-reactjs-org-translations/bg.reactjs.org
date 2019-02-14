@@ -6,7 +6,7 @@ prev: cdn-links.html
 next: introducing-jsx.html
 ---
 
-The smallest React example looks like this:
+Най-малкият пример на React изглежда така:
 
 ```js
 ReactDOM.render(
@@ -15,36 +15,36 @@ ReactDOM.render(
 );
 ```
 
-It displays a heading saying "Hello, world!" on the page.
+Показва заглавие с надпис "Hello, world!" на страницата.
 
 [](codepen://hello-world)
 
-Click the link above to open an online editor. Feel free to make some changes, and see how they affect the output. Most pages in this guide will have editable examples like this one.
+Кликнете върху връзката по-горе, за да отворите онлайн редактор. Чувствайте се свободни да направите някои промени и да видите как те влияят на резултата. Повечето страници в това ръководство ще могат да се редактират по този начин.
 
 
-## How to Read This Guide {#how-to-read-this-guide}
+## Как да прочетете това ръководство {#how-to-read-this-guide}
 
-In this guide, we will examine the building blocks of React apps: elements and components. Once you master them, you can create complex apps from small reusable pieces.
+В това ръководство ще разгледаме градивните блокове на приложения с React: елементи и компоненти. След като ги овладеете, можете да създавате сложни приложения от малки преизползваеми парчета.
 
->Tip
+>Съвет
 >
->This guide is designed for people who prefer **learning concepts step by step**. If you prefer to learn by doing, check out our [practical tutorial](/tutorial/tutorial.html). You might find this guide and the tutorial complementary to each other.
+> Това ръководство е предназначено за хора, които предпочитат **да научат концепциите  стъпка по стъпка**. Ако предпочитате да се учите чрез правене, вижте нашия [практически урок](/tutorial/tutorial.html). Можете да откриете, че това ръководство и урокът се допълват взаимно.
 
-This is the first chapter in a step-by-step guide about main React concepts. You can find a list of all its chapters in the navigation sidebar. If you're reading this from a mobile device, you can access the navigation by pressing the button in the bottom right corner of your screen.
+Това е първата глава в ръководство за основните концепции на React. Можете да намерите списък с всички глави в навигационната странична лента. Ако четете това от мобилно устройство, можете да влезете в навигацията, като натиснете бутона в долния десен ъгъл на екрана.
 
-Every chapter in this guide builds on the knowledge introduced in earlier chapters. **You can learn most of React by reading the “Main Concepts” guide chapters in the order they appear in the sidebar.** For example, [“Introducing JSX”](/docs/introducing-jsx.html) is the next chapter after this one.
+Всяка глава в това ръководство надгражда на знанията, въведени в предишните глави. **Можете да научите по-голямата част от React, като прочетете главите с “Основни концепции” в реда, в който се появяват в страничната лента.** Например, ["Представяне на JSX"](/docs/introducing-jsx.html) е следващата глава след тази.
 
-## Knowledge Level Assumptions {#knowledge-level-assumptions}
+## Предположения за ниво на знанието {#knowledge-level-assumptions}
 
-React is a JavaScript library, and so we'll assume you have a basic understanding of the JavaScript language. **If you don't feel very confident, we recommend [going through a JavaScript tutorial](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript) to check your knowledge level** and enable you to follow along this guide without getting lost. It might take you between 30 minutes and an hour, but as a result you won't have to feel like you're learning both React and JavaScript at the same time.
+React е JavaScript библиотека и затова ще приемем, че имате основни знания в езика JavaScript. **Ако не се чувствате много уверени, ние препоръчваме [да преминете през JavaScript урок](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript), за да проверите нивото на знанията си** и за да можете да следвате това ръководство без проблем. Може да ви отнеме между 30 минути и един час, но в резултат на това няма да се налага да се чувствате все едно учите и React, и JavaScript по едно и също време.
 
->Note
+>Забележка
 >
->This guide occasionally uses some of the newer JavaScript syntax in the examples. If you haven't worked with JavaScript in the last few years, [these three points](https://gist.github.com/gaearon/683e676101005de0add59e8bb345340c) should get you most of the way.
+>Това ръководство понякога използва по-новия JavaScript syntax в примерите. Ако не сте работили с JavaScript през последните няколко години, [тези три точки](https://gist.github.com/gaearon/683e676101005de0add59e8bb345340c) ще ви помогнат значително.
 
 
-## Let's Get Started! {#lets-get-started}
+## Да започваме! {#lets-get-started}
 
-Keep scrolling down, and you'll find the link to the [next chapter of this guide](/docs/introducing-jsx.html) right before the website footer.
+Продължете да се придвижвате надолу и ще намерите връзката към [следващата глава от това ръководство](/docs/introducing-jsx.html) точно преди долната част на сайта.
 
 
