@@ -1,6 +1,6 @@
 ---
 id: tutorial
-title: "Tutorial: Intro to React"
+title: "Урок: въведение в React"
 layout: tutorial
 sectionid: tutorial
 permalink: tutorial/tutorial.html
@@ -12,79 +12,79 @@ redirect_from:
   - "docs/tutorial-zh-CN.html"
 ---
 
-This tutorial doesn't assume any existing React knowledge.
+Този урок не изисква опит с React.
 
-## Before We Start the Tutorial {#before-we-start-the-tutorial}
+## Преди да започнем {#before-we-start-the-tutorial}
 
-We will build a small game during this tutorial. **You might be tempted to skip it because you're not building games -- but give it a chance.** The techniques you'll learn in the tutorial are fundamental to building any React apps, and mastering it will give you a deep understanding of React.
+Ще създадем малка игра по време на този урок. **Може да се изкушите да го пропуснете, защото не създавате игри, но дайте му шанс.** Техниките, които ще научите тук, са от основно значение за изграждането на всякакви приложения с React, а овладяването му ще ви помогне да разберете идеите вплетени в React.
 
->Tip
+>Съвет
 >
->This tutorial is designed for people who prefer to **learn by doing**. If you prefer learning concepts from the ground up, check out our [step-by-step guide](/docs/hello-world.html). You might find this tutorial and the guide complementary to each other.
+>Този урок е предназначен за хора, които предпочитат **да учат чрез практика**. Ако предпочитате да започнете с основните концепции, разгледайте нашето [стъпка-по-стъпка ръководство](/docs/hello-world.html). Може да откриете, че този урок и ръководството се допълват взаимно.
 
-The tutorial is divided into several sections:
+Урокът е разделен на няколко части:
 
-* [Setup for the Tutorial](#setup-for-the-tutorial) will give you **a starting point** to follow the tutorial.
-* [Overview](#overview) will teach you **the fundamentals** of React: components, props, and state.
-* [Completing the Game](#completing-the-game) will teach you **the most common techniques** in React development.
-* [Adding Time Travel](#adding-time-travel) will give you **a deeper insight** into the unique strengths of React.
+* [Технически детайли](#setup-for-the-tutorial) ще ви даде **инструменти**, за да следвате урока.
+* [Преглед](#overview) ще ви научи на **основите** на React: компоненти, props и състояние.
+* [Завършване на играта](#completing-the-game) ще ви научи на **най-често срещаните техники** в работа с React.
+* [Добавяне на "Пътуване във времето"](#adding-time-travel) ще ви даде **по-дълбоко разбиране** в уникалните силни страни на React.
 
-You don't have to complete all of the sections at once to get the value out of this tutorial. Try to get as far as you can -- even if it's one or two sections.
+Не е необходимо да попълните всички секции наведнъж, за да получите стойността от този урок. Опитайте се да стигнете, доколкото можете - дори ако това е една или две секции.
 
-It's fine to copy and paste code as you're following along the tutorial, but we recommend to type it by hand. This will help you develop a muscle memory and a stronger understanding.
+Може да копирате кода, докато следвате урока, но препоръчваме да го въведете на ръка. Това ще ви помогне да развиете мускулна памет и да разберете добре въпросните примери.
 
-### What Are We Building? {#what-are-we-building}
+### Какво ще правим? {#what-are-we-building}
 
-In this tutorial, we'll show how to build an interactive tic-tac-toe game with React.
+В този урок ще разработим интерактивна игра Tic-Tac-Toe с React.
 
-You can see what we'll be building here: **[Final Result](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**. If the code doesn't make sense to you, or if you are unfamiliar with the code's syntax, don't worry! The goal of this tutorial is to help you understand React and its syntax.
+Можете да видите завършения вариант тук: **[Краен резултат](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**. Ако кодът за вас в момента е лишен от смисъл, или ако не сте запознати със синтаксиса, не се притеснявайте! Целта на този урок е да ви помогне да разберете React и неговия синтаксис.
 
-We recommend that you check out the tic-tac-toe game before continuing with the tutorial. One of the features that you'll notice is that there is a numbered list to the right of the game's board. This list gives you a history of all of the moves that have occurred in the game, and is updated as the game progresses.
+Препоръчваме ви да прегледате играта на tic-tac-toe преди да продължите с урока. Една от функциите, които ще забележите, е, че в дясната част на дъската има номериран списък. Този списък ви дава история на всички ходове, които са направени, и се актуализира с напредването на играта.
 
-You can close the tic-tac-toe game once you're familiar with it. We'll be starting from a simpler template in this tutorial. Our next step is to set you up so that you can start building the game.
+Можете да затворите tic-tac-toe примера, след като сте се запознали с него. Ще започнем от по-прост код в този урок. Следващата ни стъпка е да ви подготвим така, че да можете да започнете реализирането на играта.
 
-### Prerequisites {#prerequisites}
+### Предварителни стъпки {#prerequisites}
 
-We'll assume that you have some familiarity with HTML and JavaScript, but you should be able to follow along even if you're coming from a different programming language. We'll also assume that you're familiar with programming concepts like functions, objects, arrays, and to a lesser extent, classes.
+Ще приемем, че сте запознати с HTML и JavaScript. Трябва да можете да следвате такъв код, дори ако идвате от различен език за програмиране. Предполагаме също, че сте запознати с концепции за програмиране като функции, обекти, масиви и в по-малка степен - класове.
 
-If you need to review JavaScript, we recommend reading [this guide](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript). Note that we're also using some features from ES6 -- a recent version of JavaScript. In this tutorial, we're using [arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions), [classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes), [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let), and [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) statements. You can use the [Babel REPL](babel://es5-syntax-example) to check what ES6 code compiles to.
+Ако искате да се запознаете с JavaScript, препоръчваме ви да прочетете [това ръководство](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript). Имайте предвид, че използваме и някои функции от ES6 - наскоро излязла версия на JavaScript. Например [arrow функции](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions), [класове](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes), [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) и [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const). Можете да използвате [Babel REPL](babel://es5-syntax-example), за да проверите към какъв код се компилира показания ES6.
 
-## Setup for the Tutorial {#setup-for-the-tutorial}
+## Технически детайли {#setup-for-the-tutorial}
 
-There are two ways to complete this tutorial: you can either write the code in your browser, or you can set up a local development environment on your computer.
+Има два начина да завършите този урок: можете или да напишете кода в браузъра си, или да настроите локална среда на компютъра си.
 
-### Setup Option 1: Write Code in the Browser {#setup-option-1-write-code-in-the-browser}
+### Опция 1: код в браузъра {#setup-option-1-write-code-in-the-browser}
 
-This is the quickest way to get started!
+Това е най-бързият начин да започнете!
 
-First, open this **[Starter Code](https://codepen.io/gaearon/pen/oWWQNa?editors=0010)** in a new tab. The new tab should display an empty tic-tac-toe game board and React code. We will be editing the React code in this tutorial.
+Първо отворете този линк **[Starter Code](https://codepen.io/gaearon/pen/oWWQNa?editors=0010)** в нов таб. Трябва да видите празна игрална дъска с tic-tac-toe и код на React. Ще редактираме кода на React в този урок.
 
-You can now skip the second setup option, and go to the [Overview](#overview) section to get an overview of React.
+Сега можете да пропуснете втората опция и да отидете на секцията [Преглед](#overview).
 
-### Setup Option 2: Local Development Environment {#setup-option-2-local-development-environment}
+### Опция 2: локална среда {#setup-option-2-local-development-environment}
 
-This is completely optional and not required for this tutorial!
+Това е напълно незадължително и не се изисква за този урок!
 
 <br>
 
 <details>
 
-<summary><b>Optional: Instructions for following along locally using your preferred text editor</b></summary>
+<summary><b>По ваш избор: Инструкция за разработка локално през ваш предпочитам редактор</b></summary>
 
-This setup requires more work but allows you to complete the tutorial using an editor of your choice. Here are the steps to follow:
+Тази настройка изисква повече работа, но ви позволява да завършите урока с помощта на редактор по ваш избор. Ето следните стъпки:
 
-1. Make sure you have a recent version of [Node.js](https://nodejs.org/en/) installed.
-2. Follow the [installation instructions for Create React App](/docs/create-a-new-react-app.html#create-react-app) to make a new project.
+1. Уверете се, че имате инсталирана последна версия на [Node.js](https://nodejs.org/en/).
+2. Следвайте [инструкциите за инсталиране на Create React App](/docs/create-a-new-react-app.html#create-react-app), за да направите нов проект.
 
 ```bash
 npx create-react-app my-app
 ```
 
-3. Delete all files in the `src/` folder of the new project 
+1. Изтрийте всички файлове в папката `src /` на новия проект
 
-> Note:
+> Забележка:
 >
->**Don't delete the entire `src` folder, just the original source files inside it.** We'll replace the default source files with examples for this project in the next step.
+>**Не изтривайте цялата папка "src", само оригиналните файлове в нея.** Ще заменим файлове по подразбиране с примери свързани с този урок в следващата стъпка.
 
 ```bash
 cd my-app
@@ -100,11 +100,11 @@ del *
 cd ..
 ```
 
-4. Add a file named `index.css` in the `src/` folder with [this CSS code](https://codepen.io/gaearon/pen/oWWQNa?editors=0100).
+1. Добавете файл с име `index.css` в папката `src/` с [този CSS код](https://codepen.io/gaearon/pen/oWWQNa?editors=0100).
 
-5. Add a file named `index.js` in the `src/` folder with [this JS code](https://codepen.io/gaearon/pen/oWWQNa?editors=0010).
+2. Добавете файл с име `index.js` в папката `src/` с [този JS код](https://codepen.io/gaearon/pen/oWWQNa?editors=0010).
 
-6. Add these three lines to the top of `index.js` in the `src/` folder:
+3. Добавете тези три реда в началото на `index.js` в папката `src/`:
 
 ```js
 import React from 'react';
