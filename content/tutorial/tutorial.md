@@ -555,22 +555,22 @@ class Board extends React.Component {
 
 Компонентите Square вече нямат вътрешно състоянието, те получават стойности от Board и го информират, когато бъдат натиснати. В React терминологията, компонентите Square вече са **контролирани компоненти (controlled components)**. Board има пълен контрол над тях.
 
-Забележете как в `handleClick`, ние извикваме `.slice()`, за да създадем копие на `squares', за да го модифицираме, вместо да модифицираме съществуващия вече масив. Ще обясним защо създаваме копие в следващия раздел.
+Забележете как в `handleClick`, ние извикваме `.slice()`, за да създадем копие на `squares`, за да го променим, вместо да модифицираме съществуващия вече масив. Ще обясним защо създаваме копие в следващия раздел.
 
-### Why Immutability Is Important {#why-immutability-is-important}
+### Защо immutability в важна концепция {#why-immutability-is-important}
 
-In the previous code example, we suggested that you use the `.slice()` operator to create a copy of the `squares` array to modify instead of modifying the existing array. We'll now discuss immutability and why immutability is important to learn.
+В предишния пример предложихме да използвате оператора `.slice()`, за да създадете копие на масив `squares`, който да променим, вместо да модифицирате съществуващия вече масив. Сега ще обсъдим тази практика (immutability) и защо тя е важна да бъде разбрана.
 
-There are generally two approaches to changing data. The first approach is to *mutate* the data by directly changing the data's values. The second approach is to replace the data with a new copy which has the desired changes.
+Обикновено има два подхода за промяна на данните. Първият подход е да се *мутират* (mutate) данните чрез директна промяна на стойностите. Вторият подход е да се заменят данните с ново копие, което има желаните промени.
 
-#### Data Change with Mutation {#data-change-with-mutation}
+#### Промяна на данни с мутация {#data-change-with-mutation}
 ```javascript
 var player = {score: 1, name: 'Jeff'};
 player.score = 2;
 // Now player is {score: 2, name: 'Jeff'}
 ```
 
-#### Data Change without Mutation {#data-change-without-mutation}
+#### Промяна на данни без мутация {#data-change-without-mutation}
 ```javascript
 var player = {score: 1, name: 'Jeff'};
 
@@ -581,31 +581,37 @@ var newPlayer = Object.assign({}, player, {score: 2});
 // var newPlayer = {...player, score: 2};
 ```
 
-The end result is the same but by not mutating (or changing the underlying data) directly, we gain several benefits described below.
+Крайният резултат е същият, но когато не мутираме (променяме основните данни) директно, получаваме няколко ползи, описани по-долу.
 
-#### Complex Features Become Simple {#complex-features-become-simple}
+#### Сложните функционалности стават лесни {#complex-features-become-simple}
 
-Immutability makes complex features much easier to implement. Later in this tutorial, we will implement a "time travel" feature that allows us to review the tic-tac-toe game's history and "jump back" to previous moves. This functionality isn't specific to games -- an ability to undo and redo certain actions is a common requirement in applications. Avoiding direct data mutation lets us keep previous versions of the game's history intact, and reuse them later.
+Immutability прави много по-лесни за изпълнение сложните функции. По-късно в този урок ще имплементираме функция "пътуване във времето", която ни позволява да прегледаме историята на играта на tic-tac-toe и "да се върнем" към предишните ходове. Тази функционалност не е само специфична за игрите - възможността за отмяна и повторно изпълнение на определени действия е често срещано изискване. Избягването на директна мутация на данни ни позволява да запазим предишните версии на играта непокътнати и да ги използваме по-късно.
 
-#### Detecting Changes {#detecting-changes}
+#### Откриването на промени {#detecting-changes}
 
-Detecting changes in mutable objects is difficult because they are modified directly. This detection requires the mutable object to be compared to previous copies of itself and the entire object tree to be traversed.
+Откриването на промени в обекти, които могат да се променят, е трудно, защото те се модифицират директно. Това откриване изисква променения обект да бъде сравняван с предишните си копия и цялото дърво на обекта да бъде обхождано.
 
-Detecting changes in immutable objects is considerably easier. If the immutable object that is being referenced is different than the previous one, then the object has changed.
+Откриването на промени в immutable обекти е значително по-лесно. Ако обектът, към който се обръщаме, е различен от предишния, обектът се е променил.
 
-#### Determining When to Re-render in React {#determining-when-to-re-render-in-react}
+#### Определяне кога да пререндерираме в React {#determining-when-to-re-render-in-react}
 
-The main benefit of immutability is that it helps you build _pure components_ in React. Immutable data can easily determine if changes have been made which helps to determine when a component requires re-rendering.
+Основното предимство на тази практика е, че помага за изграждането на _чисти (pure)_ компоненти в React. Лесно можем да определим кога данните са променени, което помага да се определи кога даден компонент изисква повторно рендериране.
 
-You can learn more about `shouldComponentUpdate()` and how you can build *pure components* by reading [Optimizing Performance](/docs/optimizing-performance.html#examples).
+Можете да научите повече за `shouldComponentUpdate()` и как можете да изградите *чисти компоненти* като прочетете [Оптимизиране на производителността](/docs/optimizing-performance.html#example).
 
-### Function Components {#function-components}
+### Функционален компонент {#function-components}
 
 We'll now change the Square to be a **function component**.
 
 In React, **function components** are a simpler way to write components that only contain a `render` method and don't have their own state. Instead of defining a class which extends `React.Component`, we can write a function that takes `props` as input and returns what should be rendered. Function components are less tedious to write than classes, and many components can be expressed this way.
 
 Replace the Square class with this function:
+
+Сега ще променим Square, за да бъде **функционален компонент**.
+
+В React, **функционалните компоненти** са по-лесени за писане на компоненти, които съдържат само метод за рендериране и нямат вътрешно състояние. Вместо да дефинираме клас, който наследява `React.Component`, можем да напишем функция, която взима `props` като вход и връща това, което трябва да се визуализира. Функционалните компоненти са по-приятни за писане от класовете и много компоненти могат да бъдат имплементирани по този начин.
+
+Заменете класа Square с тази функция:
 
 ```javascript
 function Square(props) {
@@ -617,19 +623,19 @@ function Square(props) {
 }
 ```
 
-We have changed `this.props` to `props` both times it appears.
+Заменихме `this.props` с `props` на двете места.
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/QvvJOv?editors=0010)**
+**[Вижте целия код тук](https://codepen.io/gaearon/pen/QvvJOv?editors=0010)**
 
->Note
+>Забележка
 >
->When we modified the Square to be a function component, we also changed `onClick={() => this.props.onClick()}` to a shorter `onClick={props.onClick}` (note the lack of parentheses on *both* sides). In a class, we used an arrow function to access the correct `this` value, but in a function component we don't need to worry about `this`.
+>Когато променихме Square към функционален компонент, променихме и `onClick={() => this.props.onClick ()}` на по-кратък `onClick={props.onClick}`(обърнете внимание на липсата на скоби) от двете страни). Когато работихме с клас използвахме arrow function за достъп до правилната стойност на `this`, но във функционален компонент не е нужно да се притесняваме за това.
 
-### Taking Turns {#taking-turns}
+### Запазване на ходове {#taking-turns}
 
-We now need to fix an obvious defect in our tic-tac-toe game: the "O"s cannot be marked on the board.
+Сега трябва да поправим очевиден дефект в нашата игра: не може да маркираме "О" на дъската.
 
-We'll set the first move to be "X" by default. We can set this default by modifying the initial state in our Board constructor:
+По подразбиране ще поставим първия ход като "X". Можем да зададем това, като променим първоначалното състояние в конструктора на нашия Board class:
 
 ```javascript{6}
 class Board extends React.Component {
@@ -644,6 +650,8 @@ class Board extends React.Component {
 
 Each time a player moves, `xIsNext` (a boolean) will be flipped to determine which player goes next and the game's state will be saved. We'll update the Board's `handleClick` function to flip the value of `xIsNext`:
 
+Всеки път, когато играчът прави ходове, променливата `xIsNext"` (boolean) ще обръща стойността си, за да се определи кой играч е следващият и ще бъде запазена във вътрешното състоянието на играта. Ще променим функцията `handleClick` на Board, за да може да обръщаме стойността на `xIsNext`:
+
 ```javascript{3,6}
   handleClick(i) {
     const squares = this.state.squares.slice();
@@ -655,7 +663,7 @@ Each time a player moves, `xIsNext` (a boolean) will be flipped to determine whi
   }
 ```
 
-With this change, "X"s and "O"s can take turns. Let's also change the "status" text in Board's `render` so that it displays which player has the next turn:
+С тази промяна "X" и "O" могат да се редуват. Нека да променим и "status" текста в `render` на Board, така че да показва кой играч е наред:
 
 ```javascript{2}
   render() {
@@ -665,7 +673,7 @@ With this change, "X"s and "O"s can take turns. Let's also change the "status" t
       // the rest has not changed
 ```
 
-After applying these changes, you should have this Board component:
+След като направим тези промени Board компонента трябва да изглежда така:
 
 ```javascript{6,11-16,29}
 class Board extends React.Component {
@@ -722,11 +730,11 @@ class Board extends React.Component {
 }
 ```
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/KmmrBy?editors=0010)**
+**[Виж целия код тук](https://codepen.io/gaearon/pen/KmmrBy?editors=0010)**
 
-### Declaring a Winner {#declaring-a-winner}
+### Определяне на победителя {#declaring-a-winner}
 
-Now that we show which player's turn is next, we should also show when the game is won and there are no more turns to make. We can determine a winner by adding this helper function to the end of the file:
+Сега, когато покажем кой от играчите е наред, трябва да покажем и кога играта е спечелена и няма повече ходове за правене. Можем да определим победителя, като добавим тази помощна функция в края на файла:
 
 ```javascript
 function calculateWinner(squares) {
@@ -750,7 +758,7 @@ function calculateWinner(squares) {
 }
 ```
 
-We will call `calculateWinner(squares)` in the Board's `render` function to check if a player has won. If a player has won, we can display text such as "Winner: X" or "Winner: O". We'll replace the `status` declaration in Board's `render` function with this code:
+Ще извикаме `calculateWinner(squares)` в `render` функцията на Board, за да проверим дали играчът е спечелил. Ако даден играч спечели, можем да покажем текст като "Победител: X" или "Победител: О". Ще заменим дефиницията на `status` с този код:
 
 ```javascript{2-8}
   render() {
@@ -767,6 +775,7 @@ We will call `calculateWinner(squares)` in the Board's `render` function to chec
 ```
 
 We can now change the Board's `handleClick` function to return early by ignoring a click if someone has won the game or if a Square is already filled:
+Сега можем да променим функцията `handleClick` на Board, за да се върнем резултат по-рано, като пренебрегнем кликването, ако някой е спечелил играта или ако Square е вече кликнат:
 
 ```javascript{3-5}
   handleClick(i) {
@@ -782,21 +791,21 @@ We can now change the Board's `handleClick` function to return early by ignoring
   }
 ```
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/LyyXgK?editors=0010)**
+**[Виж кода до този момент](https://codepen.io/gaearon/pen/LyyXgK?editors=0010)**
 
-Congratulations! You now have a working tic-tac-toe game. And you've just learned the basics of React too. So *you're* probably the real winner here.
+Честито! Сега имате работеща игра tic-tac-toe. И току-що научихте основите на React. Така че *вие* вероятно сте истинският победител.
 
-## Adding Time Travel {#adding-time-travel}
+## Добавене на пътуване във времето {#adding-time-travel}
 
-As a final exercise, let's make it possible to "go back in time" to the previous moves in the game.
+Като упражнение за финал, нека направим възможно да се върнем назад във времето към предишните ходове в играта.
 
-### Storing a History of Moves {#storing-a-history-of-moves}
+### Съхраняване на историята за направените ходове {#storing-a-history-of-moves}
 
-If we mutated the `squares` array, implementing time travel would be very difficult.
+Ако мутираме масива `squares`, имплементирането на пътуване във времето би било много трудно.
 
-However, we used `slice()` to create a new copy of the `squares` array after every move, and [treated it as immutable](#why-immutability-is-important). This will allow us to store every past version of the `squares` array, and navigate between the turns that have already happened.
+Въпреки това използвахме `slice()`, за да създадем ново копие на масив `squares` след всяко движение и [да го третираме като immutable](why-immutability-is-importants). Това ще ни позволи да съхраняваме всяка минала версия на масива `squares` и да се придвижваме между вече направени ходове.
 
-We'll store the past `squares` arrays in another array called `history`. The `history` array represents all board states, from the first to the last move, and has a shape like this:
+Ще съхраняваме изминалите стойности на `squares` в друг масив, наречен `history`. Масивът `history` представлява всички състояния на дъската, от първия до последния ход, и има следния формат:
 
 ```javascript
 history = [
@@ -828,15 +837,15 @@ history = [
 ]
 ```
 
-Now we need to decide which component should own the `history` state.
+Сега трябва да решим кой компонент трябва да _пази_ `history` състоянието.
 
-### Lifting State Up, Again {#lifting-state-up-again}
+### Изнасяне на състоянието на по-горно ниво, отново {#lifting-state-up-again}
 
-We'll want the top-level Game component to display a list of past moves. It will need access to the `history` to do that, so we will place the `history` state in the top-level Game component.
+Желаем компонентът на играта от най-високо ниво да показва списък с минали ходове. Той ще има нужда от достъп до `history`, за да направи това, така че ще дефинираме `history` в компонента Game.
 
-Placing the `history` state into the Game component lets us remove the `squares` state from its child Board component. Just like we ["lifted state up"](#lifting-state-up) from the Square component into the Board component, we are now lifting it up from the Board into the top-level Game component. This gives the Game component full control over the Board's data, and lets it instruct the Board to render previous turns from the `history`.
+Този подход ни позволява да премахнем `squares` от неговия дъщерен компонент Board. Точно както ние [изнасяме състоянието на по-горно ниво](#lifting-state-up) от Square компонентa в компонента Board, сега го изнасяме от Board в компонента Game. Това дава на Game компонента пълен контрол над данните на Board и му позволява да инструктира Board да визуализира предишни ходове от `history` масива.
 
-First, we'll set up the initial state for the Game component within its constructor:
+Първо, ще дефинираме първоначалното състояние за Game компонента в неговия конструктор:
 
 ```javascript{2-10}
 class Game extends React.Component {
@@ -866,13 +875,13 @@ class Game extends React.Component {
 }
 ```
 
-Next, we'll have the Board component receive `squares` and `onClick` props from the Game component. Since we now have a single click handler in Board for many Squares, we'll need to pass the location of each Square into the `onClick` handler to indicate which Square was clicked. Here are the required steps to transform the Board component:
+След това ще променим компонента Board, така че да получава `squares` и `onClick` props от компонента Game. Тъй като вече имаме една единствена функция прихващаща кликванията в Board, ще трябва да изпратим местоположението на всеки Square в `onClick`, за да посочим кой квадрат е кликнат. Ето необходимите стъпки за трансформиране на компонента Board:
 
-* Delete the `constructor` in Board.
-* Replace `this.state.squares[i]` with `this.props.squares[i]` in Board's `renderSquare`.
-* Replace `this.handleClick(i)` with `this.props.onClick(i)` in Board's `renderSquare`.
+* Изтрийте конструктора в Board.
+* Заменете `this.state.squares[i]` с `this.props.squares[i]` в `renderSquare` на Board.
+* Заменете `this.handleClick(i)` с `this.props.onClick(i)` в `renderSquare` на Board.
 
-The Board component now looks like this:
+Board компонентът сега изглежда така:
 
 ```javascript{17,18}
 class Board extends React.Component {
@@ -931,6 +940,7 @@ class Board extends React.Component {
 ```
 
 We'll update the Game component's `render` function to use the most recent history entry to determine and display the game's status:
+Ще актуализираме функцията `render` на Game компонентa, да използва последния елемент от `history` масива, за да определим и покажем състоянието на играта:
 
 ```javascript{2-11,16-19,22}
   render() {
@@ -964,6 +974,8 @@ We'll update the Game component's `render` function to use the most recent histo
 
 Since the Game component is now rendering the game's status, we can remove the corresponding code from the Board's `render` method. After refactoring, the Board's `render` function looks like this:
 
+Тъй като Game компонентът сега предава статуса на играта, можем да премахнем съответния код от метода `render` на Board. След рефакториране, функцията `render` на Board изглежда така:
+
 ```js{1-4}
   render() {
     return (
@@ -990,6 +1002,8 @@ Since the Game component is now rendering the game's status, we can remove the c
 
 Finally, we need to move the `handleClick` method from the Board component to the Game component. We also need to modify `handleClick` because the Game component's state is structured differently. Within the Game's `handleClick` method, we concatenate new history entries onto `history`.
 
+И накрая, трябва да преместим метода `handleClick` от Board към Game. Също така трябва да променим `handleClick`, защото състоянието на Game е структурирано по различен начин. В рамките на `handleClick` метода, ние добавяме нови записи към 'history'.
+
 ```javascript{2-4,10-12}
   handleClick(i) {
     const history = this.state.history;
@@ -1008,21 +1022,21 @@ Finally, we need to move the `handleClick` method from the Board component to th
   }
 ```
 
->Note
+>Забележка
 >
->Unlike the array `push()` method you might be more familiar with, the `concat()` method doesn't mutate the original array, so we prefer it.
+>За разлика от метода `push()`, който е по-популярен, методът `concat()` не мутира оригиналния масив, затова предпочитаме него.
 
-At this point, the Board component only needs the `renderSquare` and `render` methods. The game's state and the `handleClick` method should be in the Game component.
+В този момент компонентът Board се нуждае само от методите `renderSquare` и `render`. Състоянието на играта и методът `handleClick` трябва да бъдат в компонента Game.
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/EmmOqJ?editors=0010)**
+**[Вижте целия код до този момент](https://codepen.io/gaearon/pen/EmmOqJ?editors=0010)**
 
-### Showing the Past Moves {#showing-the-past-moves}
+### Показване на миналите ходове {#showing-the-past-moves}
 
-Since we are recording the tic-tac-toe game's history, we can now display it to the player as a list of past moves.
+Тъй като записваме историята на играта, сега можем да я покажем на играча като списък от минали ходове.
 
-We learned earlier that React elements are first-class JavaScript objects; we can pass them around in our applications. To render multiple items in React, we can use an array of React elements.
+По-рано научихме, че React елементите са first-class JavaScript обекти; можем да ги използваме в нашите приложения като променливи. За да визуализираме няколко елемента в React, можем да използваме масив от елементи на React.
 
-In JavaScript, arrays have a [`map()` method](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) that is commonly used for mapping data to other data, for example:
+В JavaScript масивите имат [метод `map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map), който обикновено се използва за трансформиране на един вид към други вид данни, например:
 
 ```js
 const numbers = [1, 2, 3];
@@ -1032,6 +1046,10 @@ const doubled = numbers.map(x => x * 2); // [2, 4, 6]
 Using the `map` method, we can map our history of moves to React elements representing buttons on the screen, and display a list of buttons to "jump" to past moves.
 
 Let's `map` over the `history` in the Game's `render` method:
+
+Използвайки метода `map`, можем да трансформираме историята от ходовете до React елементи, представляващи бутоните на екрана, и да покажем този списък, за да може да се върнем към минали ходове.
+
+Нека да използваме `map` върху `history` масива в метода `render` на играта:
 
 ```javascript{6-15,34}
   render() {
@@ -1074,7 +1092,7 @@ Let's `map` over the `history` in the Game's `render` method:
   }
 ```
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/EmmGEa?editors=0010)**
+**[Виж целия код до този момент](https://codepen.io/gaearon/pen/EmmGEa?editors=0010)**
 
 For each move in the tic-tac-toes's game's history, we create a list item `<li>` which contains a button `<button>`. The button has a `onClick` handler which calls a method called `this.jumpTo()`. We haven't implemented the `jumpTo()` method yet. For now, we should see a list of the moves that have occurred in the game and a warning in the developer tools console that says:
 
@@ -1089,12 +1107,25 @@ When we render a list, React stores some information about each rendered list it
 
 Imagine transitioning from
 
+За всяки ход в историята на играта, ние създаваме елемент от списък `<li>`, който съдържа бутон `<button>`. Бутонът има `onClick` функция, която извиква метод, наречен `this.jumpTo()`. Все още не сме го имплементирали. Засега трябва да видим списък с ходовете, които са настъпили в играта, и съобщение в конзолата на devtools, което казва:
+
+> Warning:
+> Each child in an array or iterator should have a unique "key" prop. Check the render method of "Game".
+
+Нека да обсъдим какво означава това съобщение.
+
+### Задаване на key {#picking-a-key}
+
+Когато визуализираме списък, React съхранява някаква информация за всеки визуализиран елемент от списъка. Когато актуализираме списъкa, React трябва да определи какво се е променило. Бихме могли да добавим, премахнем, пренаредим или актуализираме елементите на списъка.
+
+Представете си преход от
+
 ```html
 <li>Alexa: 7 tasks left</li>
 <li>Ben: 5 tasks left</li>
 ```
 
-to
+към
 
 ```html
 <li>Ben: 9 tasks left</li>
@@ -1104,26 +1135,27 @@ to
 
 In addition to the updated counts, a human reading this would probably say that we swapped Alexa and Ben's ordering and inserted Claudia between Alexa and Ben. However, React is a computer program and does not know what we intended. Because React cannot know our intentions, we need to specify a *key* property for each list item to differentiate each list item from its siblings. One option would be to use the strings `alexa`, `ben`, `claudia`. If we were displaying data from a database, Alexa, Ben, and Claudia's database IDs could be used as keys.
 
+В допълнение към актуализирания брой задачи, когато човек чете най-вероятно ще каже, че сме заменили задачите на Алекса и Бен и включили Клаудия между Алекса и Бен. Въпреки това, React е компютърна програма и не знае какво точно сме имали в предвид. Тъй като React не може да знае нашите намерения, трябва да посочим prop *key* за всеки елемент от списъка, за да го разграничим в списъка от неговите братя и сестри. Една от възможностите е да се използват текст като "alexa", "ben", "claudia". Ако показвахме елементи от база данни, уникалните ID-та на Алекса, Бен и Клаудия можеха да се използват като ключове.
+
 ```html
 <li key={user.id}>{user.name}: {user.taskCount} tasks left</li>
 ```
 
-When a list is re-rendered, React takes each list item's key and searches the previous list's items for a matching key. If the current list has a key that didn't exist before, React creates a component. If the current list is missing a key that existed in the previous list, React destroys the previous component. If two keys match, the corresponding component is moved. Keys tell React about the identity of each component which allows React to maintain state between re-renders. If a component's key changes, the component will be destroyed and re-created with a new state.
+Когато списъкът се пререндерира, React взаема ключа на всеки елемент от списъка и търси елементите от предишния списък със същия ключ. Ако текущият списък има ключ, който не съществува преди, React създава компонент. Ако в текущия списък липсва ключ, който съществува в предишния списък, React унищожава предишния компонент. Ако двата ключа съвпадат, съответният компонент се премества. Ключовете (keys) показват на React идентичността на всеки компонент, което позволява на React да поддържа правилно състоянието между повторното рендериране. Ако ключът на компонента се промени, компонентът ще бъде унищожен и отново създаден с ново състояние.
 
-`key` is a special and reserved property in React (along with `ref`, a more advanced feature). When an element is created, React extracts the `key` property and stores the key directly on the returned element. Even though `key` may look like it belongs in `props`, `key` cannot be referenced using `this.props.key`. React automatically uses `key` to decide which components to update. A component cannot inquire about its `key`.
+`key` е специална и запазена дума в React (заедно с `ref`, за по-напреднали). Когато елементът е създаден, React извлича стойността на prop-a `key` и съхранява ключа директно върху върнатия елемент. Въпреки че `key` може да изглежда, че принадлежи на `props`, `key` не може да бъде използван `this.props.key`. React автоматично използва `key`, за да реши кои компоненти да се актуализират. Компонентът не може да изследва неговия `ключ`.
 
-**It's strongly recommended that you assign proper keys whenever you build dynamic lists.** If you don't have an appropriate key, you may want to consider restructuring your data so that you do.
+**Силно се препоръчва да присвоите подходящи ключове всеки път, когато създавате динамични списъци.** Ако нямате подходящ ключ, може би трябва да обмислите структурата на вашите данните.
 
-If no key is specified, React will present a warning and use the array index as a key by default. Using the array index as a key is problematic when trying to re-order a list's items or inserting/removing list items. Explicitly passing `key={i}` silences the warning but has the same problems as array indices and is not recommended in most cases.
+Ако не е зададен никакъв ключ, React ще покаже съобщение и ще използва индекса на масива като ключ по подразбиране. Използването на индекса на масива като ключ е проблематично, когато се опитвате да пренаредите елементите на списъка или да вмъкнете/премахнете елементи от списъка. Изрично задаването на `key={i}` заглушава предупреждението, но има същите проблеми като индексите на масивите и не се препоръчва в повечето случаи.
 
-Keys do not need to be globally unique; they only need to be unique between components and their siblings.
+Ключовете не трябва да бъдат глобално уникални; те трябва само да бъдат уникални между компонентите и техните братя и сестри.
 
+### Имплементиране на пътуване във времето {#implementing-time-travel}
 
-### Implementing Time Travel {#implementing-time-travel}
+В историята на играта Tic-Tac-Toe, всяки минал ход има уникален идентификатор, свързан с него: това е поредният номер на хода. Ходовете никога не се пренареждат, изтриват или вмъкват, така че е безопасно да използвате индекса за преместване като ключ.
 
-In the tic-tac-toe game's history, each past move has a unique ID associated with it: it's the sequential number of the move. The moves are never re-ordered, deleted, or inserted in the middle, so it's safe to use the move index as a key.
-
-In the Game component's `render` method, we can add the key as `<li key={move}>` and React's warning about keys should disappear:
+В метода 'render' на компонента на играта можем да добавим ключа като `<li key={move}>` и съобщениете в конзолата за ключовете трябва да изчезне:
 
 ```js{6}
     const moves = history.map((step, move) => {
@@ -1138,11 +1170,11 @@ In the Game component's `render` method, we can add the key as `<li key={move}>`
     });
 ```
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/PmmXRE?editors=0010)**
+**[Вижте целия код до този момент](https://codepen.io/gaearon/pen/PmmXRE?editors=0010)**
 
-Clicking any of the list item's buttons throws an error because the `jumpTo` method is undefined. Before we implement `jumpTo`, we'll add `stepNumber` to the Game component's state to indicate which step we're currently viewing.
+Кликването върху някой от бутоните от списъка предизвиква грешка, защото методът `jumpTo` не е дефиниран. Преди да напишем `jumpTo`, ще добавим `stepNumber` в състоянието на компонента Game, за да посочим коя стъпка се използва в момента.
 
-First, add `stepNumber: 0` to the initial state in Game's `constructor`:
+Първо, добавете `stepNumber: 0` към първоначалното състояние в `constructor` функцията на Game:
 
 ```js{8}
 class Game extends React.Component {
@@ -1158,7 +1190,7 @@ class Game extends React.Component {
   }
 ```
 
-Next, we'll define the `jumpTo` method in Game to update that `stepNumber`. We also set `xIsNext` to true if the number that we're changing `stepNumber` to is even:
+След това ще дефинираме метода `jumpTo`, за да актуализираме `stepNumber`. Също така променяме `xIsNext` към `true`, ако номерът, към който променяме `stepNumber` е четен:
 
 ```javascript{5-10}
   handleClick(i) {
@@ -1177,11 +1209,11 @@ Next, we'll define the `jumpTo` method in Game to update that `stepNumber`. We a
   }
 ```
 
-We will now make a few changes to the Game's `handleClick` method which fires when you click on a square.
+Сега ще направим няколко промени в `handleClick` метода на Game, който се извиква, когато кликнете върху квадрат.
 
-The `stepNumber` state we've added reflects the move displayed to the user now. After we make a new move, we need to update `stepNumber` by adding `stepNumber: history.length` as part of the `this.setState` argument. This ensures we don't get stuck showing the same move after a new one has been made.
+Състоянието `stepNumber`, което добавихме, отразява хода, показван на потребителя. След като направим нов ход, трябва да актуализираме `stepNumber` като добавим `stepNumber: history.length` като част от аргумента към `this.setState`. Това гарантира, че няма да показваме същия ход след създаването на нов.
 
-We will also replace reading `this.state.history` with `this.state.history.slice(0, this.state.stepNumber + 1)`. This ensures that if we "go back in time" and then make a new move from that point, we throw away all the "future" history that would now become incorrect.
+Ще заменим и четенето `this.state.history` с `this.state.history.slice(0, this.state.stepNumber + 1)`. Това гарантира, че ако "се върнем назад във времето" и след това направим нов ход от тази точка, ще изхвърлим цялата "бъдеща" история, която сега ще стане грешна.
 
 ```javascript{2,13}
   handleClick(i) {
@@ -1202,7 +1234,7 @@ We will also replace reading `this.state.history` with `this.state.history.slice
   }
 ```
 
-Finally, we will modify the Game component's `render` method from always rendering the last move to rendering the currently selected move according to `stepNumber`:
+И накрая, ще модифицираме метода `render` на компонента Game, като от винаги показвайки последния ход към визуализирането на избрания в момента ход според `stepNumber`:
 
 ```javascript{3}
   render() {
@@ -1213,30 +1245,30 @@ Finally, we will modify the Game component's `render` method from always renderi
     // the rest has not changed
 ```
 
-If we click on any step in the game's history, the tic-tac-toe board should immediately update to show what the board looked like after that step occurred.
+Ако щракнете върху някоя стъпка в историята на играта, борда на tic-tac-toe трябва незабавно да се актуализира, за да покаже как изглежда борда след тази стъпка.
 
-**[View the full code at this point](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**
+**[Вижте кода до този момент](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**
 
-### Wrapping Up {#wrapping-up}
+### Финални думи {#wrapping-up}
 
-Congratulations! You've created a tic-tac-toe game that:
+Честито! Създадохте игра, която:
 
-* Lets you play tic-tac-toe,
-* Indicates when a player has won the game,
-* Stores a game's history as a game progresses,
-* Allows players to review a game's history and see previous versions of a game's board.
+* Ви позволява да играете tic-tac-toe,
+* Показва кога играчът е спечелил играта,
+* Съхранява историята на играта в хода на играта,
+* Позволява на играчите да преглеждат историята на играта и да виждат предишни версии на дъската.
 
-Nice work! We hope you now feel like you have a decent grasp on how React works.
+Добра работа! Надяваме се, че придобихте знание за това как работи React.
 
-Check out the final result here: **[Final Result](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**.
+Вижте крайния резултат тук: **[Краен резултат](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**.
 
-If you have extra time or want to practice your new React skills, here are some ideas for improvements that you could make to the tic-tac-toe game which are listed in order of increasing difficulty:
+Ако имате допълнително време или искате да практикувате новите си React умения, ето някои идеи за подобрения, които бихте могли да направите към играта. Изброени са по реда на нарастваща трудност:
 
-1. Display the location for each move in the format (col, row) in the move history list.
-2. Bold the currently selected item in the move list.
-3. Rewrite Board to use two loops to make the squares instead of hardcoding them.
-4. Add a toggle button that lets you sort the moves in either ascending or descending order.
-5. When someone wins, highlight the three squares that caused the win.
-6. When no one wins, display a message about the result being a draw.
+1. Посочете местоположението на всяки ход във формат (col, ред) в списъка с историята на преместване.
+2. Удебелявайте текущо избрания елемент в списъка за преместване.
+3. Пренапишете Board компонента, за да използва две обхождания и да генерира квадратите, вместо да ги описва всичките един по един.
+4. Добавете превключващ бутон, който ви позволява да подредите ходовете във възходящ или низходящ ред.
+5. Когато някой спечели, маркирайте трите квадратчета, които са довели до победата.
+6. Когато никой не спечели, покажете съобщение за равен резултата.
 
-Throughout this tutorial, we touched on React concepts including elements, components, props, and state. For a more detailed explanation of each of these topics, check out [the rest of the documentation](/docs/hello-world.html). To learn more about defining components, check out the [`React.Component` API reference](/docs/react-component.html).
+По време на този урок ние разгледахме концепциите в React, включващи елементи, компоненти, props и състояние (state). За по-подробно обяснение на всяка от тези теми разгледайте [останалата част от документацията](/docs/hello-world.html). За да научите повече за дефинирането на компоненти, разгледайте [`React.Component` API](/docs/react-component.html).
