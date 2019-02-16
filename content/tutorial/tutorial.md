@@ -631,7 +631,7 @@ function Square(props) {
 >
 >Когато променихме Square към функционален компонент, променихме и `onClick={() => this.props.onClick ()}` на по-кратък `onClick={props.onClick}`(обърнете внимание на липсата на скоби) от двете страни). Когато работихме с клас използвахме arrow function за достъп до правилната стойност на `this`, но във функционален компонент не е нужно да се притесняваме за това.
 
-### Запазване на ходове {#taking-turns}
+### Размяна на ходове {#taking-turns}
 
 Сега трябва да поправим очевиден дефект в нашата игра: не може да маркираме "О" на дъската.
 
@@ -1093,19 +1093,6 @@ Let's `map` over the `history` in the Game's `render` method:
 ```
 
 **[Виж целия код до този момент](https://codepen.io/gaearon/pen/EmmGEa?editors=0010)**
-
-For each move in the tic-tac-toes's game's history, we create a list item `<li>` which contains a button `<button>`. The button has a `onClick` handler which calls a method called `this.jumpTo()`. We haven't implemented the `jumpTo()` method yet. For now, we should see a list of the moves that have occurred in the game and a warning in the developer tools console that says:
-
->  Warning:
->  Each child in an array or iterator should have a unique "key" prop. Check the render method of "Game".
-
-Let's discuss what the above warning means.
-
-### Picking a Key {#picking-a-key}
-
-When we render a list, React stores some information about each rendered list item. When we update a list, React needs to determine what has changed. We could have added, removed, re-arranged, or updated the list's items.
-
-Imagine transitioning from
 
 За всяки ход в историята на играта, ние създаваме елемент от списък `<li>`, който съдържа бутон `<button>`. Бутонът има `onClick` функция, която извиква метод, наречен `this.jumpTo()`. Все още не сме го имплементирали. Засега трябва да видим списък с ходовете, които са настъпили в играта, и съобщение в конзолата на devtools, което казва:
 
