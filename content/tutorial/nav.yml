@@ -65,11 +65,11 @@
           href: /tutorial/tutorial.html#lifting-state-up
           forceInternal: true
         - id: why-immutability-is-important
-          title: Защо immutability в важна концепция
+          title: Защо immutability e важна концепция
           href: /tutorial/tutorial.html#why-immutability-is-important
           forceInternal: true
         - id: function-components
-          title: Функционален компонент
+          title: Функция компонент
           href: /tutorial/tutorial.html#function-components
           forceInternal: true
         - id: taking-turns
