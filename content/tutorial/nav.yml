@@ -81,7 +81,7 @@
           href: /tutorial/tutorial.html#declaring-a-winner
           forceInternal: true
     - id: adding-time-travel
-      title: Добавене на пътуване във времето
+      title: Добавене на Time Travel функционалност
       href: /tutorial/tutorial.html#adding-time-travel
       forceInternal: true
       subitems:
