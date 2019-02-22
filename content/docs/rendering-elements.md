@@ -1,6 +1,6 @@
 ---
 id: rendering-elements
-title: Rendering Elements
+title: Рендериране на елементи
 permalink: docs/rendering-elements.html
 redirect_from:
   - "docs/displaying-data.html"
@@ -8,68 +8,68 @@ prev: introducing-jsx.html
 next: components-and-props.html
 ---
 
-Elements are the smallest building blocks of React apps.
+Елементите са най-малките градивни елементи на приложенията правени с React.
 
-An element describes what you want to see on the screen:
+Елементът описва това, което искате да видите на екрана:
 
 ```js
 const element = <h1>Hello, world</h1>;
 ```
 
-Unlike browser DOM elements, React elements are plain objects, and are cheap to create. React DOM takes care of updating the DOM to match the React elements.
+За разлика от DOM елементите в browser-a, React елементите са обикновени обекти и създаването им не се отразява на производителността. React DOM се грижи за актуализирането на DOM дървото в browser-a, да съответства на React елементите.
 
->**Note:**
+>**Забележка:**
 >
->One might confuse elements with a more widely known concept of "components". We will introduce components in the [next section](/docs/components-and-props.html). Elements are what components are "made of", and we encourage you to read this section before jumping ahead.
+>Често елементите се бъркат с по-широко познатото понятие "компоненти". Ще въведем компоненти в [следващия раздел](/docs/components-and-props.html). Компонентите са "направени" от елементи и ви препоръчваме да прочетете този раздел преди да продължите напред.
 
-## Rendering an Element into the DOM {#rendering-an-element-into-the-dom}
+## Рендериране на елемент в DOM дървото на browser-a {#rendering-an-element-into-the-dom}
 
-Let's say there is a `<div>` somewhere in your HTML file:
+Нека да кажем, че имате `<div>` във вашия HTML файл:
 
 ```html
 <div id="root"></div>
 ```
 
-We call this a "root" DOM node because everything inside it will be managed by React DOM.
+Ние наричаме това "root" DOM node, защото всичко в него ще се управлява от React DOM.
 
-Applications built with just React usually have a single root DOM node. If you are integrating React into an existing app, you may have as many isolated root DOM nodes as you like.
+Приложенията, изградени само с React, обикновено имат един root DOM node. Ако интегрирате React в съществуващо приложение, може да имате много изолирани DOM roots.
 
-To render a React element into a root DOM node, pass both to `ReactDOM.render()`:
+За да рендерирате React елемент в root DOM node, подайте го на `ReactDOM.render()`:
 
 `embed:rendering-elements/render-an-element.js`
 
 [](codepen://rendering-elements/render-an-element)
 
-It displays "Hello, world" on the page.
+На страницата ще видите "Hello, world".
 
-## Updating the Rendered Element {#updating-the-rendered-element}
+## Актуализиране на рендерирания елемент {#updating-the-rendered-element}
 
-React elements are [immutable](https://en.wikipedia.org/wiki/Immutable_object). Once you create an element, you can't change its children or attributes. An element is like a single frame in a movie: it represents the UI at a certain point in time.
+React елементите са [immutable](https://en.wikipedia.org/wiki/Immutable_object). След като създадете елемент, не можете да променяте неговите деца или атрибути. Елементът е като един кадър от филм: той визуализира потребителския интерфейс в определен момент във времето.
 
-With our knowledge so far, the only way to update the UI is to create a new element, and pass it to `ReactDOM.render()`.
+С нашите познания досега единственият начин да обновите потребителския интерфейс е да създадете нов елемент и да го подадем на `ReactDOM.render()`.
 
-Consider this ticking clock example:
+Разгледайте този пример на часовник:
 
 `embed:rendering-elements/update-rendered-element.js`
 
 [](codepen://rendering-elements/update-rendered-element)
 
-It calls `ReactDOM.render()` every second from a [`setInterval()`](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval) callback.
+Той извиква `ReactDOM.render()` всяка секунда от [`setInterval()`](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval) функцията.
 
->**Note:**
+>**Забележка:**
 >
->In practice, most React apps only call `ReactDOM.render()` once. In the next sections we will learn how such code gets encapsulated into [stateful components](/docs/state-and-lifecycle.html).
+>На практика повечето React приложения извикват веднъж `ReactDOM.render()`. В следващите раздели ще научим как такъв код се капсулира в [компоненти имащи състояние](/docs/state-and-lifecycle.html).
 >
->We recommend that you don't skip topics because they build on each other.
+>Препоръчваме ви да не прескачате теми, защото те зависят една от друга.
 
-## React Only Updates What's Necessary {#react-only-updates-whats-necessary}
+## React обновява само каквото е необходимо {#react-only-updates-whats-required}
 
-React DOM compares the element and its children to the previous one, and only applies the DOM updates necessary to bring the DOM to the desired state.
+React DOM сравнява елемента и неговите деца с предишния и прилага само DOM актуализациите, необходими за привеждане на DOM дървото в желаното състояние.
 
-You can verify by inspecting the [last example](codepen://rendering-elements/update-rendered-element) with the browser tools:
+Можете да проверите, като инспектирате [последния пример](codepen://rendering-elements/update-rendered-element) с инструментите на браузъра:
 
-![DOM inspector showing granular updates](../images/docs/granular-dom-updates.gif)
+![DOM инспектор показва подробни актуализации](../images/docs/granular-dom-updates.gif)
 
-Even though we create an element describing the whole UI tree on every tick, only the text node whose contents has changed gets updated by React DOM.
+Въпреки че създаваме елемент, описващ цялото дърво на потребителския интерфейс на всяка итерация, само текстовият node, чието съдържание се е променило, се актуализира от React DOM.
 
-In our experience, thinking about how the UI should look at any given moment rather than how to change it over time eliminates a whole class of bugs.
+Според нас, трябва да мислите как потребителският интерфейс трябва да изглежда в даден момент, а не как да го промените с времето. Това елиминира голям спектър от грешки.
