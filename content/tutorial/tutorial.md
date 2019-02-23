@@ -227,8 +227,13 @@ class Square extends React.Component {
 
 ### Създаване на интерактивен компонент {#making-an-interactive-component}
 
+<<<<<<< HEAD
 Нека да запълним `Square` компонента с "X" всеки път, когато го натиснем.
 Първо нека променим `button` тагът в `render` метода:
+=======
+Let's fill the Square component with an "X" when we click it.
+First, change the button tag that is returned from the Square component's `render()` function to this:
+>>>>>>> d615c5b7bcceef420c7f9246035f8ae3ba8ae11a
 
 ```javascript{4}
 class Square extends React.Component {
