@@ -42,7 +42,7 @@ ReactDOM.render(
 );
 ```
 
-Можете да поставите всички валидни [JavaScript изрази](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#Expressions) в къдравите скоби в JSX. Например, `2 + 2`, `user.firstName` или `formatName (user)` са валидни JavaScript изрази.
+Можете да поставите всeки валиден [JavaScript израз](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#Expressions) в къдравите скоби в JSX. Например, `2 + 2`, `user.firstName` или `formatName(user)` са валидни JavaScript изрази.
 
 В примера по-долу вграждаме резултата от извикването на JavaScript функцията `formatName (user)` в елемент `<h1>`.
 
