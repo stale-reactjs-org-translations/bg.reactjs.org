@@ -182,4 +182,4 @@ const element = {
 >**Съвет:**
 >
 
->Препоръчваме ви да използвате ["Babel" езикова дефиниция](http://babeljs.io/docs/editors) за редактора който сте избрали, така че и ES6 и JSX кодът да е с правилен syntax highlighting. Този уебсайт използва цветовата схема [Oceanic Next](https://labs.voronianski.com/oceanic-next-color-scheme/), която е съвместима с тази дефиниция.
+>Препоръчваме ви да използвате ["Babel" езикова дефиниция](http://babeljs.io/docs/editors) за редактора, който сте избрали, така че и ES6 и JSX кодът да е с правилен syntax highlighting. Този уебсайт използва цветовата схема [Oceanic Next](https://labs.voronianski.com/oceanic-next-color-scheme/), която е съвместима с тази дефиниция.
