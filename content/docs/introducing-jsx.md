@@ -130,7 +130,7 @@ const element = (
 
 ### JSX предотвратява атаки чрез инжектиране {#jsx-prevents-injection-attacks}
 
-В JSX е безопасно да се вгради входяща информация от потребител:
+В JSX е безопасно да се използва информация въведена от потребителя:
 
 ```js
 const title = response.potentiallyMaliciousInput;
