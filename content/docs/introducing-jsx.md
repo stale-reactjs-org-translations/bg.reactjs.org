@@ -138,7 +138,7 @@ const title = response.potentiallyMaliciousInput;
 const element = <h1>{title}</h1>;
 ```
 
-По подразбиране, React DOM [избягва](http://stackoverflow.com/questions/7381974/which-characters-need-to-be-escaped-on-html) всички стойности, вградени в JSX, преди да ги рендира. По този начин се гарантира, че никога не можете да инжектирате нещо, което не е изрично написано във вашето приложение. Всичко се преобразува в низ, преди да се визуализира. Това помага да се предотвратят [XSS (cross-site-scripting)](https://en.wikipedia.org/wiki/Cross-site_scripting) атаки.
+По подразбиране, React DOM [escapes](http://stackoverflow.com/questions/7381974/which-characters-need-to-be-escaped-on-html) всички стойности, вградени в JSX, преди да ги рендира. По този начин се гарантира, че никога не можете да инжектирате нещо, което не е изрично написано във вашето приложение. Всичко се преобразува в низ, преди да се визуализира. Това помага да се предотвратят [XSS (cross-site-scripting)](https://en.wikipedia.org/wiki/Cross-site_scripting) атаки.
 
 ### JSX представя обекти {#jsx-represents-objects}
 
