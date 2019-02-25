@@ -142,7 +142,7 @@ const element = <h1>{title}</h1>;
 
 ### JSX представя обекти {#jsx-represents-objects}
 
-Babel компилира JSX до `React.createElement()` повиквания.
+Babel компилира JSX до `React.createElement()` извиквания.
 
 Тези два примера са идентични:
 
