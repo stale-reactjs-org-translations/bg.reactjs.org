@@ -18,58 +18,59 @@ next: state-and-lifecycle.html
 Компонентите дават възможност да разделиш твоя интерфейс на независими, повторно използваеми части и да мислиш за всяка част в изолация.
 Тази страница предлага въведение към идеята за компонентите. Тук можете да намерите [подробна справка за API на компонентите](/docs/react-component.html).
 
-Концептуално, компонентите са като JavaScript функциите. Те приемат произволни входове (наричани "props") и връщат елементи на React, описващи какво трябва да се появи на екрана.
+Концептуално, компонентите са като JavaScript функции. Те приемат произволни обекти с дата (наричани "props") и връщат React елементи, описващи какво трябва да се появи на екрана.
 
-## Function and Class Components {#function-and-class-components}
+## Функционални и класови компоненти {# function-and-class-components}
 
-The simplest way to define a component is to write a JavaScript function:
+Най-простият начин за дефиниране на компонент е да се напише JavaScript функция:
 
 ```js
 function Welcome(props) {
-  return <h1>Hello, {props.name}</h1>;
+  return <h1>Здравейте, {props.name}</h1>;
 }
 ```
 
-This function is a valid React component because it accepts a single "props" (which stands for properties) object argument with data and returns a React element. We call such components "function components" because they are literally JavaScript functions.
+Тази функция е валиден React компонент, защото приема един обект "props" (което означава properties) с данни и връща React елемент. Ние наричаме такива компоненти "функционални компоненти", защото те са буквално JavaScript функции.
 
-You can also use an [ES6 class](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes) to define a component:
+Можете също да използвате клас [ES6 class](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes) зада дефинирате компонент:
 
 ```js
 class Welcome extends React.Component {
   render() {
-    return <h1>Hello, {this.props.name}</h1>;
+    return <h1>Здравейте, {this.props.name}</h1>;
   }
 }
 ```
 
-The above two components are equivalent from React's point of view.
+Горните два компонента са еквивалентни от гледна точка на React
 
-Classes have some additional features that we will discuss in the [next sections](/docs/state-and-lifecycle.html). Until then, we will use function components for their conciseness.
+Класовете имат някои допълнителни функции, които ще обсъдим в [следващите раздели] (/ docs / state-and-lifecycle.html). Дотогава ще използваме функционални компоненти заради тяхната краткост.
 
 ## Rendering a Component {#rendering-a-component}
 
-Previously, we only encountered React elements that represent DOM tags:
+По-рано срещнахме само елементи на React, които представляват DOM маркери:
 
 ```js
 const element = <div />;
 ```
 
-However, elements can also represent user-defined components:
+Въпреки това, елементите могат също да представляват дефинирани от потребителя компоненти:
 
 ```js
-const element = <Welcome name="Sara" />;
+const element = <Welcome name="Иван" />;
 ```
 
-When React sees an element representing a user-defined component, it passes JSX attributes to this component as a single object. We call this object "props".
+Когато React срещне елемент, представляващ дефиниран от потребителя компонент, той предава JSX атрибутите на този компонент като един обект. Ние наричаме този обект "props".
 
-For example, this code renders "Hello, Sara" on the page:
+Този код например показва „Здравейте, Иван“ на страницата:
 
 ```js{1,5}
 function Welcome(props) {
-  return <h1>Hello, {props.name}</h1>;
+  return <h1>„Здравейте, {props.name}</h1>;
 }
 
-const element = <Welcome name="Sara" />;
+const element = <Welcome name="Иван" />;
+
 ReactDOM.render(
   element,
   document.getElementById('root')
@@ -78,7 +79,7 @@ ReactDOM.render(
 
 [](codepen://components-and-props/rendering-a-component)
 
-Let's recap what happens in this example:
+Нека повторим какво се случва в този пример:
 
 1. We call `ReactDOM.render()` with the `<Welcome name="Sara" />` element.
 2. React calls the `Welcome` component with `{name: 'Sara'}` as the props.
