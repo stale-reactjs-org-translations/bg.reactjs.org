@@ -15,10 +15,10 @@ redirect_from:
 prev: rendering-elements.html
 next: state-and-lifecycle.html
 ---
+Компонентите дават възможност да разделиш твоя интерфейс на независими, повторно използваеми части и да мислиш за всяка част в изолация.
+Тази страница предлага въведение към идеята за компонентите. Тук можете да намерите [подробна справка за API на компонентите](/docs/react-component.html).
 
-Components let you split the UI into independent, reusable pieces, and think about each piece in isolation. This page provides an introduction to the idea of components. You can find a [detailed component API reference here](/docs/react-component.html).
-
-Conceptually, components are like JavaScript functions. They accept arbitrary inputs (called "props") and return React elements describing what should appear on the screen.
+Концептуално, компонентите са като JavaScript функциите. Те приемат произволни входове (наричани "props") и връщат елементи на React, описващи какво трябва да се появи на екрана.
 
 ## Function and Class Components {#function-and-class-components}
 
