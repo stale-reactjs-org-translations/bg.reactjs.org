@@ -66,7 +66,7 @@ const element = <Welcome name="Иван" />;
 
 ```js{1,5}
 function Welcome(props) {
-  return <h1>„Здравейте, {props.name}</h1>;
+  return <h1>Здравейте, {props.name}</h1>;
 }
 
 const element = <Welcome name="Иван" />;
@@ -81,22 +81,22 @@ ReactDOM.render(
 
 Нека повторим какво се случва в този пример:
 
-1. We call `ReactDOM.render()` with the `<Welcome name="Sara" />` element.
-2. React calls the `Welcome` component with `{name: 'Sara'}` as the props.
-3. Our `Welcome` component returns a `<h1>Hello, Sara</h1>` element as the result.
-4. React DOM efficiently updates the DOM to match `<h1>Hello, Sara</h1>`.
+1. Използваме `ReactDOM.render()` с елемента `<Welcome name="Sara" />`.
+2. React използва `Welcome` компонента с `{name: 'Sara'}` като props.
+3. Нашия `Welcome` компонент връща `<h1>Hello, Sara</h1>` елемент като резултат.
+4. React DOM ефективно актуализира DOM който съответства на `<h1>Hello, Sara</h1>`.
 
->**Note:** Always start component names with a capital letter.
+>**Забележа:** Винаги инициираите имената на компонентите с главна буква.
 >
->React treats components starting with lowercase letters as DOM tags. For example, `<div />` represents an HTML div tag, but `<Welcome />` represents a component and requires `Welcome` to be in scope.
+>React третира компонентите, започващи с малки букви като DOM тагове. Например, `<div />` представя HTML div таг, но `<Welcome />` представлява компонент и изиства функцията `Welcome` да бъде в scope.
 >
->To learn more about the reasoning behind this convention, please read [JSX In Depth](/docs/jsx-in-depth.html#user-defined-components-must-be-capitalized).
+>За да научите повече за мотивите зад тази конвенция, моля прочетете [JSX In Depth](/docs/jsx-in-depth.html#user-defined-components-must-be-capitalized).
 
-## Composing Components {#composing-components}
+## Композиране на компоненти {#composing-components}
 
-Components can refer to other components in their output. This lets us use the same component abstraction for any level of detail. A button, a form, a dialog, a screen: in React apps, all those are commonly expressed as components.
+Компонентите могат да refer към дръги компоненти в тяхния output. Това ни позволява да използваме същата абстракция на компонентът за всяко ниво на detail. Бутон, Форма, екран: в React програми, всички те  обикновено се изразяват като компоненти.
 
-For example, we can create an `App` component that renders `Welcome` many times:
+Например, можем да създадем `App` компонент, който използва `Welcome` много пъти:
 
 ```js{8-10}
 function Welcome(props) {
@@ -106,9 +106,9 @@ function Welcome(props) {
 function App() {
   return (
     <div>
-      <Welcome name="Sara" />
-      <Welcome name="Cahal" />
-      <Welcome name="Edite" />
+      <Welcome name="Иван" />
+      <Welcome name="Драган" />
+      <Welcome name="Петкан" />
     </div>
   );
 }
@@ -121,13 +121,13 @@ ReactDOM.render(
 
 [](codepen://components-and-props/composing-components)
 
-Typically, new React apps have a single `App` component at the very top. However, if you integrate React into an existing app, you might start bottom-up with a small component like `Button` and gradually work your way to the top of the view hierarchy.
+Обикновенно нови React програми започват с единичен компонент `App` на върха. Обаче, ако интегрирате реакт в вече съществуващо приложение, може да започнете отдолу-нагоре с малък компонент, като например `Button` и постепенно да стигнете до върха на йерархията на изгледа.
 
 ## Extracting Components {#extracting-components}
 
-Don't be afraid to split components into smaller components.
+Не се страхувайте да разделяте компонентите на по-малки компоненти.
 
-For example, consider this `Comment` component:
+Например разгледайте този компонент `Comment`:
 
 ```js
 function Comment(props) {
@@ -155,11 +155,11 @@ function Comment(props) {
 
 [](codepen://components-and-props/extracting-components)
 
-It accepts `author` (an object), `text` (a string), and `date` (a date) as props, and describes a comment on a social media website.
+Този компонент приема `author` (като обект), `text` (string), and `date` (дата) като props и описва коментар в уебсайт на социална медия.
 
-This component can be tricky to change because of all the nesting, and it is also hard to reuse individual parts of it. Let's extract a few components from it.
+Този компонент може да се окаже труден за промяна поради цялото това загнезване и също така го прави трудно повторното използване на отделните малки частици в него. Нека извлечем от него няколко компонента.
 
-First, we will extract `Avatar`:
+Първо, ще извлечем `Avatar`:
 
 ```js{3-6}
 function Avatar(props) {
@@ -171,12 +171,11 @@ function Avatar(props) {
   );
 }
 ```
+`Avatar` не е нужно да знае, че той се визуализира в `Comment`. Ето защо сме дали по-общо име: `user`, а не `author`.
 
-The `Avatar` doesn't need to know that it is being rendered inside a `Comment`. This is why we have given its prop a more generic name: `user` rather than `author`.
+Ние препоръчваме именуването на props от гледна точка на компонента, а не на контекста в който се използва.
 
-We recommend naming props from the component's own point of view rather than the context in which it is being used.
-
-We can now simplify `Comment` a tiny bit:
+Сега можем да опростим `Comment` съвсем малко:
 
 ```js{5}
 function Comment(props) {
@@ -199,7 +198,7 @@ function Comment(props) {
 }
 ```
 
-Next, we will extract a `UserInfo` component that renders an `Avatar` next to the user's name:
+Сега, ще извлечем компонентът `UserInfo`, който визуализира `Avatar` до името на потребителя:
 
 ```js{3-8}
 function UserInfo(props) {
@@ -214,7 +213,7 @@ function UserInfo(props) {
 }
 ```
 
-This lets us simplify `Comment` even further:
+Това ни позволява да опростим `Comment` още повече:
 
 ```js{4}
 function Comment(props) {
@@ -234,11 +233,11 @@ function Comment(props) {
 
 [](codepen://components-and-props/extracting-components-continued)
 
-Extracting components might seem like grunt work at first, but having a palette of reusable components pays off in larger apps. A good rule of thumb is that if a part of your UI is used several times (`Button`, `Panel`, `Avatar`), or is complex enough on its own (`App`, `FeedStory`, `Comment`), it is a good candidate to be a reusable component.
+Извличането на компоненти може да изглежда като груба работа в началото, но разполагайки с палитра от компоненти за многократна употреба се изплаща в по-големите приложения. Добро правило е, че ако част от вашият потребителски интервефейс се използва няколко пъти (`Button`, `Panel`, `Avatar`) или е достатъчно сложен сам по себе си ("App", "FeedStory", "Comment"), това е добър кандидат за компонент за многократна употреба.
 
-## Props are Read-Only {#props-are-read-only}
+## Props са Read-Only {#props-are-read-only}
 
-Whether you declare a component [as a function or a class](#function-and-class-components), it must never modify its own props. Consider this `sum` function:
+Дали декларирате компонент [като функция или клас](#function-and-class-components), той никога не трябва да променя собствените си props. Вземете предвид тази `sum` функция:
 
 ```js
 function sum(a, b) {
@@ -246,9 +245,9 @@ function sum(a, b) {
 }
 ```
 
-Such functions are called ["pure"](https://en.wikipedia.org/wiki/Pure_function) because they do not attempt to change their inputs, and always return the same result for the same inputs.
+Такива функции се наричат ["pure"](https://en.wikipedia.org/wiki/Pure_function) защото те не се опитват да променят тяхните inputs и винаги връщат същия резултат за същите inputs.
 
-In contrast, this function is impure because it changes its own input:
+За разлика от това, тази функция е impure, защото променя собствените си inputs:
 
 ```js
 function withdraw(account, amount) {
@@ -256,8 +255,8 @@ function withdraw(account, amount) {
 }
 ```
 
-React is pretty flexible but it has a single strict rule:
+React е доста гъвкав, но има едно строго правило:
 
-**All React components must act like pure functions with respect to their props.**
+**Всички React компоненти трябва да действат като pure функции по отношение на техните props.**
 
-Of course, application UIs are dynamic and change over time. In the [next section](/docs/state-and-lifecycle.html), we will introduce a new concept of "state". State allows React components to change their output over time in response to user actions, network responses, and anything else, without violating this rule.
+Разбира се, потребителските интерфейси на приложенията са динамични и се променят с времето. В [следващата секция](/docs/state-and-lifecycle.html), ще въведем нова концепция за "state". State дава възможност на React компоненти да променят тяхните output с течение на времето в отговор на потребителски действия, мрежови отговори и всичко друго, без да се нарушава това правило.
