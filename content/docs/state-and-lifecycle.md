@@ -8,7 +8,6 @@ prev: components-and-props.html
 next: handling-events.html
 ---
 
-<!-- This page introduces the concept of state and lifecycle in a React component. You can find a [detailed component API reference here](/docs/react-component.html). -->
 Тази страница представя концепцията за state и lifecycle в React компонентите. Можете да намерите [подробна информация за API(програмния интерфейс на приложението) на компонент тук](/docs/react-component.html).
 
 Вземайки в предвид пример на часовник [в един от предишните раздели](/docs/rendering-elements.html#updating-the-rendered-element). В [Рендериране на елементи](/docs/rendering-elements.html#rendering-an-element-into-the-dom), до сега научихме само един начин да актуализираме потребителския интерфейс. Ние извикваме `ReactDOM.render()` за да актуализираме резултата от рендерирането:
