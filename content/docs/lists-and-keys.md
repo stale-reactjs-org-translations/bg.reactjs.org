@@ -6,7 +6,7 @@ prev: conditional-rendering.html
 next: forms.html
 ---
 
-Първо, нека да разгледаме как преобразувате списъците в JavaScript.
+Първо, нека да разгледаме как се преобразуват списъци в JavaScript.
 
 Взимайки кода по-долу, ние използваме функцията [`map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) за да обходим списъка `numbers` и да удвоим елементите в него. Присвояваме новия масив, върнат от `map()` на променливата `doubleled` и го принтираме:
 
