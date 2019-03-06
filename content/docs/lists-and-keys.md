@@ -16,7 +16,7 @@ const doubled = numbers.map((number) => number * 2);
 console.log(doubled);
 ```
 
-Този код извежда `[2, 4, 6, 8, 10]` в конзолата.
+Този код ще принтира `[2, 4, 6, 8, 10]` в конзолата.
 
 В React преобразуването на масиви в списъци от [елементи](/docs/rendering-elements.html) е почти идентично.
 
