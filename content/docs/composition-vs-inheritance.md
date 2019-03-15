@@ -1,6 +1,6 @@
 ---
 id: composition-vs-inheritance
-title: Composition vs Inheritance
+title: Композиция срещу наследяване
 permalink: docs/composition-vs-inheritance.html
 redirect_from:
   - "docs/multiple-components.html"
@@ -8,15 +8,15 @@ prev: lifting-state-up.html
 next: thinking-in-react.html
 ---
 
-React has a powerful composition model, and we recommend using composition instead of inheritance to reuse code between components.
+React има силен модел за композиции и препоръчваме да се използва композиция вместо наследяване, за да се преизползва код между компонентите.
 
-In this section, we will consider a few problems where developers new to React often reach for inheritance, and show how we can solve them with composition.
+В този раздел ще разгледаме няколко проблема, при които разработчиците, които са нови в React, често избират наследяване. Ще покажем и как можем да ги разрешим с композиция.
 
-## Containment {#containment}
+## Ограничения {#containment}
 
-Some components don't know their children ahead of time. This is especially common for components like `Sidebar` or `Dialog` that represent generic "boxes".
+Някои компоненти не познават децата си предварително. Това е особено често срещано за компоненти като "Sidebar" или "Dialog", които представляват "кутии" с общо предназначение.
 
-We recommend that such components use the special `children` prop to pass children elements directly into their output:
+Препоръчваме тези компоненти да използват специалния `children` prop, за да прехвърлят елементите на децата си директно в техния резултат:
 
 ```js{4}
 function FancyBorder(props) {
@@ -28,7 +28,7 @@ function FancyBorder(props) {
 }
 ```
 
-This lets other components pass arbitrary children to them by nesting the JSX:
+Това позволява на други компоненти да прехвърлят произволни деца към тях чрез влагане с JSX:
 
 ```js{4-9}
 function WelcomeDialog() {
@@ -45,11 +45,11 @@ function WelcomeDialog() {
 }
 ```
 
-**[Try it on CodePen](https://codepen.io/gaearon/pen/ozqNOV?editors=0010)**
+**[Опитай в CodePen](https://codepen.io/gaearon/pen/ozqNOV?editors=0010)**
 
-Anything inside the `<FancyBorder>` JSX tag gets passed into the `FancyBorder` component as a `children` prop. Since `FancyBorder` renders `{props.children}` inside a `<div>`, the passed elements appear in the final output.
+Всичко в JSX `<FancyBorder>` тагa преминава в компонента `FancyBorder` като `children` prop. Тъй като `FancyBorder` рендерира `{props.children}` в `<div>`, подадените елементи се появяват в крайния резултат.
 
-While this is less common, sometimes you might need multiple "holes" in a component. In such cases you may come up with your own convention instead of using `children`:
+Макар че това е по-рядко, понякога може да ви трябват няколко "дупки" в даден компонент. В такива случаи можете да измислите своя собствена конвенция, вместо да използвате `children`:
 
 ```js{5,8,18,21}
 function SplitPane(props) {
@@ -78,15 +78,15 @@ function App() {
 }
 ```
 
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/gwZOJp?editors=0010)
+[**Опитай в CodePen**](https://codepen.io/gaearon/pen/gwZOJp?editors=0010)
 
-React elements like `<Contacts />` and `<Chat />` are just objects, so you can pass them as props like any other data. This approach may remind you of "slots" in other libraries but there are no limitations on what you can pass as props in React.
+React елементи като `<Contacts />` и `<Chat />` са само обекти, така че можете да ги подадете като props като всички други данни. Този подход може да ви напомни за "slots" в други библиотеки, но няма ограничения за това, което може да прехвърлите като props в React.
 
-## Specialization {#specialization}
+## Специални случаи {#specialization}
 
-Sometimes we think about components as being "special cases" of other components. For example, we might say that a `WelcomeDialog` is a special case of `Dialog`.
+Понякога ние мислим за компонентите като за "специални случаи" на други компоненти. Например, можем да кажем, че `WelcomeDialog` е специален случай на `Dialog`.
 
-In React, this is also achieved by composition, where a more "specific" component renders a more "generic" one and configures it with props:
+В React, това се постига и чрез композиция, където по-специфичен компонент рендерира "по-общ" и го конфигурира с props:
 
 ```js{5,8,16-18}
 function Dialog(props) {
@@ -111,9 +111,9 @@ function WelcomeDialog() {
 }
 ```
 
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/kkEaOZ?editors=0010)
+[**Опитай в CodePen**](https://codepen.io/gaearon/pen/kkEaOZ?editors=0010)
 
-Composition works equally well for components defined as classes:
+Композиция работи еднакво добре и за компоненти дефинирани като класове:
 
 ```js{10,27-31}
 function Dialog(props) {
@@ -161,12 +161,12 @@ class SignUpDialog extends React.Component {
 }
 ```
 
-[**Try it on CodePen**](https://codepen.io/gaearon/pen/gwZbYa?editors=0010)
+[**Опитай в CodePen**](https://codepen.io/gaearon/pen/gwZbYa?editors=0010)
 
-## So What About Inheritance? {#so-what-about-inheritance}
+## А какво ще кажем за наследяването? {#so-what-about-inheritance}
 
-At Facebook, we use React in thousands of components, and we haven't found any use cases where we would recommend creating component inheritance hierarchies.
+Във Facebook използваме React в хиляди компоненти и не сме намерили случаи на употреба, в които да препоръчаме създаването на йерархии за наследяване на компоненти.
 
-Props and composition give you all the flexibility you need to customize a component's look and behavior in an explicit and safe way. Remember that components may accept arbitrary props, including primitive values, React elements, or functions.
+Props и композиция ви дават цялата гъвкавост, от която се нуждаете, за да персонализирате вида и поведението на компонента по ясен и безопасен начин. Не забравяйте, че компонентите могат да приемат произволни props, включително примитивни стойности, React елементи или функции.
 
-If you want to reuse non-UI functionality between components, we suggest extracting it into a separate JavaScript module. The components may import it and use that function, object, or a class, without extending it.
+Ако искате да използвате повторно функционалността извън потребителския интерфейс между компонентите, предлагаме да го извлечете в отделен JavaScript модул. Компонентите могат да го import-нат и да използват тази функция, обект или клас, без да го разширяват.
