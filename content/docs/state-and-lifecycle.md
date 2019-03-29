@@ -72,9 +72,13 @@ ReactDOM.render(
 
 `State` e подобен на `props`, но е вътрешен за компонента и се контролира напълно от самия него.
 
+<<<<<<< HEAD
 Както споменахме в [предишния раздел](/docs/components-and-props.html#functional-and-class-components) компонентите, които са дефинирани като класове имат допълнителни свойства. Локалния state е пример за това: свойство което имат само класовете.
 
 ## Преобразуване от Функция към Клас {#converting-a-function-to-a-class}
+=======
+## Converting a Function to a Class {#converting-a-function-to-a-class}
+>>>>>>> d0f2db967a38e358bd59c65e981862cdf38f3d0b
 
 Можете да преобразувате `Clock`, който е "компонент функция" на клас в пет стъпки:
 
