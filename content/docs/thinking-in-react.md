@@ -78,7 +78,7 @@ JSON API-то ни връща данни, които изглеждат така
 
 Има два типа данни в React: props и state. Важно е да разберете разликата между двете; Погледнете [официалната документация на React](/docs/interactivity-and-dynamic-uis.html) ако не сте сигурни, каква е разликата.
 
-## Стъпка 3: Идентифицирай Минималното (но пълно) Представяне На UI State{#step-3-identify-the-minimal-but-complete-representation-of-ui-state}
+## Стъпка 3: Идентифицирай Минималното (но пълно) Представяне На UI State {#step-3-identify-the-minimal-but-complete-representation-of-ui-state}
 
 За да направите своя UI интерактивен, трябва да сте способни да правите промени по основния модел от данни. React прави това лесно със **state**.
 
