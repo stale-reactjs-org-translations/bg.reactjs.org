@@ -58,42 +58,42 @@ function ActionLink() {
 
 Когато използвате React, обикновено не е нужно да се извиква `addEventListener`, за да добавите слушатели към DOM елемент след неговото създаване. Вместо това, просто осигурете слушател, когато елементът е първоначално визуализиран.
 
-Когато дефинирате компонент, като използвате [ES6 клас](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes), един общ модел е, че манипулаторът на събития трябва да бъде метод на класа , Например, този компонент `Toggle` прави бутон, който позволява на потребителя да превключва между" ON "и" OFF ":
+Когато дефинирате компонент чрез [ES6 клас](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes), един често срещан модел е манипулаторът на събития да бъде дефиниран като метод на класа. Например, този `Toggle` компонент създава бутон, който позволява на потребителя да превключва между "ON" и "OFF" състояния:
 
-`` `JS {6,7,10-14,18}
-Клас Toggle extends React.Component {
-  конструктор (реквизит) {
-    супер (подпори);
+```js{6,7,10-14,18}
+class Toggle extends React.Component {
+  constructor (props) {
+    super(props);
     this.state = {isToggleOn: true};
 
-    // Това свързване е необходимо, за да се направи тази работа в обратното повикване
-    this.handleClick = this.handleClick.bind (this);
+    // Това свързване е необходимо, за да може `this` да работи в callback функцията
+    this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick () {
-    this.setState (състояние => ({
-      еToggleOn:! state.isToggleOn
+  handleClick() {
+    this.setState(state => ({
+      isToggleOn: !state.isToggleOn
     }));
   }
 
-  рендиране () {
-    връщане (
-      <button onClick = {this.handleClick}>
-        {this.state.isToggleOn? 'ON': 'OFF'}
-      </ Бутон>
+  render() {
+    return (
+      <button onClick={this.handleClick}>
+        {this.state.isToggleOn ? 'ON' : 'OFF'}
+      </buton>
     );
   }
 }
 
-ReactDOM.render (
+ReactDOM.render(
   <Toggle />,
-  document.getElementById ( "корен)
+  document.getElementById('root')
 );
-`` `
+```
 
-[** Опитайте с CodePen **] (https://codepen.io/gaearon/pen/xEmzGg?editors=0010)
+[** Опитайте в CodePen **](https://codepen.io/gaearon/pen/xEmzGg?editors=0010)
 
-Трябва да бъдете внимателни за значението на "this" в обратната връзка на JSX. В JavaScript, методите на класа не са [обвързани] (https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Function/bind) по подразбиране. Ако забравите да свържете "this.handleClick" и го прехвърлите на `onClick ',` this` ще бъде `undefined`, когато функцията всъщност се нарича.
+Трябва да бъдете внимателни за значението на `this` в JSX callbacks. В JavaScript, методите на класа не са [обвързани](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Function/bind) по подразбиране. Ако забравите да свържете метода `this.handleClick` и го подадете на `onClick`, `this` ще бъде `undefined`, когато методът е извикан.
 
 Това не е специфично поведение на React; той е част от [как функционират функциите в JavaScript] (https://www.smashingmagazine.com/2014/01/understanding-javascript-function-prototype-bind/). Като цяло, ако се отнасят до метод без `()` след него, като `onClick = {this.handleClick}`, трябва да свържете този метод.
 
