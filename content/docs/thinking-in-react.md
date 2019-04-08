@@ -1,6 +1,6 @@
 ---
 id: thinking-in-react
-title: Мисли като React
+title: Мисли в React
 permalink: docs/thinking-in-react.html
 redirect_from:
   - 'blog/2013/11/05/thinking-in-react.html'
@@ -59,9 +59,9 @@ JSON API-то ни връща данни, които изглеждат така
       * `ProductCategoryRow`
       * `ProductRow`
 
-## Стъпка 2: Изграждане На Статична Версия На React {#step-2-build-a-static-version-in-react}
+## Стъпка 2: Изграждане На Статична Версия С React {#step-2-build-a-static-version-in-react}
 
-<p data-height="600" data-theme-id="0" data-slug-hash="BwWzwm" data-default-tab="js" data-user="lacker" data-embed-version="2" class="codepen">Вижте примера <a href="https://codepen.io/gaearon/pen/BwWzwm">Мисли като React: Стъпка 2</a> в <a href="https://codepen.io">CodePen</a>.</p>
+<p data-height="600" data-theme-id="0" data-slug-hash="BwWzwm" data-default-tab="js" data-user="lacker" data-embed-version="2" class="codepen">Вижте примера <a href="https://codepen.io/gaearon/pen/BwWzwm">Мисли в React: Стъпка 2</a> в <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
 
 Сега, когато имате йерархията на компонентите ви, е време да изградите вашето приложение. Най-лесният начин е да направите версия, която взима вашите данни и ги визуализира, без никаква интеракция. Най-добре ще е да не свързвате тези процеси, защото когато правите статична версия, това изисква много писане и малко мислене, докато добавянето на интеракция изисква много мислене и не толкова писане. Ще видим защо.
@@ -82,7 +82,7 @@ JSON API-то ни връща данни, които изглеждат така
 
 За да направите своя UI интерактивен, трябва да сте способни да правите промени по основния модел от данни. React прави това лесно със **state**.
 
-За да изградите правилно своето приложение, първо трябва да помислите за минималното множество от променлив state, който приложението изисква. Тук ключа е [DRY: *Don't Repeat Yourself*](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself). Разберете абсолютното минималното представяне на state-a, от който се нуждае вашето приложение и изчислете всичко останало от което се нуждаете при поискване. Например, ако правите приложение в което има списък със задачи, просто може да подържате масив от задачи. Не използвайте отделен state променлива за броя задачи. Също така, когато искате да визуализирате броя задачи, просто вземете дължината на масива със задачи.
+За да изградите правилно своето приложение, първо трябва да помислите за минималното количество променлив state, който приложението изисква. Тук ключа е [DRY: *Don't Repeat Yourself*](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself). Разберете абсолютното минималното представяне на state-a, от който се нуждае вашето приложение и изчислете всичко останало от което се нуждаете при поискване. Например, ако правите приложение в което има списък със задачи, просто може да подържате масив от задачи. Не използвайте отделен state променлива за броя задачи. Също така, когато искате да визуализирате броя задачи, просто вземете дължината на масива със задачи.
 
 Помислете за всички парчета от данни в нашето примерно приложение. Имаме:
 
@@ -95,7 +95,7 @@ JSON API-то ни връща данни, които изглеждат така
 
   1. Подаден ли е от родител чрез props? Ако да, то вероятно не е state.
   2. Остава ли непроменен през цялото време? Ако да, то вероятно не е state.
-  3. Можете ли да го изчислете на база на всеки друг state или props в вашия компонент? Ако е така, то не е state.
+  3. Можете ли да го изчислите на база на всеки друг state или props в вашия компонент? Ако е така, то не е state.
 
 Оригиналния списък от продукти се подава чрез props, така че не е state. Търсения текст и чекбокса изглеждат, че са state, понеже те се променят през времето и не могат да бъдат изчислени от нищо. И накрая, филтрираният списък от продукти не е state, защото може да бъде изчислен от комбинация на оригиналния списък от продукти с търсения текст и стойноста на чекбокса.
 
@@ -106,9 +106,9 @@ JSON API-то ни връща данни, които изглеждат така
 
 ## Стъпка 4: Разберете, Къде Трябва Да Живее Вашия State{#step-4-identify-where-your-state-should-live}
 
-<p data-height="600" data-theme-id="0" data-slug-hash="qPrNQZ" data-default-tab="js" data-user="lacker" data-embed-version="2" class="codepen">Вижте примера <a href="https://codepen.io/gaearon/pen/qPrNQZ">Мисли като React: Стъпка 4</a> в <a href="https://codepen.io">CodePen</a>.</p>
+<p data-height="600" data-theme-id="0" data-slug-hash="qPrNQZ" data-default-tab="js" data-user="lacker" data-embed-version="2" class="codepen">Вижте примера <a href="https://codepen.io/gaearon/pen/qPrNQZ">Мисли в React: Стъпка 4</a> в <a href="https://codepen.io">CodePen</a>.</p>
 
-Добре, ние открихме какво ще е минималното множество от state в приложението. Следва да намерим кой компонент го променя, или *притежава* самия state.
+Добре, ние открихме какво ще е минималното количество state в приложението. Следва да намерим кой компонент го променя, или *притежава* самия state.
 
 Запомнете: React e само еднопосочен в пренасянето на данни надолу по йерархията от компоненти. Може би не е точно и ясно кой компонент трябва да притежава state. **Често това е най-предизвикателната част за новите да разберат,** следвайте тези стъпки, за да го разберете:
 
@@ -131,7 +131,7 @@ JSON API-то ни връща данни, които изглеждат така
 
 ## Стъпка 5: Добавете Обратно Пренасяне На Данни {#step-5-add-inverse-data-flow}
 
-<p data-height="600" data-theme-id="0" data-slug-hash="LzWZvb" data-default-tab="js,result" data-user="rohan10" data-embed-version="2" data-pen-title="Thinking In React: Step 5" class="codepen">Вижте примера <a href="https://codepen.io/gaearon/pen/LzWZvb">Мисли като React: Стъпка 5</a> в <a href="https://codepen.io">CodePen</a>.</p>
+<p data-height="600" data-theme-id="0" data-slug-hash="LzWZvb" data-default-tab="js,result" data-user="rohan10" data-embed-version="2" data-pen-title="Thinking In React: Step 5" class="codepen">Вижте примера <a href="https://codepen.io/gaearon/pen/LzWZvb">Мисли в React: Стъпка 5</a> в <a href="https://codepen.io">CodePen</a>.</p>
 
 Досега, направихме приложение, което се зарежда правилно като функция от props и state, спускащи се надолу по йерархията. Сега е време да подържаме спускането на данни и в другата посока: компонента с формата е много навътре в йерархията, а трябва да обнови state-а в `FilterableProductTable`.
 
