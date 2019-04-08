@@ -95,60 +95,60 @@ ReactDOM.render(
 
 Трябва да бъдете внимателни за значението на `this` в JSX callbacks. В JavaScript, методите на класа не са [обвързани](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Function/bind) по подразбиране. Ако забравите да свържете метода `this.handleClick` и го подадете на `onClick`, `this` ще бъде `undefined`, когато методът е извикан.
 
-Това не е специфично поведение на React; той е част от [как функционират функциите в JavaScript] (https://www.smashingmagazine.com/2014/01/understanding-javascript-function-prototype-bind/). Като цяло, ако се отнасят до метод без `()` след него, като `onClick = {this.handleClick}`, трябва да свържете този метод.
+Това не е специфично поведение в React; то е част от [как работят функциите в JavaScript](https://www.smashingmagazine.com/2014/01/understanding-javascript-function-prototype-bind/). Като цяло, ако споменем метод без `()` след него, като `onClick={this.handleClick}`, трябва да свържете този метод чрез `bind`.
 
-Ако се обадите на "bind", това ви кара да се справите с два начина. Ако използвате експерименталния [синтаксис на публичните полета на класа] (https://babeljs.io/docs/plugins/transform-class-properties/), можете да използвате полетата на класа, за да свързвате правилно обратната връзка:
+Ако извикването на `bind` ви дразни, има два начина да се справите с това. Ако използвате експерименталния [синтаксис на публичните полета на класа](https://babeljs.io/docs/plugins/transform-class-properties/), можете да използвате полетата на класа, за да свържете правилно callback функциите:
 
-`` `JS {2-6}
-class LoggingButton разширява React.Component {
-  // Този синтаксис осигурява `this` е обвързан в handleClick.
-  // Предупреждение: това е * експериментален * синтаксис.
+```js{2-6}
+class LoggingButton extends React.Component {
+  // Този синтаксис осигурява `this` да е обвързан в handleClick.
+  // Предупреждение: това е *експериментален* синтаксис.
   handleClick = () => {
-    console.log ("това е:", това);
+    console.log('this е:', this);
   }
 
-  рендиране () {
-    връщане (
-      <button onClick = {this.handleClick}>
+  render() {
+    return (
+      <button onClick={this.handleClick}>
         Кликни ме
-      </ Бутон>
+      </button>
     );
   }
 }
-`` `
+```
 
-Този синтаксис е активиран по подразбиране в [Create React App] (https://github.com/facebookincubator/create-react-app).
+Този синтаксис е активиран по подразбиране в [Create React App](https://github.com/facebookincubator/create-react-app).
 
-Ако не използвате синтаксис на полета на класа, можете да използвате функцията [arrow] (https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions) в обратната връзка:
+Ако не използвате синтаксис на полета на класа, можете да използвате [arrow функция](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Functions/Arrow_functions) в callback:
 
-`` `JS {7-9}
-class LoggingButton разширява React.Component {
-  handleClick () {
-    console.log ("това е:", това);
+```js{7-9}
+class LoggingButton extends React.Component {
+  handleClick() {
+    console.log('this е:', this);
   }
 
-  рендиране () {
-    // Този синтаксис осигурява `this` е обвързан в handleClick
-    връщане (
-      <button onClick = {(e) => this.handleClick (e)}>
+  render() {
+    // Този синтаксис осигурява `this` да е обвързан в handleClick
+    return(
+      <button onClick={(e) => this.handleClick(e)}>
         Кликни ме
-      </ Бутон>
+      </button>
     );
   }
 }
-`` `
+```
 
-Проблемът с този синтаксис е, че всеки път, когато се изобразява "LoggingButton", се създава различно обратно извикване. В повечето случаи това е добре. Обаче, ако това обратно извикване се предава като опора за по-ниски компоненти, тези компоненти биха могли да направят допълнително рендеринг. Обикновено препоръчваме свързване в конструктора или използвайки синтаксиса на полетата на класа, за да избегнете този проблем с производителността.
+Проблемът с този синтаксис е, че всеки път, когато се рендерира `LoggingButton`, се създава различна callback функция. В повечето случаи това е добре. Обаче, ако този callback се предаде като prop на по-долно ниво компоненти, тези компоненти биха могли да направят допълнително рендиране. Обикновено препоръчваме свързване в конструктора или използване на синтаксиса на полета на класа, за да се избегне този проблем.
 
-## Прехвърляне на аргументи към обработващи събития {# passing-arguments-to-event-handlers}
+## Подаване на аргументи към обработващи събития функции {#passing-arguments-to-event-handlers}
 
-Вътре в цикъла е обичайно да искате да предавате допълнителен параметър на манипулатор на събития. Например, ако "id" е идентификатор на ред, едно от следните ще работи:
+Често, искате да подадете допълнителен параметър на функция обработваща събития, която е вътре в цикъл. Например, ако `id` е идентификатор на ред, всеки един от следните примери ще работи:
 
-`` `JS
-<button onClick = {(e) => this.deleteRow (id, e)}> Изтриване на ред </button>
-<button onClick = {this.deleteRow.bind (this, id)}> Изтриване на ред </button>
-`` `
+```js
+<button onClick={(e) => this.deleteRow(id, e)}>Изтриване на ред</button>
+<button onClick={this.deleteRow.bind(this, id)}>Изтриване на ред</button>
+```
 
-Горните две линии са еквивалентни и използват [функции със стрелки] (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) и [`Function.prototype.bind`] (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Function/bind) съответно.
+Горните два реда са еквивалентни и използват [arrow функции](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) и [`Function.prototype.bind`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Function/bind) съответно.
 
-И в двата случая, аргументът "е", представящ събитието Реактивно, ще бъде предаден като втори аргумент след идентификатора. С функция стрелка трябва да я преминем изрично, но с `bind` всички допълнителни аргументи се препращат автоматично.
+И в двата случая, аргументът `е`, представящ React събитието, ще бъде предаден като втори аргумент след `id`. С arrow функция трябва изрично да го подадем, но с `bind` всички допълнителни аргументи се препращат автоматично.
