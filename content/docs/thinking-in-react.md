@@ -122,7 +122,7 @@ JSON API-то ни връща данни, които изглеждат така
 Нека преминем прези тази стратегия за нашето приложение:
 
   * `ProductTable` трябва да филтрира списъка с продукти базиран на state-a и `SearchBar` трябва да визуализира търсения текст и проверения state.
-  * Общият компнент, който ги обединява е `FilterableProductTable`.
+  * Общият компонент, който ги обединява е `FilterableProductTable`.
   * Концептуално има логика филтрирания текст и проверените стойности да живеят в `FilterableProductTable`
 
 Супер, решихме, че state-a ще живее в `FilterableProductTable`. Първо, добавете пропърти на инстанцията `this.state = {filterText: '', inStockOnly: false}` в `constructor`-а на `FilterableProductTable` за да рефлектира върху началния state на вашето приложение. Тогава, подайте `filterText` и `inStockOnly` на `ProductTable` и `SearchBar` като prop. И за финал, използвайте тези props, за да филтрирате редовете в `ProductTable` и ъпдейтнете стойностите на полетата на формата в `SearchBar`.
