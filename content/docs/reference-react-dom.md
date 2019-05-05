@@ -88,7 +88,7 @@ ReactDOM.unmountComponentAtNode(container)
 
 > Бележка:
 >
-> `findDOMNode` е аварийния изход използван да се достъпи основен DOM елемент. В повечето случаи, използването на този авариен начин е обезсърчава, защото пречупва абстракцията на компонента. [Отхвърлено е в `StrictMode`.](/docs/strict-mode.html#warning-about-deprecated-finddomnode-usage)
+> `findDOMNode` е аварийния изход използван да се достъпи основен DOM елемент. В повечето случаи, използването на този авариен начин се обезсърчава, защото пречупва абстракцията на компонента. [Отхвърлено е в `StrictMode`.](/docs/strict-mode.html#warning-about-deprecated-finddomnode-usage)
 
 ```javascript
 ReactDOM.findDOMNode(component)
