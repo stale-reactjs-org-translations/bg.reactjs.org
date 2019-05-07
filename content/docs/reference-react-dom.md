@@ -20,7 +20,7 @@ permalink: docs/react-dom.html
 
 ### Поддръжка От Браузъра {#browser-support}
 
-React поддържа всички популярни браузъри, включително Internet Explorer 9 и нагоре, въпреки че [някои библиотеки за съвместимост се изискват](/docs/javascript-environment-requirements.html) за по-стари браузъри като IE 9 и IE 10.
+React поддържа всички популярни браузъри, включително Internet Explorer 9 и нагоре, въпреки че [се изискват някои библиотеки за съвместимост](/docs/javascript-environment-requirements.html) за по-стари браузъри като IE 9 и IE 10.
 
 > Бележка:
 >
