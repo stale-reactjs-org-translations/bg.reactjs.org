@@ -337,7 +337,7 @@ onTimeUpdate onVolumeChange onWaiting
 
 ### Image Events {#image-events}
 
-Име на събитията:
+Имена на събитията:
 
 ```
 onLoad onError
