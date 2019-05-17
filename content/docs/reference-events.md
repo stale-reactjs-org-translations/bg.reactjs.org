@@ -193,7 +193,7 @@ onDragLeave onDragOver onDragStart onDrop onMouseDown onMouseEnter onMouseLeave
 onMouseMove onMouseOut onMouseOver onMouseUp
 ```
 
-Събитията `onMouseEnter` и` onMouseLeave` се разпространяват от елемента, който напускаме а не от този в който въвеждаме. Те нямат capture фаза.
+Събитията `onMouseEnter` и `onMouseLeave` се разпространяват от елемента, който напускаме, а не от този в който въвеждаме. Те нямат capture фаза.
 
 Свойства:
 
