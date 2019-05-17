@@ -126,7 +126,7 @@ string data
 
 ### Keyboard Events {#keyboard-events}
 
-Име на събитията:
+Имена на събитията:
 
 ```
 onKeyDown onKeyPress onKeyUp
