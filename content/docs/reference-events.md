@@ -185,7 +185,7 @@ onChange onInput onInvalid onSubmit
 
 ### Mouse Events {#mouse-events}
 
-Име на събитията:
+Имена на събитията:
 
 ```
 onClick onContextMenu onDoubleClick onDrag onDragEnd onDragEnter onDragExit
