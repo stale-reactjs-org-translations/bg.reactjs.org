@@ -324,7 +324,7 @@ number deltaZ
 
 ### Media Events {#media-events}
 
-Име на събитията:
+Имена на събитията:
 
 ```
 onAbort onCanPlay onCanPlayThrough onDurationChange onEmptied onEncrypted
