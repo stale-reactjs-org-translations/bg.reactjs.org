@@ -347,7 +347,7 @@ onLoad onError
 
 ### Animation Events {#animation-events}
 
-Име на събитията:
+Имена на събитията:
 
 ```
 onAnimationStart onAnimationEnd onAnimationIteration
