@@ -109,7 +109,7 @@ DOMDataTransfer clipboardData
 
 ### Composition Events {#composition-events}
 
-Име на събитията:
+Имена на събитията:
 
 ```
 onCompositionEnd onCompositionStart onCompositionUpdate
