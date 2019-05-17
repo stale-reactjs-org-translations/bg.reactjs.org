@@ -225,7 +225,7 @@ onPointerDown onPointerMove onPointerUp onPointerCancel onGotPointerCapture
 onLostPointerCapture onPointerEnter onPointerLeave onPointerOver onPointerOut
 ```
 
-Събитията `onPointerEnter` и` onPointerLeave` се разпространяват от елемента, който напускаме а не от този който посочваме. Те нямат capture фаза.
+Събитията `onPointerEnter` и `onPointerLeave` се разпространяват от елемента, който напускаме, а не от този който посочваме. Те нямат capture фаза.
 
 Свойства:
 
