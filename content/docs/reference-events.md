@@ -173,7 +173,7 @@ DOMEventTarget relatedTarget
 
 ### Form Events {#form-events}
 
-Име на събитията:
+Имена на събитията:
 
 ```
 onChange onInput onInvalid onSubmit
