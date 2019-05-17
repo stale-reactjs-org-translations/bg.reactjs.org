@@ -179,7 +179,7 @@ DOMEventTarget relatedTarget
 onChange onInput onInvalid onSubmit
 ```
 
-За повече информация отностно onChange събитието, прегледайте [Forms](/docs/forms.html).
+За повече информация относно onChange събитието, прегледайте [Forms](/docs/forms.html).
 
 * * *
 
