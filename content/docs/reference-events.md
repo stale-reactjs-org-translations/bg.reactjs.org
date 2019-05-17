@@ -155,7 +155,7 @@ number which
 
 ### Focus Events {#focus-events}
 
-Име на събитията:
+Имена на събитията:
 
 ```
 onFocus onBlur
