@@ -6,7 +6,7 @@ layout: docs
 category: Reference
 ---
 
-Това ръководство документира контейнера "SyntheticEvent", който е част от системата за събития на React. Вижте ръководството [Handling Events](/docs/handling-events.html), за да научите повече.
+Това ръководство документира контейнера `SyntheticEvent`, който е част от системата за събития на React. Вижте ръководството [Handling Events](/docs/handling-events.html), за да научите повече.
 
 ## Преглед {#overview}
 
