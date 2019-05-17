@@ -229,7 +229,6 @@ onLostPointerCapture onPointerEnter onPointerLeave onPointerOver onPointerOut
 
 Свойства:
 
-As defined in the [W3 spec](https://www.w3.org/TR/pointerevents/), pointer events extend [Mouse Events](#mouse-events) with the following Свойства:
 
 Както е дефинирано в спецификацията [W3](https://www.w3.org/TR/pointerevents/), събития за посочване наследяват [Mouse Events](#mouse-events) със следните Свойства:
 
