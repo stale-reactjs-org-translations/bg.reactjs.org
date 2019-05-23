@@ -6,7 +6,7 @@ category: Reference
 permalink: docs/react-dom-server.html
 ---
 
-The `ReactDOMServer` object enables you to render components to static markup. Typically, it's used on a Node server:
+Обектът `ReactDOMServer` ви позволява да рендерирате компоненти до статичен маркъп. Типично се използва на Node сървър:
 
 ```js
 // ES modules
@@ -15,21 +15,21 @@ import ReactDOMServer from 'react-dom/server';
 var ReactDOMServer = require('react-dom/server');
 ```
 
-## Overview {#overview}
+## Преглед {#overview}
 
-The following methods can be used in both the server and browser environments:
+Следващите методи могат да се използват и на двете среди, сървър и браузър:
 
 - [`renderToString()`](#rendertostring)
 - [`renderToStaticMarkup()`](#rendertostaticmarkup)
 
-These additional methods depend on a package (`stream`) that is **only available on the server**, and won't work in the browser.
+Тези допълнителни методи зависят от пакета (`stream`), който е **достъпен само на сървъра**, и няма да работи на браузъра.
 
 - [`renderToNodeStream()`](#rendertonodestream)
 - [`renderToStaticNodeStream()`](#rendertostaticnodestream)
 
 * * *
 
-## Reference {#reference}
+## Референция {#reference}
 
 ### `renderToString()` {#rendertostring}
 
@@ -37,9 +37,9 @@ These additional methods depend on a package (`stream`) that is **only available
 ReactDOMServer.renderToString(element)
 ```
 
-Render a React element to its initial HTML. React will return an HTML string. You can use this method to generate HTML on the server and send the markup down on the initial request for faster page loads and to allow search engines to crawl your pages for SEO purposes.
+Рендерира React елемент до неговия първоначален HTML. React ще върне HTML низ. Може да използвате този метод, за да генерирате HTML на сървъра и да изпратите маркъпа на първоначалния request за по-бързо зареждане на страницата и да позволите на търсачките да преглеждат вашите страници за SEO цели.
 
-If you call [`ReactDOM.hydrate()`](/docs/react-dom.html#hydrate) on a node that already has this server-rendered markup, React will preserve it and only attach event handlers, allowing you to have a very performant first-load experience.
+Ако извикате [`ReactDOM.hydrate()`](/docs/react-dom.html#hydrate) на елемент, който вече има този маркъп рендериран на сървъра, React ще го запази и само ще му закачи слушателите за събития, позволявайки ви да имате много бързо първо зареждане.
 
 * * *
 
@@ -49,9 +49,9 @@ If you call [`ReactDOM.hydrate()`](/docs/react-dom.html#hydrate) on a node that 
 ReactDOMServer.renderToStaticMarkup(element)
 ```
 
-Similar to [`renderToString`](#rendertostring), except this doesn't create extra DOM attributes that React uses internally, such as `data-reactroot`. This is useful if you want to use React as a simple static page generator, as stripping away the extra attributes can save some bytes.
+Същото като [`renderToString`](#rendertostring), с изключение, че това не създава допълнителни DOM атрибути, които React използва вътрешно, като  `data-reactroot`. Това е полезно ако искате да използвате React, като прост генератор на статични страници, като отстраняване на допълнителните атрибути може да спаси няколко бита.
 
-If you plan to use React on the client to make the markup interactive, do not use this method. Instead, use [`renderToString`](#rendertostring) on the server and [`ReactDOM.hydrate()`](/docs/react-dom.html#hydrate) on the client.
+Ако планувате да използвате React на клиента, за да направите маркъпа подвижен, не използвайте този метод. Вместо това използвайте [`renderToString`](#rendertostring) на сървъра и [`ReactDOM.hydrate()`](/docs/react-dom.html#hydrate) на клиента.
 
 * * *
 
@@ -61,15 +61,15 @@ If you plan to use React on the client to make the markup interactive, do not us
 ReactDOMServer.renderToNodeStream(element)
 ```
 
-Render a React element to its initial HTML. Returns a [Readable stream](https://nodejs.org/api/stream.html#stream_readable_streams) that outputs an HTML string. The HTML output by this stream is exactly equal to what [`ReactDOMServer.renderToString`](#rendertostring) would return. You can use this method to generate HTML on the server and send the markup down on the initial request for faster page loads and to allow search engines to crawl your pages for SEO purposes.
+Рендерира React елемент до неговия първоначален HTML. Връша [Readable стрийм](https://nodejs.org/api/stream.html#stream_readable_streams), който рендерира HTML низ. HTML рендериран от този стрийм е равен точно на това, което [`ReactDOMServer.renderToString`](#rendertostring) ще върне. Може да използвате този метод да генерирате HTML на сървъра и да изпратите маркъпа на първоначалния рекуест за по-бързо зареждане на страницата и да позволите на търсачките да преглеждат вашите страници за SEO цели.
 
-If you call [`ReactDOM.hydrate()`](/docs/react-dom.html#hydrate) on a node that already has this server-rendered markup, React will preserve it and only attach event handlers, allowing you to have a very performant first-load experience.
+Ако извикате [`ReactDOM.hydrate()`](/docs/react-dom.html#hydrate) на елемент, който вече има маркъп рендериран на сървъра, React ще го запази и само ще му закачи слушателите за събития, позволявайки ви да имате много бързо първо зареждане.
 
-> Note:
+> Бележка:
 >
-> Server-only. This API is not available in the browser.
+> Само на сървъра. Това API не е достъпно в браузъра.
 >
-> The stream returned from this method will return a byte stream encoded in utf-8. If you need a stream in another encoding, take a look at a project like [iconv-lite](https://www.npmjs.com/package/iconv-lite), which provides transform streams for transcoding text.
+> Стрийма върнат от този метод ще върне бит стрийм енкоднат в utf-8. Ако се нуждаете от стрийм в друг енкодинг, разгледайте проект като [iconv-lite](https://www.npmjs.com/package/iconv-lite), който предоставя трансформиращи стриймове за транскодиращ текст.
 
 * * *
 
@@ -79,14 +79,14 @@ If you call [`ReactDOM.hydrate()`](/docs/react-dom.html#hydrate) on a node that 
 ReactDOMServer.renderToStaticNodeStream(element)
 ```
 
-Similar to [`renderToNodeStream`](#rendertonodestream), except this doesn't create extra DOM attributes that React uses internally, such as `data-reactroot`. This is useful if you want to use React as a simple static page generator, as stripping away the extra attributes can save some bytes.
+Същото като [`renderToNodeStream`](#rendertonodestream), с изключение, че това не създава допълнителни DOM атрибути, които React използва вътрешно, като  `data-reactroot`. Това е полезно ако искате да използвате React, като прост генератор на статични страници, като отстраняване на допълнителните атрибути може да спаси няколко бита.
 
-The HTML output by this stream is exactly equal to what [`ReactDOMServer.renderToStaticMarkup`](#rendertostaticmarkup) would return.
+HTML резултата от този стрийм е точно равен на това което [`ReactDOMServer.renderToStaticMarkup`](#rendertostaticmarkup) ще върне.
 
-If you plan to use React on the client to make the markup interactive, do not use this method. Instead, use [`renderToNodeStream`](#rendertonodestream) on the server and [`ReactDOM.hydrate()`](/docs/react-dom.html#hydrate) on the client.
+Ако планувате да използвате React на клиента, за да направите маркъпа подвижен, не използвайте този метод. Вместо това използвайте [`renderToNodeStream`](#rendertonodestream) на сървъра и [`ReactDOM.hydrate()`](/docs/react-dom.html#hydrate) на клиента.
 
-> Note:
+> Бележка:
 >
-> Server-only. This API is not available in the browser.
+> Само на сървъра. Това API не е достъпно в браузъра.
 >
-> The stream returned from this method will return a byte stream encoded in utf-8. If you need a stream in another encoding, take a look at a project like [iconv-lite](https://www.npmjs.com/package/iconv-lite), which provides transform streams for transcoding text.
+> Стрийма върнат от този метод ще върне бит стрийм енкоднат в utf-8. Ако се нуждаете от стрийм в друг енкодинг, разгледайте проект като [iconv-lite](https://www.npmjs.com/package/iconv-lite), който предоставя трансформиращи стриймове за транскодиращ текст.
