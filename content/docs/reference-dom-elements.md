@@ -37,8 +37,6 @@ There are a number of attributes that work differently between React and HTML:
 
 ### dangerouslySetInnerHTML {#dangerouslysetinnerhtml}
 
-`dangerouslySetInnerHTML` is React's replacement for using `innerHTML` in the browser DOM. In general, setting HTML from code is risky because it's easy to inadvertently expose your users to a [cross-site scripting (XSS)](https://en.wikipedia.org/wiki/Cross-site_scripting) attack. So, you can set HTML directly from React, but you have to type out `dangerouslySetInnerHTML` and pass an object with a `__html` key, to remind yourself that it's dangerous. For example:
-
 React замества използването на `innerHTML` в DOM-а на браузъра с `dangerouslySetInnerHTML`. Задавайки HTML от код е рисковано, тъй като е лесно да
 изложите потребителите си на [cross-site scripting (XSS)](https://en.wikipedia.org/wiki/Cross-site_scripting) атака по невнимание. Така че, въпреки че можете да зададете HTML директно от React, ще ви се наложи да изпишете `dangerouslySetInnerHTML` и да подадете обект с `__html` ключ, напомняйки ви, че това е опасна операция. Например: 
 
@@ -58,21 +56,19 @@ function MyComponent() {
 
 ### onChange {#onchange}
 
-The `onChange` event behaves as you would expect it to: whenever a form field is changed, this event is fired. We intentionally do not use the existing browser behavior because `onChange` is a misnomer for its behavior and React relies on this event to handle user input in real time.
-
 `onChange` събитието има поведение, което бихте очаквали: когато поле на форма е променено, това събитие бива извикано. Умишлено не използваме вече съществуващото браузър поведение, тъй като `onChange` е погрешно название за поведението което описва, докато React разчита това събитие да манипулира въведените от потребителя данни в реално време.
 
 ### selected {#selected}
 
-The `selected` attribute is supported by `<option>` components. You can use it to set whether the component is selected. This is useful for building controlled components.
-
+Атрибута `selected` се използва от `<option>` компоненти. Използва се за да зададете дали компонента е избран. Това е полезно при изграждането на контролирани
+компоненти.
 ### style {#style}
 
->Note
+>Забележка
 >
->Some examples in the documentation use `style` for convenience, but **using the `style` attribute as the primary means of styling elements is generally not recommended.** In most cases, [`className`](#classname) should be used to reference classes defined in an external CSS stylesheet. `style` is most often used in React applications to add dynamically-computed styles at render time. See also [FAQ: Styling and CSS](/docs/faq-styling.html).
+>Някои примери в документацията използват `style` за удобство, но **използването на атрибута `style` като основен начин за стилизация на елементи обикновено не се препоръчва.** В повечето случаи се препоръчва използването на [`className`](#classname) за референции към класове дефинирани във външен CSS документ. `style` най-често се използва . Вижте също [FAQ: Стилизиране и CSS](/docs/faq-styling.html).
 
-The `style` attribute accepts a JavaScript object with camelCased properties rather than a CSS string. This is consistent with the DOM `style` JavaScript property, is more efficient, and prevents XSS security holes. For example:
+Атрибутът `style` приема JavaScript обект с наименования на ключовете изписани в camelCase вместо като CSS низ. Това е в съответствие с DOM `style` Javascript атрибута, повишава ефикасноста и предотвратява дупки в XSS сигурноста. Например:
 
 ```js
 const divStyle = {
@@ -85,16 +81,16 @@ function HelloWorldComponent() {
 }
 ```
 
-Note that styles are not autoprefixed. To support older browsers, you need to supply corresponding style properties:
+Обърнете внимание, че стиловете не получават автоматично префикс. За подръжка на по-стари браузъри е нужно да предоставите съответните стилови свойства:
 
 ```js
 const divStyle = {
-  WebkitTransition: 'all', // note the capital 'W' here
-  msTransition: 'all' // 'ms' is the only lowercase vendor prefix
+  WebkitTransition: 'all', // обърнете внимание на главното 'W'
+  msTransition: 'all' // 'ms' е единствения префикс за производител изписван с малки букви
 };
 
 function ComponentWithTransition() {
-  return <div style={divStyle}>This should work cross-browser</div>;
+  return <div style={divStyle}>Това би следвало да работи с различни браузъри</div>;
 }
 ```
 
