@@ -157,7 +157,7 @@ testRenderer.root
 testInstance.find(test)
 ```
 
-Намира вътрешна тест инстанция за която `test(testInstance)` връща `true`. Ако `test(testInstance)` не връща `true` за точно една тест инстанция, ще хвърли грешка.
+Намира вътрешна тест инстанция за която `test(testInstance)` връща `true`. Ако `test(testInstance)` не върне `true` за точно една тест инстанция, то ще бъде хвърлена грешка.
 
 ### `testInstance.findByType()` {#testinstancefindbytype}
 
