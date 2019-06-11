@@ -197,7 +197,7 @@ testInstance.findAllByType(type)
 testInstance.findAllByProps(props)
 ```
 
-Намира всички вътрешни тест инстанции с осигурените `props`.
+Намира всички вътрешни тест инстанции с предоставените `props`.
 
 ### `testInstance.instance` {#testinstanceinstance}
 
