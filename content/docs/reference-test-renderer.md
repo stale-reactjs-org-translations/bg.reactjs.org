@@ -133,7 +133,7 @@ testRenderer.update(element)
 ```javascript
 testRenderer.unmount()
 ```
-Ънмаунтва записаното дърво, стартира жизнения цикъл на компонента.
+Разкачва записаното дърво, стартирайки съответния жизнен цикъл на компонента.
 
 ### `testRenderer.getInstance()` {#testrenderergetinstance}
 
