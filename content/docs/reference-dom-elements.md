@@ -94,53 +94,51 @@ function ComponentWithTransition() {
 }
 ```
 
-Style keys are camelCased in order to be consistent with accessing the properties on DOM nodes from JS (e.g. `node.style.backgroundImage`). Vendor prefixes [other than `ms`](https://www.andismith.com/blogs/2012/02/modernizr-prefixed/) should begin with a capital letter. This is why `WebkitTransition` has an uppercase "W".
+Стиловите ключове се изписват в camelCase с цел консистентност с достъпа до свойства на DOM nodes от JS (например `node.style.backgroundImage`). Префиксите за производители [с изключение на `ms`](https://www.andismith.com/blogs/2012/02/modernizr-prefixed/) трябва да започват с главна буква. Това е причината `WebkitTransition` е с главно W.
 
-React will automatically append a "px" suffix to certain numeric inline style properties. If you want to use units other than "px", specify the value as a string with the desired unit. For example:
+React автоматично ще добави 'px' наставка до определени числови стилови свойства изписани в ред. Ако искате да използвате мерни единици различни от 'px', въведете стойността като низ заедно с желаната мерна единица. Например:
 
 ```js
-// Result style: '10px'
+// Резултат style: '10px'
 <div style={{ height: 10 }}>
   Hello World!
 </div>
 
-// Result style: '10%'
+// Резултат style: '10%'
 <div style={{ height: '10%' }}>
   Hello World!
 </div>
 ```
-
-Not all style properties are converted to pixel strings though. Certain ones remain unitless (eg `zoom`, `order`, `flex`). A complete list of unitless properties can be seen [here](https://github.com/facebook/react/blob/4131af3e4bf52f3a003537ec95a1655147c81270/src/renderers/dom/shared/CSSProperty.js#L15-L59).
+Не всички стилови свойства се преобразуват низове с пиксел наставка. Определени такива ще бъдат запазени без мерна единица (например `zoom`, `order`, `flex`). Пълен лист на свойствата без мерни единици могат да бъдат намерени [тук](https://github.com/facebook/react/blob/4131af3e4bf52f3a003537ec95a1655147c81270/src/renderers/dom/shared/CSSProperty.js#L15-L59).
 
 ### suppressContentEditableWarning {#suppresscontenteditablewarning}
 
-Normally, there is a warning when an element with children is also marked as `contentEditable`, because it won't work. This attribute suppresses that warning. Don't use this unless you are building a library like [Draft.js](https://facebook.github.io/draft-js/) that manages `contentEditable` manually.
+Обикновено се изписва предупредително съобщение когато елемент, който има деца, е маркиран като `contentEditable`, защото това няма да сработи. Този атрибут заглушава това предупреждение. Не го използвайте освен ако не разработвате библиотека подобна на [Draft.js](https://facebook.github.io/draft-js/), която ръчно управлява `contentEditable`.
 
 ### suppressHydrationWarning {#suppresshydrationwarning}
 
-If you use server-side React rendering, normally there is a warning when the server and the client render different content. However, in some rare cases, it is very hard or impossible to guarantee an exact match. For example, timestamps are expected to differ on the server and on the client.
+При използването server-side React рендериране се изписва предупредително съобщение в случаите когато сървъра и клиента рендерират различно съдържание. Въпреки това, в някои редки случаи гарантирането на пълно съвпадение е много трудно или почти невъзможно. Например, очаква се да има разлика между времевите клейма на сървъра и клиента.
 
-If you set `suppressHydrationWarning` to `true`, React will not warn you about mismatches in the attributes and the content of that element. It only works one level deep, and is intended to be used as an escape hatch. Don't overuse it. You can read more about hydration in the [`ReactDOM.hydrate()` documentation](/docs/react-dom.html#hydrate).
+Ако зададете стойност `true` на `suppressHydrationWarning`, React няма да ви предупреждава за разлики в атрибутите и съдържанието на въпросния елемент. Това работи само едно ниво надолу и е предназначено да се използва като авариен изход. Не прекалявайте с използването му. Може да прочетете повече за хидрадацията в `документацията на ReactDOM.hydrate()`](/docs/react-dom.html#hydrate).
 
 ### value {#value}
-
-The `value` attribute is supported by `<input>` and `<textarea>` components. You can use it to set the value of the component. This is useful for building controlled components. `defaultValue` is the uncontrolled equivalent, which sets the value of the component when it is first mounted.
+Атрибута `value` се поддържа от `<input>` и `<textarea>` компоненти. Можете да го използвате за да заложите стойността на въпросния компонент. Това е полезно при изгражането на контролирани компоненти. `defaultValue` е неконтрилируемия еквивалент, което задава стойността на компонента при първоначалното му закачане.
 
 ## All Supported HTML Attributes {#all-supported-html-attributes}
 
-As of React 16, any standard [or custom](/blog/2017/09/08/dom-attributes-in-react-16.html) DOM attributes are fully supported.
+Към React 16, всички стандартни [или персонализирани](/blog/2017/09/08/dom-attributes-in-react-16.html) DOM атрибути се поддържат изцяло.
 
-React has always provided a JavaScript-centric API to the DOM. Since React components often take both custom and DOM-related props, React uses the `camelCase` convention just like the DOM APIs:
+React винаги е предоставял JavaScript-ориентирано API към DOM-a. Тъй като React компонентите често приемат едновременно както персонализирани, така и свързани с DOM-а props, React използва `camelCase` конвенцията, водейки се по примера на DOM API-тата:
 
 ```js
-<div tabIndex="-1" />      // Just like node.tabIndex DOM API
-<div className="Button" /> // Just like node.className DOM API
-<input readOnly={true} />  // Just like node.readOnly DOM API
+<div tabIndex="-1" />      // Също като node.tabIndex DOM API-то
+<div className="Button" /> // Също като node.className DOM API-то
+<input readOnly={true} />  // Също като node.readOnly DOM API-то
 ```
 
-These props work similarly to the corresponding HTML attributes, with the exception of the special cases documented above.
+Тези props работят подобно на отговарящите им HTML атрибути, с изключение на специалните случаи документирани по-горе.
 
-Some of the DOM attributes supported by React include:
+Някои от DOM атрибутите които се поддържат от React включват:
 
 ```
 accept acceptCharset accessKey action allowFullScreen alt async autoComplete
@@ -158,7 +156,7 @@ sizes span spellCheck src srcDoc srcLang srcSet start step style summary
 tabIndex target title type useMap value width wmode wrap
 ```
 
-Similarly, all SVG attributes are fully supported:
+Също така, всички SVG се поддържат изцяло:
 
 ```
 accentHeight accumulate additive alignmentBaseline allowReorder alphabetic
@@ -197,4 +195,4 @@ xlinkHref xlinkRole xlinkShow xlinkTitle xlinkType xmlns xmlnsXlink xmlBase
 xmlLang xmlSpace y y1 y2 yChannelSelector z zoomAndPan
 ```
 
-You may also use custom attributes as long as they're fully lowercase.
+Вие също може да използвате персонализирани атрибути стига те да са изцяло изписани с малки бутви.
