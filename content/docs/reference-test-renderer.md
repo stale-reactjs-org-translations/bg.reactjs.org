@@ -110,7 +110,7 @@ TestRenderer.create(element, options);
 testRenderer.toJSON()
 ```
 
-Връща обект преставляващ рендерираното дърво. Това дърво съдържа само елементи специфични за платформата, като `<div>` или `<View>` и техните пропъртита, но не съдържа никакви компоненти написани от потребителя. Това е удобно за [тестване със снапшоти](https://facebook.github.io/jest/docs/en/snapshot-testing.html#snapshot-testing-with-jest).
+Връща обект преставляващ рендерираното дърво. Това дърво съдържа само елементи специфични за платформата, като `<div>` или `<View>` и техните props, но не съдържа никакви компоненти написани от потребителя. Това е удобно за [тестване със снапшоти](https://facebook.github.io/jest/docs/en/snapshot-testing.html#snapshot-testing-with-jest).
 
 ### `testRenderer.toTree()` {#testrenderertotree}
 
