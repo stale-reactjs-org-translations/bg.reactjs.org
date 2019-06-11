@@ -213,7 +213,7 @@ testInstance.instance
 testInstance.type
 ```
 
-Типът на компонент отговарящ на тази тестова инстанция. Например, `<Button />` компонент е от тип `Button`.
+Типът на компонента отговарящ на тази тестова инстанция. Например, `<Button />` компонент е от тип `Button`.
 
 ### `testInstance.props` {#testinstanceprops}
 
