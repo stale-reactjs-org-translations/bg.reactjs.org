@@ -173,7 +173,7 @@ testInstance.findByType(type)
 testInstance.findByProps(props)
 ```
 
-Намира вътрешна тест инстанция с осигурените `props`. Ако няма точно една тест инстанция с осигурените `props`, ще хвърли грешка.
+Намира вътрешна тест инстанция с предоставените `props`. Ако не бъде намерена тест инстанция с предоставените `props`, ще бъде хвърлена грешка.
 
 ### `testInstance.findAll()` {#testinstancefindall}
 
