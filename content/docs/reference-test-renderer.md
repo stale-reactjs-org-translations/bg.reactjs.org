@@ -165,7 +165,7 @@ testInstance.find(test)
 testInstance.findByType(type)
 ```
 
-Намира вътрешна тест инстанция с осигурения `type`. Ако няма точно една тест инстанция с осигурения `type`, ще хвърли грешка.
+Намира вътрешна тест инстанция от предоставения `type`. Ако няма точно една тест инстанция от предоставения `type`, ще бъде хвърлена грешка.
 
 ### `testInstance.findByProps()` {#testinstancefindbyprops}
 
