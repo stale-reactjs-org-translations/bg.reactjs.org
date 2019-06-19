@@ -131,7 +131,7 @@ React автоматично ще добави 'px' наставка до опр
 React винаги е предоставял JavaScript-ориентирано API към DOM дървото. Тъй като React компонентите често приемат едновременно както персонализирани, така и свързани с DOM дървото props, React използва `camelCase` конвенцията, водейки се по примера на DOM API:
 
 ```js
-<div tabIndex="-1" />      // Също като node.tabIndex DOM API-то
+<div tabIndex="-1" />      // Също като node.tabIndex в DOM API
 <div className="Button" /> // Също като node.className DOM API-то
 <input readOnly={true} />  // Също като node.readOnly DOM API-то
 ```
