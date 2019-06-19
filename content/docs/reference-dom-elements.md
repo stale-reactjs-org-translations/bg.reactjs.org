@@ -132,7 +132,7 @@ React винаги е предоставял JavaScript-ориентирано A
 
 ```js
 <div tabIndex="-1" />      // Също като node.tabIndex в DOM API
-<div className="Button" /> // Също като node.className DOM API-то
+<div className="Button" /> // Също като node.className в DOM API
 <input readOnly={true} />  // Също като node.readOnly DOM API-то
 ```
 
