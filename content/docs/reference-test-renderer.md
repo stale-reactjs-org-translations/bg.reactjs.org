@@ -17,7 +17,7 @@ const TestRenderer = require('react-test-renderer'); // ES5 с npm
 
 Този пакет предоставя React рендер, който може да се използва да рендерира React компоненти до чисти JavaScript обекти, без да зависят от DOM-a или нейтив мобилни среди.
 
-Или иначе казано, този пакет прави по-лесно взимането на снапшот от платформата на view йерархията (подобно на DOM дървото) рендерирана от React DOM или React Native компонент без да използваме браузър или [jsdom](https://github.com/tmpvar/jsdom).
+Или иначе казано, този пакет прави по-лесно взимането на snapshot от платформата на view йерархията (подобно на DOM дървото) рендерирана от React DOM или React Native компонент без да използваме браузър или [jsdom](https://github.com/tmpvar/jsdom).
 
 Пример:
 
@@ -38,7 +38,7 @@ console.log(testRenderer.toJSON());
 //   children: [ 'Facebook' ] }
 ```
 
-Може да използвате снапшот тестването на Jest, за да запазите копие на JSON дървото автоматично във файл и да проверите във вашите тестове, че не са се променени снапшотите: [Научете повече за това](https://facebook.github.io/jest/blog/2016/07/27/jest-14.html).
+Може да използвате snapshot тестването на Jest, за да запазите копие на JSON дървото автоматично във файл и да проверите във вашите тестове, че не са се променени snapshot-ите: [Научете повече за това](https://facebook.github.io/jest/blog/2016/07/27/jest-14.html).
 
 Също може да търсите в резултата и да намерите специфични елементи и да направите проверки за тях.
 
@@ -110,7 +110,7 @@ TestRenderer.create(element, options);
 testRenderer.toJSON()
 ```
 
-Връща обект преставляващ рендерираното дърво. Това дърво съдържа само елементи специфични за платформата, като `<div>` или `<View>` и техните props, но не съдържа никакви компоненти написани от потребителя. Това е удобно за [тестване със снапшоти](https://facebook.github.io/jest/docs/en/snapshot-testing.html#snapshot-testing-with-jest).
+Връща обект преставляващ рендерираното дърво. Това дърво съдържа само елементи специфични за платформата, като `<div>` или `<View>` и техните props, но не съдържа никакви компоненти написани от потребителя. Това е удобно за [тестване със snapshot-и](https://facebook.github.io/jest/docs/en/snapshot-testing.html#snapshot-testing-with-jest).
 
 ### `testRenderer.toTree()` {#testrenderertotree}
 
