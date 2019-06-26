@@ -39,7 +39,6 @@ JSON API-то ни връща данни, които изглеждат така
 
 Тъй като, често показваме JSON модел от данни на потребителя, ще откриете че ако вашия модел е направен правилно, вашия потребителски интерфейс (и следователно вашата структура от компоненти) ще напасне лесно. Това е така, защото потребителския интерфейс и модела от данни са склонни да се придържат, към една *информационна архитектура*, което означава, че често разделянето на интерфейса в компоненти е тривиално. Просто разбийте дизайна на компоненти, които представляват точно една частица от вашия модел от данни.
 Since you're often displaying a JSON data model to a user, you'll find that if your model was built correctly, your UI (and therefore your component structure) will map nicely. That's because UI and data models tend to adhere to the same *information architecture*. Separate your UI into components, where each component matches one piece of your data model.
->>>>>>> cb5a61cdbfa5e72646cfb954056c6a4fde490a8c
 
 ![Диаграма на компонента](../images/blog/thinking-in-react-components.png)
 
