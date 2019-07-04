@@ -16,7 +16,6 @@ redirect_from:
 
 ## Преди да започнем {#before-we-start-the-tutorial}
 
-<<<<<<< HEAD
 По време на този урок ще създадем малка игра. **Може да се изкушите да го пропуснете, защото не създавате игри, но дайте му шанс.** Техниките, които ще научите тук, са от основно значение за изграждането на всякакви приложения с React. Овладяването му ще ви помогне да разберете по-добре идеите зад библиотеката.
 =======
 We will build a small game during this tutorial. **You might be tempted to skip it because you're not building games -- but give it a chance.** The techniques you'll learn in the tutorial are fundamental to building any React app, and mastering it will give you a deep understanding of React.
