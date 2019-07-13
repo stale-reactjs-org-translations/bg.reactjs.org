@@ -246,7 +246,6 @@ class Clock extends React.Component {
   }
 ```
 
-<<<<<<< HEAD
 Забележете че запазваме ID-то на таймера директно в `this`.
 =======
 Note how we save the timer ID right on `this` (`this.timerID`).
