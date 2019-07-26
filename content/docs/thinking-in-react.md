@@ -76,7 +76,7 @@ JSON API-то ни връща данни, които изглеждат така
 
 ### Кратка Пауза: Props vs State {#a-brief-interlude-props-vs-state}
 
-Има два типа данни в React: props и state. Важно е да разберете разликата между двете; Погледнете [официалната документация на React](/docs/interactivity-and-dynamic-uis.html) ако не сте сигурни, каква е разликата.
+Има два типа данни в React: props и state. Важно е да разберете разликата между двете; Погледнете [официалната документация на React](/docs/interactivity-and-dynamic-uis.html) ако не сте сигурни, каква е разликата. Погледнете още [FAQ: Каква е разликата между state и props?](/docs/faq-state.html#what-is-the-difference-between-state-and-props)
 
 ## Стъпка 3: Идентифицирай Минималното (но пълно) Представяне На UI State {#step-3-identify-the-minimal-but-complete-representation-of-ui-state}
 
