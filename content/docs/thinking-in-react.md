@@ -49,7 +49,11 @@ JSON API-то ни връща данни, които изглеждат така
   4. **`ProductCategoryRow` (тюркоаз):** показва наименованието на всяка *категория*
   5. **`ProductRow` (червено):** показва ред за всеки *продукт*
 
+<<<<<<< HEAD
 Ако погледнете в `ProductTable`, ще забележите, че главната клетка на таблицата (съдържащи "Name" и "Price" надписи) не е собствен компонент. Това е въпрос на предпочитане и винаги може да има аргумент да се направи по друг начин. За този пример, ние го оставихме като част от `ProductTable` компонента, защото то е част от зареждането на *колекцията от данни*, което е задължение на `ProductTable`. Въпреки това, ако този компонент се усложни (т.е. ако добавим възможност за сортиране), то разбира се има смисъл да го направим отделен компонент `ProductTableHeader`. 
+=======
+If you look at `ProductTable`, you'll see that the table header (containing the "Name" and "Price" labels) isn't its own component. This is a matter of preference, and there's an argument to be made either way. For this example, we left it as part of `ProductTable` because it is part of rendering the *data collection* which is `ProductTable`'s responsibility. However, if this header grows to be complex (e.g., if we were to add affordances for sorting), it would certainly make sense to make this its own `ProductTableHeader` component.
+>>>>>>> 986381c56879983269c52863d9c205c7a7ba0174
 
 Сега като избрахме компонентите от нашия дизайн, нека ги подредим в йерархия. Това е лесно. Компонентите, които се появяват в друг компонент в дизайна, трябва да се появяват като деца в йерархията:
 
