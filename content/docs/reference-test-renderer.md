@@ -104,7 +104,6 @@ TestRenderer.create(element, options);
 ```
 
 Създайте `TestRenderer` инстанция като подадете React елемент. То не използва реален DOM, но все пак рендерира дървото на компонента напълно в паметта, което позволява да направите проверки за него. Връща [TestRenderer instance](#testrenderer-instance).
-=======
 
 ### `TestRenderer.act()` {#testrendereract}
 
