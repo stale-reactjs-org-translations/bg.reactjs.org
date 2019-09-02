@@ -149,7 +149,11 @@ testRenderer.toJSON()
 testRenderer.toTree()
 ```
 
+<<<<<<< HEAD
 Връща обект преставляващ рендерираното дърво. За разлика от `toJSON()`, представянето е по-детайлно от това на `toJSON()`, и включва компоненти написани от потребителя. Най-вероятно не се нуждаете от този метод, освен ако не пишете своя собствена библиотека за проверки върху test renderer.
+=======
+Return an object representing the rendered tree. The representation is more detailed than the one provided by `toJSON()`, and includes the user-written components. You probably don't need this method unless you're writing your own assertion library on top of the test renderer.
+>>>>>>> 941f54180ef5e652221f54ef6d1f6f2e9e063597
 
 ### `testRenderer.update()` {#testrendererupdate}
 
