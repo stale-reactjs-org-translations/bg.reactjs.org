@@ -335,13 +335,9 @@ React Devtools приставката за [Chrome](https://chrome.google.com/we
 
 <img src="../images/tutorial/devtools.png" alt="React Devtools" style="max-width: 100%">
 
-<<<<<<< HEAD
-След като инсталирате React DevTools, можете да щракнете с десния бутон на мишката върху който и да е елемент на страницата, да кликнете върху "Inspect", и да отворите инструментите за разработчици (devtools), а таба React ще се появи като последния раздел вдясно.
-=======
-The React DevTools let you check the props and the state of your React components.
+React DevTools ви позволяват да проверите props и state на вашите компоненти.
 
-After installing React DevTools, you can right-click on any element on the page, click "Inspect" to open the developer tools, and the React tabs ("⚛️ Components" and "⚛️ Profiler") will appear as the last tabs to the right. Use "⚛️ Components" to inspect the component tree.
->>>>>>> 8b30ae43439818009213da86eca872a3d869c5eb
+След като инсталирате React DevTools, можете да щракнете с десния бутон на мишката върху който и да е елемент на страницата, да кликнете върху "Inspect", и да отворите инструментите за разработчици (devtools), а React табовете ("⚛️ Components" и "⚛️ Profiler") ще се появят най-накрая вдясно. Използвайте "⚛️ Components" за да разгледате всички компоненти.
 
 **Все пак имайте предвид, че има няколко допълнителни стъпки, за да можете да видите това в CodePen:**
 
