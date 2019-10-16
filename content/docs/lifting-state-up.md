@@ -324,11 +324,7 @@ class Calculator extends React.Component {
 
 Ако някакви данни могат да бъдат извлечени от props вместо от state, най-вероятно не би трябвало да са в state. Например, вместо да съхраняваме `celsiusValue` и `fahrenheitValue`, ние съхраняваме само последните промени на `temperature` и `scale`. Стойността за другата температурна скала винаги може да бъде изчислена от `render()` метода. Това ни позволява да приложим закръгляване на другото поле без да губим точността на входните данни от потребителя.
 
-<<<<<<< HEAD
-Когато видите грешка в потребителския интерфейс, можете да използвате [React Developer Tools](https://github.com/facebook/react-devtools), за да анализирате props и да търсите нагоре в дървото от компоненти, докато не намерите компонента отговорен за промяната на state-а. Това ще ви позволи да проследявате грешките в кода до техния първоизточник:
-=======
-When you see something wrong in the UI, you can use [React Developer Tools](https://github.com/facebook/react/tree/master/packages/react-devtools) to inspect the props and move up the tree until you find the component responsible for updating the state. This lets you trace the bugs to their source:
->>>>>>> 81124465ac68335b2e3fdf21952a51265de6877f
+Когато видите грешка в потребителския интерфейс, можете да използвате [React Developer Tools](https://github.com/facebook/react/tree/master/packages/react-devtools), за да анализирате props и да търсите нагоре в дървото от компоненти, докато не намерите компонента отговорен за промяната на state-а. Това ще ви позволи да проследявате грешките в кода до техния първоизточник:
 
 <img src="../images/docs/react-devtools-state.gif" alt="Monitoring State in React DevTools" max-width="100%" height="100%">
 
