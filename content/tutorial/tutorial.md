@@ -120,11 +120,7 @@ import './index.css';
 
 ### Помощ, имам проблем! {#help-im-stuck}
 
-<<<<<<< HEAD
-Ако имате проблем, проверете [ресурсите в помощ на общността](/community/support.html). По-специално, [Reactiflux Chat](https://discord.gg/0ZcbPKXt5bZjGY5n) е чудесен начин бързо да получите помощ. Ако не получите желания отговор, или все още имате проблеми, моля, задайте вашите въпроси и ние ще ви помогнем.
-=======
-If you get stuck, check out the [community support resources](/community/support.html). In particular, [Reactiflux Chat](https://discord.gg/reactiflux) is a great way to get help quickly. If you don't receive an answer, or if you remain stuck, please file an issue, and we'll help you out.
->>>>>>> 647b639259919f96e9b667bf41ec16621e1b84dc
+Ако имате проблем, проверете [ресурсите в помощ на общността](/community/support.html). По-специално, [Reactiflux Chat](https://discord.gg/0ZcbPKXt5bZjGY5n) е чудесен начин бързо да получите помощ. Ако не получите желания отговор, или все още имате проблеми, моля, задайте вашите въпроси чрез отваряне на issue билет и ние ще ви помогнем.
 
 ## Преглед {#overview}
 
