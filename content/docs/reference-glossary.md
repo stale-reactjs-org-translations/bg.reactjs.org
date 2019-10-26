@@ -7,11 +7,11 @@ permalink: docs/glossary.html
 
 ---
 
-## Приложение за една страница {#single-page-application}
+## Single-page Application {#single-page-application}
 
-Приложението за една страница е вид приложение, което зарежда една HTML страница заедно с всички необходими активи (например JavaScript и CSS) за цялостната му работа. Всяко последвало взаимодействие с тази страница или отварянето на последващи страници не изискват допълнителни заявки до сървъра или с други думи, страницата не се презарежда.
+Single-page application е вид приложение, което зарежда една HTML страница заедно с всички необходими активи (например JavaScript и CSS) за цялостната му работа. Всяко последвало взаимодействие с тази страница или отварянето на последващи страници не изискват допълнителни заявки до сървъра или с други думи, страницата не се презарежда.
 
-Въпреки, че можете да създадете приложение за една страница на React, това не е задължително изискване. React може да бъде използван и за подобряване на малки части от вече съществуващи уеб страници чрез добавяне на допълнителна интерактивност. Код написан на React може да съжителства съвместно с markup рендериран на сървъра (например от PHP) или с друга client-side библиотека. Всъщност, React се използва точно по този начин във Facebook.
+Въпреки, че можете да създадете Single-page application страница с React, това не е задължително изискване. React може да бъде използван и за подобряване на малки части от вече съществуващи уеб страници чрез добавяне на допълнителна интерактивност. Код написан на React може да съжителства съвместно с markup рендериран на сървъра (например от PHP) или с друга client-side библиотека. Всъщност, React се използва точно по този начин във Facebook.
 
 ## ES6, ES2015, ES2016, и т.н. {#es6-es2015-es2016-etc}
 
@@ -19,26 +19,25 @@ permalink: docs/glossary.html
 
 ## Компилатори {#compilers}
 
-JavaScript компилатора приема JavaScript код, трансформира го и връща JavaScript код в друг формат. Най-често срещаната употреба е приемането на ES6 синтаксис и преработката му в синтаксис, който по-старите браузъри могат да интерпретират. [Babel](https://babeljs.io/)  е компилатора, който се използва най-често съвместно с React.
+JavaScript компилатора приема JavaScript код, трансформира го и връща JavaScript код в друг формат. Най-често срещаната употреба е приемането на ES6 синтаксис и преработката му в синтаксис, който по-старите браузъри могат да интерпретират. [Babel](https://babeljs.io/) е компилатора, който се използва най-често съвместно с React.
 
 ## Bundlers {#bundlers}
 
-Bundlers take JavaScript and CSS code written as separate modules (often hundreds of them), and combine them together into a few files better optimized for the browsers. Some bundlers commonly used in React applications include [Webpack](https://webpack.js.org/) and [Browserify](http://browserify.org/).
+Bundler-a взимат JavaScript и CSS код написан като отделни модули (често стотици) и ги събира заедно в по-малко на брой файлове, които са по-добре оптимизирани за браузърите. Някои bundler-и, които са често използвани в React приложения са [Webpack](https://webpack.js.org/) и [Browserify](http://browserify.org/).
 
-## Package Managers {#package-managers}
+## Мениджъри на пакети {#package-managers}
 
+Мениджърите на пакети са инструменти, които позволяват на потребителя да управлява зависимостите в едно приложение. [npm](https://www.npmjs.com/) и [Yarn](https://yarnpkg.com/) са два такива, които са често използвани при разработката на приложения с React. И двата са клиенти за npm регистъра на пакети.
 Package managers are tools that allow you to manage dependencies in your project. [npm](https://www.npmjs.com/) and [Yarn](https://yarnpkg.com/) are two package managers commonly used in React applications. Both of them are clients for the same npm package registry.
 
 ## CDN {#cdn}
 
-CDN stands for Content Delivery Network. CDNs deliver cached, static content from a network of servers across the globe. 
+CDN е съкращение от Content Delivery Network (Мрежа за доставка на съдържание). CDN-ите предоставят статично съдържание кещирано от мрежа от сървъри по целия свят.
 
 ## JSX {#jsx}
+JSX е разширение на синтаксиса на JavaScript. Наподобява шаблонен език (template language), но има на разположение пълната сила на JavaScript. JSX се компилира до извиквания на `React.createElement()`, което връща обикновени JavaScript обекти наричани "React елементи". За основно въведение в JSX [прочетете документацията тук](/docs/introducing-jsx.html), а по-задълбочен урок по JSX можете да намерите [тук](/docs/jsx-in-depth.html).
 
-JSX is a syntax extension to JavaScript. It is similar to a template language, but it has full power of JavaScript. JSX gets compiled to `React.createElement()` calls which return plain JavaScript objects called "React elements". To get a basic introduction to JSX [see the docs here](/docs/introducing-jsx.html) and find a more in-depth tutorial on JSX [here](/docs/jsx-in-depth.html).
-
-React DOM uses camelCase property naming convention instead of HTML attribute names. For example, `tabindex` becomes `tabIndex` in JSX. The attribute `class` is also written as `className` since `class` is a reserved word in JavaScript:
-
+React DOM замества стандарната конвенция при именуването на HTML атрибути, използвайки camelCase. Например, `tabindex` става `tabIndex` в JSX. Атрибута `class` се изписва като `className`, тъй като `class` е запазена дума в JavaSCript:
 ```js
 const name = 'Clementine';
 ReactDOM.render(
@@ -47,19 +46,19 @@ ReactDOM.render(
 );
 ```  
 
-## [Elements](/docs/rendering-elements.html) {#elements}
+## [Елементи](/docs/rendering-elements.html) {#elements}
 
-React elements are the building blocks of React applications. One might confuse elements with a more widely known concept of "components". An element describes what you want to see on the screen. React elements are immutable.
+React елементите са изграждащите блокове на React приложенията. Човек би сгрешил елементите с по-широко разпознаваемата концепция на "компоненти". Елемента описва какво искате да се визуализира на екрана. React елементите са неизменни.
 
 ```js
 const element = <h1>Hello, world</h1>;
 ```
 
-Typically, elements are not used directly, but get returned from components.
+Обикновено елементите не се използват директно, а се връщат от компоненти.
 
-## [Components](/docs/components-and-props.html) {#components}
+## [Компоненти](/docs/components-and-props.html) {#components}
 
-React components are small, reusable pieces of code that return a React element to be rendered to the page. The simplest version of React component is a plain JavaScript function that returns a React element:
+Компонентите в React са малки, преизползваеми парчета код, които връщат React елемент за да бъде рендериран на страницата. Най-простата версия на React компонент е обикновена JavaScript функция, която връща React елемент:
 
 ```js
 function Welcome(props) {
@@ -67,7 +66,7 @@ function Welcome(props) {
 }
 ```
 
-Components can also be ES6 classes:
+Компоненти могат да бъдат и ES6 класове:
 
 ```js
 class Welcome extends React.Component {
@@ -77,30 +76,30 @@ class Welcome extends React.Component {
 }
 ```
 
-Components can be broken down into distinct pieces of functionality and used within other components. Components can return other components, arrays, strings and numbers. A good rule of thumb is that if a part of your UI is used several times (Button, Panel, Avatar), or is complex enough on its own (App, FeedStory, Comment), it is a good candidate to be a reusable component. Component names should also always start with a capital letter (`<Wrapper/>` **not** `<wrapper/>`). See [this documentation](/docs/components-and-props.html#rendering-a-component) for more information on rendering components. 
+Компоненти могат да бъдат разбити на обособени парчета от функционалности и използвани в други компоненти. Компоненти могат да връщат други компоненти, масиви, низове и числа. Добро правило е, че ако част от вашият UI се използва на няколко места (Button, Panel, Avatar) или е достатъчно сложна сама по себе си (App, FeedStory, Comment), то тази част е кандидат за преизползваем компонент. Имената на компонентите трябва винаги да започват с главна буква (`<Wrapper/>` **,а не** `<wrapper/>`). Прочетете [тази статия](/docs/components-and-props.html#rendering-a-component) за повече информация за рендерирането на компоненти.
 
 ### [`props`](/docs/components-and-props.html) {#props}
 
-`props` are inputs to a React component. They are data passed down from a parent component to a child component.
+`props` е вид входяща информация за един React компонент. Те се предават от компонент-родител към компонент-наследник.
 
-Remember that `props` are readonly. They should not be modified in any way:
+Запомнете, че `props` са само за четене. Те не бива да се модифицират по какъвто и да е начин:
 
 ```js
-// Wrong!
+// Грешно!
 props.number = 42;
 ```
 
-If you need to modify some value in response to user input or a network response, use `state` instead.
+Ако ви се налага да модифицирате дадена стойност в отговор на входяща информация от потребител или мрежови отговор, то използвайте `state`.
 
 ### `props.children` {#propschildren}
 
-`props.children` is available on every component. It contains the content between the opening and closing tags of a component. For example:
+`props.children` е на разположение във всеки компонент. Стойността му е съдържанието между отварящите и затварящи тагове на компонент. Например:
 
 ```js
 <Welcome>Hello world!</Welcome>
 ```
 
-The string `Hello world!` is available in `props.children` in the `Welcome` component:
+Низа `Hello world!` е наличен като стойност в `props.children` в компонент `Welcome`:
 
 ```js
 function Welcome(props) {
@@ -108,7 +107,7 @@ function Welcome(props) {
 }
 ```
 
-For components defined as classes, use `this.props.children`:
+За компоненти дефинирани като класове, използвайте `this.props.children`:
 
 ```js
 class Welcome extends React.Component {
@@ -120,17 +119,17 @@ class Welcome extends React.Component {
 
 ### [`state`](/docs/state-and-lifecycle.html#adding-local-state-to-a-class) {#state}
 
-A component needs `state` when some data associated with it changes over time. For example, a `Checkbox` component might need `isChecked` in its state, and a `NewsFeed` component might want to keep track of `fetchedPosts` in its state.
+Компонент се нуждае от `state` когато дадени данни свързани с него се променят във времето. Например, `Checkbox` компонент може да се нуждае от стойност `isChecked` в неговия state, a компонент `NewsFeed` може да има нуждата да запазва `fetchedPosts` в неговия state.
 
-The most important difference between `state` and `props` is that `props` are passed from a parent component, but `state` is managed by the component itself. A component cannot change its `props`, but it can change its `state`. To do so, it must call `this.setState()`. Only components defined as classes can have state.
+Основната разлика между `state` и `props` е, че `props` се предават от компонент-, а `state` се управлява от самият компонент. Компонент не може да променя неговите `props`, но може да променя своят `state`. За да го направи, трябва да извика `this.setState()`. Само компоненти дефинирани като класове могат да имат state.
 
-For each particular piece of changing data, there should be just one component that "owns" it in its state. Don't try to synchronize states of two different components. Instead, [lift it up](/docs/lifting-state-up.html) to their closest shared ancestor, and pass it down as props to both of them.
+За всяка индивидуална част променливи данни трябва да има един компонент, който отговаря за запазването им в собствения си state. Не се опитвайте да синхронизирате състоянията на два различни компонента. Вместо това [го издигнете](/docs/lifting-state-up.html) до най-близкия общ прародител и го предайте като props на всеки един от тези компоненти.
 
-## [Lifecycle Methods](/docs/state-and-lifecycle.html#adding-lifecycle-methods-to-a-class) {#lifecycle-methods}
+## [Lifecycle методи](/docs/state-and-lifecycle.html#adding-lifecycle-methods-to-a-class) {#lifecycle-methods}
 
-Lifecycle methods are custom functionality that gets executed during the different phases of a component. There are methods available when the component gets created and inserted into the DOM ([mounting](/docs/react-component.html#mounting)), when the component updates, and when the component gets unmounted or removed from the DOM.
+Lifecycle методите са персонализирана функционалност, която се изпълнява по време на различните фази на компонента. Има методи, които са налични при създаването и добавянето на компонента към DOM ([монтиране](/docs/react-component.html#mounting)), когато компонента се актуализира и когато компонента се демонтира или премахне от DOM.
 
- ## [Controlled](/docs/forms.html#controlled-components) vs. [Uncontrolled Components](/docs/uncontrolled-components.html)
+ ## [Контролирани](/docs/forms.html#controlled-components) и [Неконтролирани Компоненти](/docs/uncontrolled-components.html)
 
 React has two different approaches to dealing with form inputs. 
 
