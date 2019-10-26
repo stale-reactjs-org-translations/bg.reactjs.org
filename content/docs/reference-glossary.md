@@ -13,13 +13,13 @@ permalink: docs/glossary.html
 
 Въпреки, че можете да създадете приложение за една страница на React, това не е задължително изискване. React може да бъде използван и за подобряване на малки части от вече съществуващи уеб страници чрез добавяне на допълнителна интерактивност. Код написан на React може да съжителства съвместно с markup рендериран на сървъра (например от PHP) или с друга client-side библиотека. Всъщност, React се използва точно по този начин във Facebook.
 
-## ES6, ES2015, ES2016, etc {#es6-es2015-es2016-etc}
+## ES6, ES2015, ES2016, и т.н. {#es6-es2015-es2016-etc}
 
-These acronyms all refer to the most recent versions of the ECMAScript Language Specification standard, which the JavaScript language is an implementation of. The ES6 version (also known as ES2015) includes many additions to the previous versions such as: arrow functions, classes, template literals, `let` and `const` statements. You can learn more about specific versions [here](https://en.wikipedia.org/wiki/ECMAScript#Versions).
+Всички тези акроними се отнасят за най-скорошните версии на стандарта за спецификация на езика ECMAScript, kato JavaScript е негова имплементация. Версита ES6 (още известна като ES2015) включва много нови допълнения към предишните версии, като например: arrow functions, classes, template literals, `let` и `const`. Можете да научите повече относно специфичните версии [тук](https://en.wikipedia.org/wiki/ECMAScript#Versions).
 
-## Compilers {#compilers}
+## Компилатори {#compilers}
 
-A JavaScript compiler takes JavaScript code, transforms it and returns JavaScript code in a different format. The most common use case is to take ES6 syntax and transform it into syntax that older browsers are capable of interpreting. [Babel](https://babeljs.io/) is the compiler most commonly used with React.
+JavaScript компилатора приема JavaScript код, трансформира го и връща JavaScript код в друг формат. Най-често срещаната употреба е приемането на ES6 синтаксис и преработката му в синтаксис, който по-старите браузъри могат да интерпретират. [Babel](https://babeljs.io/)  е компилатора, който се използва най-често съвместно с React.
 
 ## Bundlers {#bundlers}
 
