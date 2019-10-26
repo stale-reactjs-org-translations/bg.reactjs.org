@@ -1,17 +1,17 @@
 ---
 id: glossary
-title: Glossary of React Terms
+title: Терминологичен речник на React
 layout: docs
 category: Reference
 permalink: docs/glossary.html
 
 ---
 
-## Single-page Application {#single-page-application}
+## Приложение за една страница {#single-page-application}
 
-A single-page application is an application that loads a single HTML page and all the necessary assets (such as JavaScript and CSS) required for the application to run. Any interactions with the page or subsequent pages do not require a round trip to the server which means the page is not reloaded.
+Приложението за една страница е вид приложение, което зарежда една HTML страница заедно с всички необходими активи (например JavaScript и CSS) за цялостната му работа. Всяко последвало взаимодействие с тази страница или отварянето на последващи страници не изискват допълнителни заявки до сървъра или с други думи, страницата не се презарежда.
 
-Though you may build a single-page application in React, it is not a requirement. React can also be used for enhancing small parts of existing websites with additional interactivity. Code written in React can coexist peacefully with markup rendered on the server by something like PHP, or with other client-side libraries. In fact, this is exactly how React is being used at Facebook.
+Въпреки, че можете да създадете приложение за една страница на React, това не е задължително изискване. React може да бъде използван и за подобряване на малки части от вече съществуващи уеб страници чрез добавяне на допълнителна интерактивност. Код написан на React може да съжителства съвместно с markup рендериран на сървъра (например от PHP) или с друга client-side библиотека. Всъщност, React се използва точно по този начин във Facebook.
 
 ## ES6, ES2015, ES2016, etc {#es6-es2015-es2016-etc}
 
