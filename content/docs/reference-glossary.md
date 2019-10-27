@@ -131,13 +131,13 @@ Lifecycle методите са персонализирана функцион�
 
  ## [Контролирани](/docs/forms.html#controlled-components) и [Неконтролирани Компоненти](/docs/uncontrolled-components.html)
 
-React has two different approaches to dealing with form inputs. 
+В React има два различни подхода за работа с input елементи в една форма.
 
-An input form element whose value is controlled by React is called a *controlled component*. When a user enters data into a controlled component a change event handler is triggered and your code decides whether the input is valid (by re-rendering with the updated value). If you do not re-render then the form element will remain unchanged.
+Input елемент, чиято стойност се контролира от React се нарича *контролиран компонент*. Когато потребителя въведе данни в контролиран компонент, манипулатор на събития с промени бива задействан и вашият код решава дали входящите данни са валидни (чрез повторно рендериране с променените стойности). Ако вие не рендерирате повторно, то тогава елемента на формата ще остане непроменен.
 
-An *uncontrolled component* works like form elements do outside of React. When a user inputs data into a form field (an input box, dropdown, etc) the updated information is reflected without React needing to do anything. However, this also means that you can't force the field to have a certain value.
+*Неконтролирания компонент* работи като стандартен елемент на форма извън React. Когато потребител въведе данни във поле на форма (input поле, падащо меню и т.н.), променената информация се отразява без да се налага React да се намиса. Това обаче означава, че вие не можете да накарате полето да притежава определена стойност.
 
-In most cases you should use controlled components.
+В повечето случаи следва да използвате контролирани компоненти.
 
 ## [Keys](/docs/lists-and-keys.html) {#keys}
 
