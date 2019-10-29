@@ -6,13 +6,13 @@ layout: docs
 category: Reference
 ---
 
-This reference guide documents the `SyntheticEvent` wrapper that forms part of React's Event System. See the [Handling Events](/docs/handling-events.html) guide to learn more.
+Това ръководство документира контейнера `SyntheticEvent`, който е част от системата за събития на React. Вижте ръководството [Handling Events](/docs/handling-events.html), за да научите повече.
 
-## Overview {#overview}
+## Преглед {#overview}
 
-Your event handlers will be passed instances of `SyntheticEvent`, a cross-browser wrapper around the browser's native event. It has the same interface as the browser's native event, including `stopPropagation()` and `preventDefault()`, except the events work identically across all browsers.
+Вашите слушатели на събития ще приемат инстанции на `SyntheticEvent`, cross-browser контейнер около оригиналното събитие на браузъра. Той има същия интерфейс като оригиналното събитие, включително `stopPropagation()` и `preventDefault()`, с тази разлика че събитията работят във всички браузъри.
 
-If you find that you need the underlying browser event for some reason, simply use the `nativeEvent` attribute to get it. Every `SyntheticEvent` object has the following attributes:
+Ако установите, че се нуждаете от оригиналното браузър събитие по някаква причина, просто използвайте атрибута `nativeEvent`, за да го достъпите. Всеки обект `SyntheticEvent` има следните атрибути:
 
 ```javascript
 boolean bubbles
@@ -31,15 +31,15 @@ number timeStamp
 string type
 ```
 
-> Note:
+> Бележка:
 >
-> As of v0.14, returning `false` from an event handler will no longer stop event propagation. Instead, `e.stopPropagation()` or `e.preventDefault()` should be triggered manually, as appropriate.
+> След версия v0.14, връщайки `false` от слушател на събития не спира event propagation-a. Вместо това, `e.stopPropagation()` или `e.preventDefault()` трябва да бъдат извикани ръчно, там където е нужно.
 
 ### Event Pooling {#event-pooling}
 
-The `SyntheticEvent` is pooled. This means that the `SyntheticEvent` object will be reused and all properties will be nullified after the event callback has been invoked.
-This is for performance reasons.
-As such, you cannot access the event in an asynchronous way.
+`SyntheticEvent` се преизползва. Това означава, че обектът `SyntheticEvent` ще бъде използван отново и всички свойства ще бъдат анулирани след извикване на събитието.
+Това е във връзка с производителността.
+Заради това не можете да получите достъп до събитието по асинхронен начин.
 
 ```javascript
 function onClick(event) {
@@ -60,15 +60,15 @@ function onClick(event) {
 }
 ```
 
-> Note:
+> Бележка:
 >
-> If you want to access the event properties in an asynchronous way, you should call `event.persist()` on the event, which will remove the synthetic event from the pool and allow references to the event to be retained by user code.
+> Ако искате да получите достъп до свойствата на събитието по асинхронен начин, трябва да извикате `event.persist()`, което ще премахне синтетичното събитие от pool-a и ще позволи референциите към събитието да се запазят във вашия код.
 
-## Supported Events {#supported-events}
+## Събития, които React поддържа {#supported-events}
 
-React normalizes events so that they have consistent properties across different browsers.
+React нормализира събитията, така че да имат едни и същи свойства в различните браузъри.
 
-The event handlers below are triggered by an event in the bubbling phase. To register an event handler for the capture phase, append `Capture` to the event name; for example, instead of using `onClick`, you would use `onClickCapture` to handle the click event in the capture phase.
+Следните слушатели на събития се задействат от оригиналните събития в bubbling фазата. За да регистрирате слушател на събитие за capture фазата, добавете `Capture` към името на събитието; например, вместо да използвате `onClick`, използвайте `onClickCapture`.
 
 - [Clipboard Events](#clipboard-events)
 - [Composition Events](#composition-events)
@@ -89,17 +89,17 @@ The event handlers below are triggered by an event in the bubbling phase. To reg
 
 * * *
 
-## Reference {#reference}
+## Описание {#reference}
 
 ### Clipboard Events {#clipboard-events}
 
-Event names:
+Име на събитията:
 
 ```
 onCopy onCut onPaste
 ```
 
-Properties:
+Свойства:
 
 ```javascript
 DOMDataTransfer clipboardData
@@ -109,13 +109,13 @@ DOMDataTransfer clipboardData
 
 ### Composition Events {#composition-events}
 
-Event names:
+Имена на събитията:
 
 ```
 onCompositionEnd onCompositionStart onCompositionUpdate
 ```
 
-Properties:
+Свойства:
 
 ```javascript
 string data
@@ -126,13 +126,13 @@ string data
 
 ### Keyboard Events {#keyboard-events}
 
-Event names:
+Имена на събитията:
 
 ```
 onKeyDown onKeyPress onKeyUp
 ```
 
-Properties:
+Свойства:
 
 ```javascript
 boolean altKey
@@ -149,21 +149,21 @@ boolean shiftKey
 number which
 ```
 
-The `key` property can take any of the values documented in the [DOM Level 3 Events spec](https://www.w3.org/TR/uievents-key/#named-key-attribute-values).
+Свойството `key` може да приеме всяка от стойностите, документирани в [DOM Level 3 Events spec](https://www.w3.org/TR/uievents-key/#named-key-attribute-values).
 
 * * *
 
 ### Focus Events {#focus-events}
 
-Event names:
+Имена на събитията:
 
 ```
 onFocus onBlur
 ```
 
-These focus events work on all elements in the React DOM, not just form elements.
+Тези събития за фокус работят върху всички елементи в React DOM, а не само на елементи във форми.
 
-Properties:
+Свойства:
 
 ```javascript
 DOMEventTarget relatedTarget
@@ -173,19 +173,19 @@ DOMEventTarget relatedTarget
 
 ### Form Events {#form-events}
 
-Event names:
+Имена на събитията:
 
 ```
 onChange onInput onInvalid onSubmit
 ```
 
-For more information about the onChange event, see [Forms](/docs/forms.html).
+За повече информация относно onChange събитието, прегледайте [Forms](/docs/forms.html).
 
 * * *
 
 ### Mouse Events {#mouse-events}
 
-Event names:
+Имена на събитията:
 
 ```
 onClick onContextMenu onDoubleClick onDrag onDragEnd onDragEnter onDragExit
@@ -193,9 +193,9 @@ onDragLeave onDragOver onDragStart onDrop onMouseDown onMouseEnter onMouseLeave
 onMouseMove onMouseOut onMouseOver onMouseUp
 ```
 
-The `onMouseEnter` and `onMouseLeave` events propagate from the element being left to the one being entered instead of ordinary bubbling and do not have a capture phase.
+Събитията `onMouseEnter` и `onMouseLeave` се разпространяват от елемента, който напускаме, а не от този в който въвеждаме. Те нямат capture фаза.
 
-Properties:
+Свойства:
 
 ```javascript
 boolean altKey
@@ -218,18 +218,19 @@ boolean shiftKey
 
 ### Pointer Events {#pointer-events}
 
-Event names:
+Имена на събитията:
 
 ```
 onPointerDown onPointerMove onPointerUp onPointerCancel onGotPointerCapture
 onLostPointerCapture onPointerEnter onPointerLeave onPointerOver onPointerOut
 ```
 
-The `onPointerEnter` and `onPointerLeave` events propagate from the element being left to the one being entered instead of ordinary bubbling and do not have a capture phase.
+Събитията `onPointerEnter` и `onPointerLeave` се разпространяват от елемента, който напускаме, а не от този който посочваме. Те нямат capture фаза.
 
-Properties:
+Свойства:
 
-As defined in the [W3 spec](https://www.w3.org/TR/pointerevents/), pointer events extend [Mouse Events](#mouse-events) with the following properties:
+
+Както е дефинирано в спецификацията [W3](https://www.w3.org/TR/pointerevents/), събития за посочване наследяват [Mouse Events](#mouse-events) със следните Свойства:
 
 ```javascript
 number pointerId
@@ -244,17 +245,17 @@ string pointerType
 boolean isPrimary
 ```
 
-A note on cross-browser support:
+Бележка за поддръжка в различните браузъри:
 
-Pointer events are not yet supported in every browser (at the time of writing this article, supported browsers include: Chrome, Firefox, Edge, and Internet Explorer). React deliberately does not polyfill support for other browsers because a standard-conform polyfill would significantly increase the bundle size of `react-dom`.
+Събитията за посочване все още не се поддържат във всеки браузър (към момента на писане на тази статия браузъри с поддръжка са: Chrome, Firefox, Edge и Internet Explorer). React умишлено не предлага polyfill за други браузъри, тъй като стандартния polyfill значително ще увеличи размера на пакета `react-dom`.
 
-If your application requires pointer events, we recommend adding a third party pointer event polyfill.
+Ако приложението ви изисква събития за посочване, препоръчваме да добавите polyfill допълнително.
 
 * * *
 
 ### Selection Events {#selection-events}
 
-Event names:
+Име на събитията:
 
 ```
 onSelect
@@ -264,13 +265,13 @@ onSelect
 
 ### Touch Events {#touch-events}
 
-Event names:
+Имена на събитията:
 
 ```
 onTouchCancel onTouchEnd onTouchMove onTouchStart
 ```
 
-Properties:
+Свойства:
 
 ```javascript
 boolean altKey
@@ -287,13 +288,13 @@ DOMTouchList touches
 
 ### UI Events {#ui-events}
 
-Event names:
+Име на събитията:
 
 ```
 onScroll
 ```
 
-Properties:
+Свойства:
 
 ```javascript
 number detail
@@ -304,13 +305,13 @@ DOMAbstractView view
 
 ### Wheel Events {#wheel-events}
 
-Event names:
+Име на събитията:
 
 ```
 onWheel
 ```
 
-Properties:
+Свойства:
 
 ```javascript
 number deltaMode
@@ -323,7 +324,7 @@ number deltaZ
 
 ### Media Events {#media-events}
 
-Event names:
+Имена на събитията:
 
 ```
 onAbort onCanPlay onCanPlayThrough onDurationChange onEmptied onEncrypted
@@ -336,7 +337,7 @@ onTimeUpdate onVolumeChange onWaiting
 
 ### Image Events {#image-events}
 
-Event names:
+Имена на събитията:
 
 ```
 onLoad onError
@@ -346,13 +347,13 @@ onLoad onError
 
 ### Animation Events {#animation-events}
 
-Event names:
+Имена на събитията:
 
 ```
 onAnimationStart onAnimationEnd onAnimationIteration
 ```
 
-Properties:
+Свойства:
 
 ```javascript
 string animationName
@@ -364,13 +365,13 @@ float elapsedTime
 
 ### Transition Events {#transition-events}
 
-Event names:
+Име на събитията:
 
 ```
 onTransitionEnd
 ```
 
-Properties:
+Свойства:
 
 ```javascript
 string propertyName
@@ -382,7 +383,7 @@ float elapsedTime
 
 ### Other Events {#other-events}
 
-Event names:
+Име на събитията:
 
 ```
 onToggle
