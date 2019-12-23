@@ -36,7 +36,11 @@ React поддържа всички популярни браузъри, вкл�
 ReactDOM.render(element, container[, callback])
 ```
 
+<<<<<<< HEAD
 Рендерира React елемент в DOM в предоставения `container` и връща [референция](/docs/more-about-refs.html) на компонента (или връща `null` за [компоненти без state](/docs/components-and-props.html#functional-and-class-components)).
+=======
+Render a React element into the DOM in the supplied `container` and return a [reference](/docs/more-about-refs.html) to the component (or returns `null` for [stateless components](/docs/components-and-props.html#function-and-class-components)).
+>>>>>>> 1dd4e325f070ce198aed69fd9cc5467563679e54
 
 Aко React елемента е бил рендериран в `container` преди това, ще направи ъпдейт на елемента и ще промени само DOM-а, така че да отрази последната версия на React елемента.
 
