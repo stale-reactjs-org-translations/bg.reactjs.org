@@ -56,7 +56,11 @@ function ActionLink() {
 
 Тук `е` е синтетично събитие. React определя тези синтетични събития според [W3C spec](https://www.w3.org/TR/DOM-Level-3-Events/), така че не е нужно да се притеснявате за съвместимостта с различни браузъри. Вижте документацията [`SyntheticEvent`](/docs/events.html), за да научите повече.
 
+<<<<<<< HEAD
 Когато използвате React, обикновено не е нужно да се извиква `addEventListener`, за да добавите слушатели(listeners) към DOM елемент след неговото създаване. Вместо това, просто осигурете слушател, когато елементът е първоначално визуализиран.
+=======
+When using React, you generally don't need to call `addEventListener` to add listeners to a DOM element after it is created. Instead, just provide a listener when the element is initially rendered.
+>>>>>>> 5b6ad388804aaa5cf5504ccd04329f52960e17ae
 
 Когато дефинирате компонент чрез [ES6 клас](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes), един често срещан модел е манипулаторът на събития да бъде дефиниран като метод на класа. Например, този `Toggle` компонент създава бутон, който позволява на потребителя да превключва между "ON" и "OFF" състояния:
 
@@ -142,7 +146,11 @@ class LoggingButton extends React.Component {
 
 ## Подаване на аргументи към обработващи събития функции {#passing-arguments-to-event-handlers}
 
+<<<<<<< HEAD
 Често, искате да подадете допълнителен параметър на функция обработваща събития, която е вътре в цикъл. Например, ако `id` е идентификатор на ред, всеки един от следните примери ще работи:
+=======
+Inside a loop, it is common to want to pass an extra parameter to an event handler. For example, if `id` is the row ID, either of the following would work:
+>>>>>>> 5b6ad388804aaa5cf5504ccd04329f52960e17ae
 
 ```js
 <button onClick={(e) => this.deleteRow(id, e)}>Изтриване на ред</button>
