@@ -37,7 +37,11 @@ redirect_from:
 
 В този урок ще разработим интерактивна игра tic-tac-toe с React.
 
+<<<<<<< HEAD
 Можете да видите завършения вариант тук: **[Краен резултат](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**. Ако кодът за вас в момента е лишен от смисъл, или ако не сте запознати със синтаксиса, не се притеснявайте! Целта на този урок е да ви помогне да разберете React и неговия синтаксис.
+=======
+We recommend that you check out the tic-tac-toe game before continuing with the tutorial. One of the features that you'll notice is that there is a numbered list to the right of the game's board. This list gives you a history of all of the moves that have occurred in the game, and it is updated as the game progresses.
+>>>>>>> 4367566bddd06ed9dfbd6b1c3f45f9925e60b2c3
 
 Препоръчваме ви да прегледате играта на tic-tac-toe преди да продължите с урока. Една от функциите, които ще забележите, е че в дясната част на дъската има номериран списък. Този списък ви дава история на всички ходове, които са направени, и се актуализира с напредването на играта.
 
