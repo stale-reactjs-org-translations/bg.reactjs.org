@@ -44,7 +44,11 @@ class Welcome extends React.Component {
 
 Горните два компонента са еквивалентни от гледна точка на React.
 
+<<<<<<< HEAD
 Класовете имат някои допълнителни функции, които ще обсъдим в [следващите раздели](/docs/state-and-lifecycle.html). Дотогава ще използваме функция компоненти заради тяхната компактност.
+=======
+Function and Class components both have some additional features that we will discuss in the [next sections](/docs/state-and-lifecycle.html).
+>>>>>>> 2ef0ee1e4fc4ce620dce1f3e0530471195dc64d1
 
 ## Rendering a Component {#rendering-a-component}
 
@@ -60,7 +64,11 @@ const element = <div />;
 const element = <Welcome name="Иван" />;
 ```
 
+<<<<<<< HEAD
 Когато React срещне елемент, представляващ дефиниран от потребителя компонент, той предава JSX атрибутите на този компонент като един обект. Ние наричаме този обект "props".
+=======
+When React sees an element representing a user-defined component, it passes JSX attributes and children to this component as a single object. We call this object "props".
+>>>>>>> 2ef0ee1e4fc4ce620dce1f3e0530471195dc64d1
 
 Този код например показва „Здравейте, Иван“ на страницата:
 
