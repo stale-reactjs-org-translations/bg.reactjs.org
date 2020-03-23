@@ -34,7 +34,11 @@ const element = <h1>Hello, world</h1>;
 
 Приложенията, изградени само с React, обикновено имат един root DOM node. Ако интегрирате React в съществуващо приложение, може да имате много изолирани DOM roots.
 
+<<<<<<< HEAD
 За да рендерирате React елемент в root DOM node, подайте го на `ReactDOM.render()`:
+=======
+To render a React element into a root DOM node, pass both to [`ReactDOM.render()`](/docs/react-dom.html#render):
+>>>>>>> 7e4f503d86bee08b88eed77a6c9d06077863a27c
 
 `embed:rendering-elements/render-an-element.js`
 
@@ -46,7 +50,11 @@ const element = <h1>Hello, world</h1>;
 
 React елементите са [immutable](https://en.wikipedia.org/wiki/Immutable_object). След като създадете елемент, не можете да променяте неговите деца или атрибути. Елементът е като един кадър от филм: той визуализира потребителския интерфейс в определен момент във времето.
 
+<<<<<<< HEAD
 С нашите познания досега единственият начин да обновите потребителския интерфейс е да създадете нов елемент и да го подадем на `ReactDOM.render()`.
+=======
+With our knowledge so far, the only way to update the UI is to create a new element, and pass it to [`ReactDOM.render()`](/docs/react-dom.html#render).
+>>>>>>> 7e4f503d86bee08b88eed77a6c9d06077863a27c
 
 Разгледайте този пример на часовник:
 
@@ -54,11 +62,19 @@ React елементите са [immutable](https://en.wikipedia.org/wiki/Immuta
 
 [](codepen://rendering-elements/update-rendered-element)
 
+<<<<<<< HEAD
 Той извиква `ReactDOM.render()` всяка секунда от [`setInterval()`](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval) функцията.
+=======
+It calls [`ReactDOM.render()`](/docs/react-dom.html#render) every second from a [`setInterval()`](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval) callback.
+>>>>>>> 7e4f503d86bee08b88eed77a6c9d06077863a27c
 
 >**Забележка:**
 >
+<<<<<<< HEAD
 >На практика повечето React приложения извикват веднъж `ReactDOM.render()`. В следващите раздели ще научим как такъв код се капсулира в [компоненти имащи състояние](/docs/state-and-lifecycle.html).
+=======
+>In practice, most React apps only call [`ReactDOM.render()`](/docs/react-dom.html#render) once. In the next sections we will learn how such code gets encapsulated into [stateful components](/docs/state-and-lifecycle.html).
+>>>>>>> 7e4f503d86bee08b88eed77a6c9d06077863a27c
 >
 >Препоръчваме ви да не прескачате теми, защото те зависят една от друга.
 
@@ -70,6 +86,12 @@ React DOM сравнява елемента и неговите деца с пр
 
 ![DOM инспектор показва подробни актуализации](../images/docs/granular-dom-updates.gif)
 
+<<<<<<< HEAD
 Въпреки че създаваме елемент, описващ цялото дърво на потребителския интерфейс на всяка итерация, само текстовият node, чието съдържание се е променило, се актуализира от React DOM.
 
 Според нас, трябва да мислите как потребителският интерфейс трябва да изглежда в даден момент, а не как да го промените с времето. Това елиминира голям спектър от грешки.
+=======
+Even though we create an element describing the whole UI tree on every tick, only the text node whose contents have changed gets updated by React DOM.
+
+In our experience, thinking about how the UI should look at any given moment, rather than how to change it over time, eliminates a whole class of bugs.
+>>>>>>> 7e4f503d86bee08b88eed77a6c9d06077863a27c
