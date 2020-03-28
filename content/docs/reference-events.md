@@ -187,7 +187,7 @@ onChange onInput onInvalid onReset onSubmit
 
 ### Generic Events {#generic-events}
 
-Event names:
+Имена на събитията:
 
 ```
 onError onLoad
@@ -240,7 +240,6 @@ onLostPointerCapture onPointerEnter onPointerLeave onPointerOver onPointerOut
 Събитията `onPointerEnter` и `onPointerLeave` се разпространяват от елемента, който напускаме, а не от този който посочваме. Те нямат capture фаза.
 
 Свойства:
-
 
 Както е дефинирано в спецификацията [W3](https://www.w3.org/TR/pointerevents/), събития за посочване наследяват [Mouse Events](#mouse-events) със следните Свойства:
 

@@ -292,11 +292,7 @@ class Square extends React.Component {
 
 >Забележка
 >
-<<<<<<< HEAD
 >В [JavaScript класовете](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes), трябва винаги да извикваме `super` когато дефинираме конструктор в наследяващия клас. Ако дефинираме React компонент като клас и добавим конструктор то той трябва винаги да започнем със `super(props)`.
-=======
->In [JavaScript classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes), you need to always call `super` when defining the constructor of a subclass. All React component classes that have a `constructor` should start with a `super(props)` call.
->>>>>>> 9fa6418ada9b24bdacf4cb1facbe69160d0740a9
 
 Сега ще променим метода `render` на `Square`, за да покажем стойността на текущото състояние при кликване:
 

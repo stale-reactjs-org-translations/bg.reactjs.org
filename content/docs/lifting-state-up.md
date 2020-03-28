@@ -305,6 +305,7 @@ class Calculator extends React.Component {
 
 Нека резюмираме какво се случва, когато някой от input-ите бъде променен:
 
+
 * React извиква подадената на `onChange` фукция на `<input>` от DOM. В нашият случай това е метода `handleChange` в компонента `TemperatureInput`.
 * Метода `handleChange` в компонента `TemperatureInput` извиква `this.props.onTemperatureChange()` с новоподадената стойност. Неговите props, включително и `onTemperatureChange`, се подават от родителският му компонент `Calculator`.
 * При рендерирането си компонента `Calculator`, подава метода `handleCelsiusChange` на prop-a `onTemperatureChange` в Целзий `TemperatureInput` компонента, също така подава и метода `handleFahrenheitChange` на prop-а `onTemperatureChange` във Фаренхайт `TemperatureInput` компонента. Така че всеки от двата метода на `Calculator`, ще бъде извикан в зависимост от това кой input бъде променен.
