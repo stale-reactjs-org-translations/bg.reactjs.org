@@ -305,8 +305,7 @@ class Calculator extends React.Component {
 
 Нека резюмираме какво се случва, когато някой от input-ите бъде променен:
 
-<<<<<<< HEAD
-* React извиква подадената на `onChange` фукцията. В нашият случай това е метода `handleChange` в компонента `TemperatureInput`.
+* React извиква подадената на `onChange` фукция на `<input>` от DOM. В нашият случай това е метода `handleChange` в компонента `TemperatureInput`.
 * Метода `handleChange` в компонента `TemperatureInput` извиква `this.props.onTemperatureChange()` с новоподадената стойност. Неговите props, включително и `onTemperatureChange`, се подават от родителският му компонент `Calculator`.
 * При рендерирането си компонента `Calculator`, подава метода `handleCelsiusChange` на prop-a `onTemperatureChange` в Целзий `TemperatureInput` компонента, също така подава и метода `handleFahrenheitChange` на prop-а `onTemperatureChange` във Фаренхайт `TemperatureInput` компонента. Така че всеки от двата метода на `Calculator`, ще бъде извикан в зависимост от това кой input бъде променен.
 * Вътре в тези методи, компонента `Calculator` изисква от React да бъде рендериран наново, като извиква `this.setState()` с нововъведените стойностти за температура и температурна скала.
@@ -314,16 +313,6 @@ class Calculator extends React.Component {
 * React извиква `render` метода на всеки от `TemperatureInput` компонентите с подадените от `Calculator` props. И така разбира как трябва да изглежда потребителският интерфейс.
 * React извиква `render` метода на компонента `BoilingVerdict`, подавайки температурата по Целзий в props.
 * React актуализира DOM дървото в съответствие с въведениете стойностите. Последно промененият input ще получи стойността си и другият input ще получи новата си стойност след преобразуването на температура.
-=======
-* React calls the function specified as `onChange` on the DOM `<input>`. In our case, this is the `handleChange` method in the `TemperatureInput` component.
-* The `handleChange` method in the `TemperatureInput` component calls `this.props.onTemperatureChange()` with the new desired value. Its props, including `onTemperatureChange`, were provided by its parent component, the `Calculator`.
-* When it previously rendered, the `Calculator` had specified that `onTemperatureChange` of the Celsius `TemperatureInput` is the `Calculator`'s `handleCelsiusChange` method, and `onTemperatureChange` of the Fahrenheit `TemperatureInput` is the `Calculator`'s `handleFahrenheitChange` method. So either of these two `Calculator` methods gets called depending on which input we edited.
-* Inside these methods, the `Calculator` component asks React to re-render itself by calling `this.setState()` with the new input value and the current scale of the input we just edited.
-* React calls the `Calculator` component's `render` method to learn what the UI should look like. The values of both inputs are recomputed based on the current temperature and the active scale. The temperature conversion is performed here.
-* React calls the `render` methods of the individual `TemperatureInput` components with their new props specified by the `Calculator`. It learns what their UI should look like.
-* React calls the `render` method of the `BoilingVerdict` component, passing the temperature in Celsius as its props.
-* React DOM updates the DOM with the boiling verdict and to match the desired input values. The input we just edited receives its current value, and the other input is updated to the temperature after conversion.
->>>>>>> 9fa6418ada9b24bdacf4cb1facbe69160d0740a9
 
 След всяка промяна преминава през тези стъпки, така че input-ите ще са винаги синхронизирани.
 
@@ -338,4 +327,3 @@ class Calculator extends React.Component {
 Когато видите грешка в потребителския интерфейс, можете да използвате [React Developer Tools](https://github.com/facebook/react/tree/master/packages/react-devtools), за да анализирате props и да търсите нагоре в дървото от компоненти, докато не намерите компонента отговорен за промяната на state-а. Това ще ви позволи да проследявате грешките в кода до техния първоизточник:
 
 <img src="../images/docs/react-devtools-state.gif" alt="Monitoring State in React DevTools" max-width="100%" height="100%">
-
