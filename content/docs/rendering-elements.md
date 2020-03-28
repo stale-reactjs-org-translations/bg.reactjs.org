@@ -34,7 +34,7 @@ const element = <h1>Hello, world</h1>;
 
 Приложенията, изградени само с React, обикновено имат един root DOM node. Ако интегрирате React в съществуващо приложение, може да имате много изолирани DOM roots.
 
-За да рендерирате React елемент в root DOM node, подайте го на `ReactDOM.render()`:
+За да рендерирате React елемент в root DOM node, подайте и двата на [`ReactDOM.render()`](/docs/react-dom.html#render):
 
 `embed:rendering-elements/render-an-element.js`
 
@@ -46,7 +46,7 @@ const element = <h1>Hello, world</h1>;
 
 React елементите са [immutable](https://en.wikipedia.org/wiki/Immutable_object). След като създадете елемент, не можете да променяте неговите деца или атрибути. Елементът е като един кадър от филм: той визуализира потребителския интерфейс в определен момент във времето.
 
-С нашите познания досега единственият начин да обновите потребителския интерфейс е да създадете нов елемент и да го подадем на `ReactDOM.render()`.
+С нашите познания досега единственият начин да обновите потребителския интерфейс е да създадете нов елемент и да го подадем на [`ReactDOM.render()`](/docs/react-dom.html#render).
 
 Разгледайте този пример на часовник:
 
@@ -54,11 +54,11 @@ React елементите са [immutable](https://en.wikipedia.org/wiki/Immuta
 
 [](codepen://rendering-elements/update-rendered-element)
 
-Той извиква `ReactDOM.render()` всяка секунда от [`setInterval()`](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval) функцията.
+Той извиква [`ReactDOM.render()`](/docs/react-dom.html#render) всяка секунда от [`setInterval()`](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval) функцията.
 
 >**Забележка:**
 >
->На практика повечето React приложения извикват веднъж `ReactDOM.render()`. В следващите раздели ще научим как такъв код се капсулира в [компоненти имащи състояние](/docs/state-and-lifecycle.html).
+>На практика повечето React приложения извикват веднъж [`ReactDOM.render()`](/docs/react-dom.html#render). В следващите раздели ще научим как такъв код се капсулира в [компоненти имащи състояние](/docs/state-and-lifecycle.html).
 >
 >Препоръчваме ви да не прескачате теми, защото те зависят една от друга.
 

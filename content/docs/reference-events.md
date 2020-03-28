@@ -26,6 +26,7 @@ void preventDefault()
 boolean isDefaultPrevented()
 void stopPropagation()
 boolean isPropagationStopped()
+void persist()
 DOMEventTarget target
 number timeStamp
 string type
@@ -75,6 +76,7 @@ React нормализира събитията, така че да имат е�
 - [Keyboard Events](#keyboard-events)
 - [Focus Events](#focus-events)
 - [Form Events](#form-events)
+- [Generic Events](#generic-events)
 - [Mouse Events](#mouse-events)
 - [Pointer Events](#pointer-events)
 - [Selection Events](#selection-events)
@@ -176,10 +178,20 @@ DOMEventTarget relatedTarget
 Имена на събитията:
 
 ```
-onChange onInput onInvalid onSubmit
+onChange onInput onInvalid onReset onSubmit 
 ```
 
 За повече информация относно onChange събитието, прегледайте [Forms](/docs/forms.html).
+
+* * *
+
+### Generic Events {#generic-events}
+
+Имена на събитията:
+
+```
+onError onLoad
+```
 
 * * *
 
@@ -228,7 +240,6 @@ onLostPointerCapture onPointerEnter onPointerLeave onPointerOver onPointerOut
 Събитията `onPointerEnter` и `onPointerLeave` се разпространяват от елемента, който напускаме, а не от този който посочваме. Те нямат capture фаза.
 
 Свойства:
-
 
 Както е дефинирано в спецификацията [W3](https://www.w3.org/TR/pointerevents/), събития за посочване наследяват [Mouse Events](#mouse-events) със следните Свойства:
 
