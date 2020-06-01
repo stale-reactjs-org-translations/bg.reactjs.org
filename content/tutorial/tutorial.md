@@ -1045,7 +1045,11 @@ const doubled = numbers.map(x => x * 2); // [2, 4, 6]
 
 **[Виж целия код до този момент](https://codepen.io/gaearon/pen/EmmGEa?editors=0010)**
 
+<<<<<<< HEAD
 За всяки ход в историята на играта, ние създаваме елемент от списък `<li>`, който съдържа бутон `<button>`. Бутонът има `onClick` функция, която извиква метод, наречен `this.jumpTo()`. Все още не сме го имплементирали. За сега трябва да видим списък с ходовете, които са настъпили в играта, и съобщение в конзолата на devtools, което казва:
+=======
+For each move in the tic-tac-toe game's history, we create a list item `<li>` which contains a button `<button>`. The button has a `onClick` handler which calls a method called `this.jumpTo()`. We haven't implemented the `jumpTo()` method yet. For now, we should see a list of the moves that have occurred in the game and a warning in the developer tools console that says:
+>>>>>>> b4b59062e59d56da37274c6de1fa4a134d2d8f49
 
 > Warning:
 > Each child in an array or iterator should have a unique "key" prop. Check the render method of "Game".
@@ -1194,7 +1198,11 @@ class Game extends React.Component {
 * Съхранява историята на играта в хода на играта,
 * Позволява на играчите да преглеждат историята на играта и да виждат предишни версии на дъската.
 
+<<<<<<< HEAD
 Добра работа! Надяваме се, че придобихте знание за това как работи React.
+=======
+Nice work! We hope you now feel like you have a decent grasp of how React works.
+>>>>>>> b4b59062e59d56da37274c6de1fa4a134d2d8f49
 
 Вижте крайния резултат тук: **[Краен резултат](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**.
 
