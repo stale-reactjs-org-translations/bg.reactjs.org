@@ -8,7 +8,11 @@ redirect_from:
   - "docs/events-ko-KR.html"
 ---
 
+<<<<<<< HEAD
 Обработката на събития с React елементи е много подобна на обработката на събития на DOM елементи. Има някои синтактични разлики:
+=======
+Handling events with React elements is very similar to handling events on DOM elements. There are some syntax differences:
+>>>>>>> 1913f358fcf4f8a6a602ddb8797f110b11901814
 
 * Събитията в React се именуват в camelCase стил, а не с малки букви.
 * При JSX подавате функция (а не низ), която се справя с обработката на събитията.
@@ -123,6 +127,7 @@ class LoggingButton extends React.Component {
 
 ```js{7-9}
 class LoggingButton extends React.Component {
+<<<<<<< HEAD
   handleClick() {
     console.log('this е:', this);
   }
@@ -135,6 +140,20 @@ class LoggingButton extends React.Component {
       </button>
     );
   }
+=======
+  handleClick() {
+    console.log('this is:', this);
+  }
+
+  render() {
+    // This syntax ensures `this` is bound within handleClick
+    return (
+      <button onClick={() => this.handleClick()}>
+        Click me
+      </button>
+    );
+  }
+>>>>>>> 1913f358fcf4f8a6a602ddb8797f110b11901814
 }
 ```
 
