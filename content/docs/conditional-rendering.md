@@ -122,7 +122,11 @@ ReactDOM.render(
 
 ### Логически оператор && {#inline-if-with-logical--operator}
 
+<<<<<<< HEAD
 Можете да [добавяме всякакви изрази в JSX](/docs/introducing-jsx.html#embedding-expressions-in-jsx), като ги заградите с фигурни скоби. Същото важи и за логическия оператор `&&`. Това може да бъде много удобен начин за условно рендериране на различни компоненти:
+=======
+You may [embed expressions in JSX](/docs/introducing-jsx.html#embedding-expressions-in-jsx) by wrapping them in curly braces. This includes the JavaScript logical `&&` operator. It can be handy for conditionally including an element:
+>>>>>>> c89c38241278804b48bf34b1d8d9ee0b9f1b6e8c
 
 ```js{6-10}
 function Mailbox(props) {
@@ -176,11 +180,10 @@ render() {
   const isLoggedIn = this.state.isLoggedIn;
   return (
     <div>
-      {isLoggedIn ? (
-        <LogoutButton onClick={this.handleLogoutClick} />
-      ) : (
-        <LoginButton onClick={this.handleLoginClick} />
-      )}
+      {isLoggedIn
+        ? <LogoutButton onClick={this.handleLogoutClick} />
+        : <LoginButton onClick={this.handleLoginClick} />
+      }
     </div>
   );
 }
