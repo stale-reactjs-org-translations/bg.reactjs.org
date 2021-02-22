@@ -8,7 +8,11 @@ redirect_from:
   - "docs/events-ko-KR.html"
 ---
 
+<<<<<<< HEAD
 Обработката на събития с React елементи е много подобна на обработката на събития на DOM елементи. Има някои синтактични разлики:
+=======
+Handling events with React elements is very similar to handling events on DOM elements. There are some syntax differences:
+>>>>>>> adfa67ad01b7e4c6114921cdf12e9e4cf1a1c786
 
 * Събитията в React се именуват в camelCase стил, а не с малки букви.
 * При JSX подавате функция (а не низ), която се справя с обработката на събитията.
@@ -54,7 +58,11 @@ function ActionLink() {
 }
 ```
 
+<<<<<<< HEAD
 Тук `е` е синтетично събитие. React определя тези синтетични събития според [W3C spec](https://www.w3.org/TR/DOM-Level-3-Events/), така че не е нужно да се притеснявате за съвместимостта с различни браузъри. Вижте документацията [`SyntheticEvent`](/docs/events.html), за да научите повече.
+=======
+Here, `e` is a synthetic event. React defines these synthetic events according to the [W3C spec](https://www.w3.org/TR/DOM-Level-3-Events/), so you don't need to worry about cross-browser compatibility. React events do not work exactly the same as native events. See the [`SyntheticEvent`](/docs/events.html) reference guide to learn more.
+>>>>>>> adfa67ad01b7e4c6114921cdf12e9e4cf1a1c786
 
 Когато използвате React, обикновено не е нужно да се извиква `addEventListener`, за да добавите слушатели(listeners) към DOM елемент след неговото създаване. Вместо това, просто осигурете слушател, когато елементът е първоначално визуализиран.
 
@@ -123,6 +131,7 @@ class LoggingButton extends React.Component {
 
 ```js{7-9}
 class LoggingButton extends React.Component {
+<<<<<<< HEAD
   handleClick() {
     console.log('this е:', this);
   }
@@ -135,6 +144,20 @@ class LoggingButton extends React.Component {
       </button>
     );
   }
+=======
+  handleClick() {
+    console.log('this is:', this);
+  }
+
+  render() {
+    // This syntax ensures `this` is bound within handleClick
+    return (
+      <button onClick={() => this.handleClick()}>
+        Click me
+      </button>
+    );
+  }
+>>>>>>> adfa67ad01b7e4c6114921cdf12e9e4cf1a1c786
 }
 ```
 
