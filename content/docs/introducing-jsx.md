@@ -181,5 +181,9 @@ const element = {
 
 >**Съвет:**
 >
+<<<<<<< HEAD
 
 >Препоръчваме ви да използвате ["Babel" езикова дефиниция](http://babeljs.io/docs/editors) за редактора, който сте избрали, така че и ES6 и JSX кодът да е с правилен syntax highlighting.
+=======
+>We recommend using the ["Babel" language definition](https://babeljs.io/docs/en/next/editors) for your editor of choice so that both ES6 and JSX code is properly highlighted.
+>>>>>>> e60bca04f3da690256ce019bd8907c2b368589ee
