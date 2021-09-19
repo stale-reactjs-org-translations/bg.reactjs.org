@@ -8,7 +8,11 @@ redirect_from:
   - "docs/events-ko-KR.html"
 ---
 
+<<<<<<< HEAD
 Обработката на събития с React елементи е много подобна на обработката на събития на DOM елементи. Има някои синтактични разлики:
+=======
+Handling events with React elements is very similar to handling events on DOM elements. There are some syntax differences:
+>>>>>>> 0bb0303fb704147452a568472e968993f0729c28
 
 * Събитията в React се именуват в camelCase стил, а не с малки букви.
 * При JSX подавате функция (а не низ), която се справя с обработката на събитията.
@@ -29,20 +33,30 @@ redirect_from:
 </button>
 ```
 
+<<<<<<< HEAD
 Друга разлика е, че като резултат от функцията не можете да върнете `false`, за да предотвратите поведението по подразбиране в React. Трябва изрично да извикате `preventDefault`. Например, с обикновен HTML, за да предотвратите поведението по подразбиране на връзка, която води към нова страница, можете да напишете:
 
 ```html
 <a href="#" onclick="console.log('Кликнахте връзката.'); return false">
   Кликни ме
 </a>
+=======
+Another difference is that you cannot return `false` to prevent default behavior in React. You must call `preventDefault` explicitly. For example, with plain HTML, to prevent the default form behavior of submitting, you can write:
+
+```html
+<form onsubmit="console.log('You clicked submit.'); return false">
+  <button type="submit">Submit</button>
+</form>
+>>>>>>> 0bb0303fb704147452a568472e968993f0729c28
 ```
 
 В React това може да бъде:
 
-```js{2-5,8}
-function ActionLink() {
-  function handleClick(e) {
+```js{3}
+function Form() {
+  function handleSubmit(e) {
     e.preventDefault();
+<<<<<<< HEAD
     console.log ('Кликнахте връзката.');
   }
 
@@ -50,11 +64,24 @@ function ActionLink() {
     <a href="#" onClick={handleClick}>
       Кликни ме
     </a>
+=======
+    console.log('You clicked submit.');
+  }
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <button type="submit">Submit</button>
+    </form>
+>>>>>>> 0bb0303fb704147452a568472e968993f0729c28
   );
 }
 ```
 
+<<<<<<< HEAD
 Тук `е` е синтетично събитие. React определя тези синтетични събития според [W3C spec](https://www.w3.org/TR/DOM-Level-3-Events/), така че не е нужно да се притеснявате за съвместимостта с различни браузъри. Вижте документацията [`SyntheticEvent`](/docs/events.html), за да научите повече.
+=======
+Here, `e` is a synthetic event. React defines these synthetic events according to the [W3C spec](https://www.w3.org/TR/DOM-Level-3-Events/), so you don't need to worry about cross-browser compatibility. React events do not work exactly the same as native events. See the [`SyntheticEvent`](/docs/events.html) reference guide to learn more.
+>>>>>>> 0bb0303fb704147452a568472e968993f0729c28
 
 Когато използвате React, обикновено не е нужно да се извиква `addEventListener`, за да добавите слушатели(listeners) към DOM елемент след неговото създаване. Вместо това, просто осигурете слушател, когато елементът е първоначално визуализиран.
 
@@ -62,6 +89,7 @@ function ActionLink() {
 
 ```js{6,7,10-14,18}
 class Toggle extends React.Component {
+<<<<<<< HEAD
   constructor(props) {
     super(props);
     this.state = {isToggleOn: true};
@@ -83,6 +111,29 @@ class Toggle extends React.Component {
       </button>
     );
   }
+=======
+  constructor(props) {
+    super(props);
+    this.state = {isToggleOn: true};
+
+    // This binding is necessary to make `this` work in the callback
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    this.setState(prevState => ({
+      isToggleOn: !prevState.isToggleOn
+    }));
+  }
+
+  render() {
+    return (
+      <button onClick={this.handleClick}>
+        {this.state.isToggleOn ? 'ON' : 'OFF'}
+      </button>
+    );
+  }
+>>>>>>> 0bb0303fb704147452a568472e968993f0729c28
 }
 
 ReactDOM.render(
@@ -123,6 +174,7 @@ class LoggingButton extends React.Component {
 
 ```js{7-9}
 class LoggingButton extends React.Component {
+<<<<<<< HEAD
   handleClick() {
     console.log('this е:', this);
   }
@@ -135,6 +187,20 @@ class LoggingButton extends React.Component {
       </button>
     );
   }
+=======
+  handleClick() {
+    console.log('this is:', this);
+  }
+
+  render() {
+    // This syntax ensures `this` is bound within handleClick
+    return (
+      <button onClick={() => this.handleClick()}>
+        Click me
+      </button>
+    );
+  }
+>>>>>>> 0bb0303fb704147452a568472e968993f0729c28
 }
 ```
 

@@ -122,7 +122,11 @@ ReactDOM.render(
 
 ### Логически оператор && {#inline-if-with-logical--operator}
 
+<<<<<<< HEAD
 Можете да [добавяме всякакви изрази в JSX](/docs/introducing-jsx.html#embedding-expressions-in-jsx), като ги заградите с фигурни скоби. Същото важи и за логическия оператор `&&`. Това може да бъде много удобен начин за условно рендериране на различни компоненти:
+=======
+You may [embed expressions in JSX](/docs/introducing-jsx.html#embedding-expressions-in-jsx) by wrapping them in curly braces. This includes the JavaScript logical `&&` operator. It can be handy for conditionally including an element:
+>>>>>>> 0bb0303fb704147452a568472e968993f0729c28
 
 ```js{6-10}
 function Mailbox(props) {
@@ -152,7 +156,24 @@ ReactDOM.render(
 
 Следователно ако условието е равно на `true`, елементът който е след `&&` винаги ще се рендерира. А ако е `false`, React ще го игнорира и няма да бъде рендериран.
 
+<<<<<<< HEAD
 ### If-Else използвайки "Условния Оператор" {#inline-if-else-with-conditional-operator}
+=======
+Note that returning a falsy expression will still cause the element after `&&` to be skipped but will return the falsy expression. In the example below, `<div>0</div>` will be returned by the render method.
+
+```javascript{2,5}
+render() {
+  const count = 0;
+  return (
+    <div>
+      { count && <h1>Messages: {count}</h1>}
+    </div>
+  );
+}
+```
+
+### Inline If-Else with Conditional Operator {#inline-if-else-with-conditional-operator}
+>>>>>>> 0bb0303fb704147452a568472e968993f0729c28
 
 Друг начин за условно рендериране на елементи е да използвате "условния оператор" от JavaScript  [`condition ? true : false`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Conditional_Operator).
 
@@ -176,11 +197,10 @@ render() {
   const isLoggedIn = this.state.isLoggedIn;
   return (
     <div>
-      {isLoggedIn ? (
-        <LogoutButton onClick={this.handleLogoutClick} />
-      ) : (
-        <LoginButton onClick={this.handleLoginClick} />
-      )}
+      {isLoggedIn
+        ? <LogoutButton onClick={this.handleLogoutClick} />
+        : <LoginButton onClick={this.handleLoginClick} />
+      }
     </div>
   );
 }

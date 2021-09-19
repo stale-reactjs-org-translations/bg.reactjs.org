@@ -40,7 +40,11 @@ React е JavaScript библиотека и затова ще приемем, ч
 
 >Забележка
 >
+<<<<<<< HEAD
 >Това ръководство понякога използва по-новия JavaScript syntax в примерите. Ако не сте работили с JavaScript през последните няколко години, [тези три точки](https://gist.github.com/gaearon/683e676101005de0add59e8bb345340c) ще ви помогнат значително.
+=======
+>This guide occasionally uses some newer JavaScript syntax in the examples. If you haven't worked with JavaScript in the last few years, [these three points](https://gist.github.com/gaearon/683e676101005de0add59e8bb345340c) should get you most of the way.
+>>>>>>> 0bb0303fb704147452a568472e968993f0729c28
 
 
 ## Да започваме! {#lets-get-started}
