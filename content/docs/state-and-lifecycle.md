@@ -420,12 +420,15 @@ this.setState(function(state, props) {
 Компонентът може да подаде своят state като prop към компонентите, които са му деца.
 
 ```js
+<<<<<<< HEAD
 <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
 ```
 
 Това важи също за дефинирани от потребителя компоненти:
 
 ```js
+=======
+>>>>>>> f2158e36715acc001c8317e20dc4f45f9e2089f3
 <FormattedDate date={this.state.date} />
 ```
 
