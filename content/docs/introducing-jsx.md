@@ -92,7 +92,7 @@ function getGreeting(user) {
 Можете да използвате кавички, за да укажете атрибути чрез низове:
 
 ```js
-const element = <div tabIndex="0"></div>;
+const element = <a href="https://www.reactjs.org"> link </a>;
 ```
 
 Можете също да използвате фигурни скоби, за да вградите JavaScript израз в атрибут:
@@ -181,5 +181,9 @@ const element = {
 
 >**Съвет:**
 >
+<<<<<<< HEAD
 
 >Препоръчваме ви да използвате ["Babel" езикова дефиниция](http://babeljs.io/docs/editors) за редактора, който сте избрали, така че и ES6 и JSX кодът да е с правилен syntax highlighting.
+=======
+>We recommend using the ["Babel" language definition](https://babeljs.io/docs/en/next/editors) for your editor of choice so that both ES6 and JSX code is properly highlighted.
+>>>>>>> 69bd27a3d558d6633e4f0adc61ecb8bb3d5f2edf
