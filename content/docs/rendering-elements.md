@@ -38,7 +38,7 @@ const element = <h1>Hello, world</h1>;
 
 `embed:rendering-elements/render-an-element.js`
 
-[](codepen://rendering-elements/render-an-element)
+**[Try it on CodePen](https://codepen.io/gaearon/pen/ZpvBNJ?editors=1010)**
 
 На страницата ще видите "Hello, world".
 
@@ -52,7 +52,7 @@ React елементите са [immutable](https://en.wikipedia.org/wiki/Immuta
 
 `embed:rendering-elements/update-rendered-element.js`
 
-[](codepen://rendering-elements/update-rendered-element)
+**[Try it on CodePen](https://codepen.io/gaearon/pen/gwoJZk?editors=1010)**
 
 Той извиква [`ReactDOM.render()`](/docs/react-dom.html#render) всяка секунда от [`setInterval()`](https://developer.mozilla.org/en-US/docs/Web/API/WindowTimers/setInterval) функцията.
 
@@ -66,7 +66,11 @@ React елементите са [immutable](https://en.wikipedia.org/wiki/Immuta
 
 React DOM сравнява елемента и неговите деца с предишния и прилага само DOM актуализациите, необходими за привеждане на DOM дървото в желаното състояние.
 
+<<<<<<< HEAD
 Можете да проверите, като инспектирате [последния пример](codepen://rendering-elements/update-rendered-element) с инструментите на браузъра:
+=======
+You can verify by inspecting the [last example](https://codepen.io/gaearon/pen/gwoJZk?editors=1010) with the browser tools:
+>>>>>>> 71cc6be6182418dec43b72f2a9ef464619cb7025
 
 ![DOM инспектор показва подробни актуализации](../images/docs/granular-dom-updates.gif)
 
