@@ -77,7 +77,7 @@ ReactDOM.render(
 );
 ```
 
-[](codepen://components-and-props/rendering-a-component)
+**[Try it on CodePen](https://codepen.io/gaearon/pen/YGYmEG?editors=1010)**
 
 Нека повторим какво се случва в този пример:
 
@@ -119,7 +119,7 @@ ReactDOM.render(
 );
 ```
 
-[](codepen://components-and-props/composing-components)
+**[Try it on CodePen](https://codepen.io/gaearon/pen/KgQKPr?editors=1010)**
 
 Обикновенно новите React приложения започват с един основен `App` компонент. В случаите, когато интегрирате React във вече съществуващо приложение, може да започнете отдолу-нагоре с малък компонент, като например `Button` и постепенно да стигнете до върха на йерархията.
 
@@ -153,7 +153,7 @@ function Comment(props) {
 }
 ```
 
-[](codepen://components-and-props/extracting-components)
+**[Try it on CodePen](https://codepen.io/gaearon/pen/VKQwEo?editors=1010)**
 
 Той приема `author` (като обект), `text` (низ), и `date` (дата) като props и описва коментар в уебсайт на социална медия.
 
@@ -231,9 +231,13 @@ function Comment(props) {
 }
 ```
 
-[](codepen://components-and-props/extracting-components-continued)
+**[Try it on CodePen](https://codepen.io/gaearon/pen/rrJNJY?editors=1010)**
 
+<<<<<<< HEAD
 Извличането на компоненти може да изглежда като трудна и груба работа в началото, но разполагайки с палитра от компоненти за многократна употреба се изплаща в по-големите приложения. Прието е ако част от вашият потребителски интерфейс се използва многократно (`Button`, `Panel`, `Avatar`) или е достатъчно сложен сам по себе си (`App`, `FeedStory`, `Comment`), да го приемем като добър кандидат за компонент за многократна употреба.
+=======
+Extracting components might seem like grunt work at first, but having a palette of reusable components pays off in larger apps. A good rule of thumb is that if a part of your UI is used several times (`Button`, `Panel`, `Avatar`), or is complex enough on its own (`App`, `FeedStory`, `Comment`), it is a good candidate to be extracted to a separate component.
+>>>>>>> 2310e15532aba273d713996a4c6ef04247dff764
 
 ## Props са Read-Only {#props-are-read-only}
 
