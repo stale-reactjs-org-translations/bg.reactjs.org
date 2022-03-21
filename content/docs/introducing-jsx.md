@@ -68,7 +68,7 @@ ReactDOM.render(
 );
 ```
 
-[](codepen://introducing-jsx)
+**[Try it on CodePen](https://codepen.io/gaearon/pen/PGEjdG?editors=1010)**
 
 Разделяме JSX на няколко реда за четливост. Въпреки че не е необходимо, когато правите това, препоръчваме да го заградите в скоби, за да избегнете проблемите с [автоматичното въвеждане на точка и запетая](http://stackoverflow.com/q/2846283).
 
@@ -92,7 +92,7 @@ function getGreeting(user) {
 Можете да използвате кавички, за да укажете атрибути чрез низове:
 
 ```js
-const element = <div tabIndex="0"></div>;
+const element = <a href="https://www.reactjs.org"> link </a>;
 ```
 
 Можете също да използвате фигурни скоби, за да вградите JavaScript израз в атрибут:
@@ -181,5 +181,9 @@ const element = {
 
 >**Съвет:**
 >
+<<<<<<< HEAD
 
 >Препоръчваме ви да използвате ["Babel" езикова дефиниция](http://babeljs.io/docs/editors) за редактора, който сте избрали, така че и ES6 и JSX кодът да е с правилен syntax highlighting.
+=======
+>We recommend using the ["Babel" language definition](https://babeljs.io/docs/en/next/editors) for your editor of choice so that both ES6 and JSX code is properly highlighted.
+>>>>>>> 1e3b023d3192c36a2da7b72389debee2f0e0e8b0
