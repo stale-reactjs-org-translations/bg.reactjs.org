@@ -8,16 +8,14 @@ next: introducing-jsx.html
 
 Най-малкият пример на React изглежда така:
 
-```js
-ReactDOM.render(
-  <h1>Hello, world!</h1>,
-  document.getElementById('root')
-);
+```jsx
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<h1>Hello, world!</h1>);
 ```
 
 Показва заглавие с надпис "Hello, world!" на страницата.
 
-[](codepen://hello-world)
+**[Try it on CodePen](https://codepen.io/gaearon/pen/rrpgNB?editors=1010)**
 
 Кликнете върху връзката по-горе, за да отворите онлайн редактор. Чувствайте се свободни да направите някои промени и да видите как те влияят на резултата. Повечето страници в това ръководство ще могат да се редактират по този начин.
 
@@ -40,7 +38,11 @@ React е JavaScript библиотека и затова ще приемем, ч
 
 >Забележка
 >
+<<<<<<< HEAD
 >Това ръководство понякога използва по-новия JavaScript syntax в примерите. Ако не сте работили с JavaScript през последните няколко години, [тези три точки](https://gist.github.com/gaearon/683e676101005de0add59e8bb345340c) ще ви помогнат значително.
+=======
+>This guide occasionally uses some newer JavaScript syntax in the examples. If you haven't worked with JavaScript in the last few years, [these three points](https://gist.github.com/gaearon/683e676101005de0add59e8bb345340c) should get you most of the way.
+>>>>>>> 26a870e1c6e232062b760d37620d85802750e985
 
 
 ## Да започваме! {#lets-get-started}
