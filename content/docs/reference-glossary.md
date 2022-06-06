@@ -39,13 +39,9 @@ JSX е разширение на синтаксиса на JavaScript. Напо�
 
 React DOM замества стандарната конвенция при именуването на HTML атрибути, използвайки camelCase. Например, `tabindex` става `tabIndex` в JSX. Атрибута `class` се изписва като `className`, тъй като `class` е запазена дума в JavaScript:
 
-```js
-const name = 'Clementine';
-ReactDOM.render(
-  <h1 className="hello">My name is {name}!</h1>,
-  document.getElementById('root')
-);
-```  
+```jsx
+<h1 className="hello">My name is Clementine!</h1>
+```
 
 ## [Елементи](/docs/rendering-elements.html) {#elements}
 
