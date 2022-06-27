@@ -39,9 +39,15 @@ JSON API-то ни връща данни, които изглеждат така
 
 Тъй като, често показваме JSON модел от данни на потребителя, ще откриете че ако вашия модел е направен правилно, вашия потребителски интерфейс (и следователно вашата структура от компоненти) ще напасне лесно. Това е така, защото потребителския интерфейс и модела от данни са склонни да се придържат, към една *информационна архитектура*, което означава, че често разделянето на интерфейса в компоненти е тривиално. Просто разбийте дизайна на компоненти, които представляват точно една частица от вашия модел от данни.
 
+<<<<<<< HEAD
 ![Диаграма на компонента](../images/blog/thinking-in-react-components.png)
 
 Ще видите, че имаме пет компонента в нашето малко приложение. Отбелязахме с курсив данните, които всеки компонент репрезентира.
+=======
+![Diagram showing nesting of components](../images/blog/thinking-in-react-components.png)
+
+You'll see here that we have five components in our app. We've italicized the data each component represents. The numbers in the image correspond to the numbers below.
+>>>>>>> c1c3d1db304adfa5446accb0312e60d515188414
 
   1. **`FilterableProductTable` (оранжево):** съдържа целия пример
   2. **`SearchBar` (синьо):** получава всички *потребителски входни данни*
@@ -70,9 +76,15 @@ JSON API-то ни връща данни, които изглеждат така
 
 Може да изградите приложението отгоре-надолу или отдолу-нагоре. Това означава, че може да започнете с изграждането на компонентите които са най-високо в йерархията (т.е. да започнете с `FilterableProductTable`) или с някой от най-вътрешните компоненти (`ProductRow`). В по-прости примери, обикновенно е по-лесно да започнеш отгоре-надолу, но в големи проекти е по-лесно да започнете отдолу-нагоре и да пишете тестове докато изграждате компонентите.
 
+<<<<<<< HEAD
 Накрая на тази стъпка, ще имате библиотека от преизползваеми компоненти, които ще рендерират вашите данни. Компонентът ще има само `render()` метод, тъй като това е статична версия на вашето приложение. Компонентът на най-високо ниво в йерархията (`FilterableProductTable`) ще вземе данните ви като prop. Ако направите промени по основните ви данни и извикате `ReactDOM.render()` отново, интерфейса ще се промени. Лесно е да видите това и още къде да направите промените, понеже няма нищо сложно. React използва **one-way data flow** (също наречен *one-way binding*) подход, който държи всичко разделено на модули и работи бързо.
 
 Просто отворете [документацията на React](/docs/) ако се нуждаете от помощ за изпълнението на тази стъпка.
+=======
+At the end of this step, you'll have a library of reusable components that render your data model. The components will only have `render()` methods since this is a static version of your app. The component at the top of the hierarchy (`FilterableProductTable`) will take your data model as a prop. If you make a change to your underlying data model and call `root.render()` again, the UI will be updated. You can see how your UI is updated and where to make changes. React's **one-way data flow** (also called *one-way binding*) keeps everything modular and fast.
+
+Refer to the [React docs](/docs/getting-started.html) if you need help executing this step.
+>>>>>>> c1c3d1db304adfa5446accb0312e60d515188414
 
 ### Кратка Пауза: Props vs State {#a-brief-interlude-props-vs-state}
 
@@ -84,7 +96,11 @@ JSON API-то ни връща данни, които изглеждат така
 
 За да изградите правилно своето приложение, първо трябва да помислите за минималното количество променлив state, който приложението изисква. Тук ключа е [DRY: *Don't Repeat Yourself*](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself). Разберете абсолютното минималното представяне на state-a, от който се нуждае вашето приложение и изчислете всичко останало от което се нуждаете при поискване. Например, ако правите приложение в което има списък със задачи, просто може да подържате масив от задачи. Не използвайте отделен state променлива за броя задачи. Също така, когато искате да визуализирате броя задачи, просто вземете дължината на масива със задачи.
 
+<<<<<<< HEAD
 Помислете за всички парчета от данни в нашето примерно приложение. Имаме:
+=======
+Think of all the pieces of data in our example application. We have:
+>>>>>>> c1c3d1db304adfa5446accb0312e60d515188414
 
   * Оригиналният списък от продукти
   * Търсеният текст, който потребителя е въвел
@@ -137,7 +153,11 @@ JSON API-то ни връща данни, които изглеждат така
 
 React прави това движение на данни експлицитно и прави вашата програма лесна за разбиране, как точно работи, но то не изисква повече писане от традиционното двупосочно свързване.
 
+<<<<<<< HEAD
 Ако се опитате да пишете или селектирате чекбокса в сегашната версия на примера, ще видите, че React игнорира въведения ви текст. Това е умишлено, понеже ние сложихме `value` prop на `input` да бъде винаги равен на `state` подаден от `FilterableProductTable`.
+=======
+If you try to type or check the box in the previous version of the example (step 4), you'll see that React ignores your input. This is intentional, as we've set the `value` prop of the `input` to always be equal to the `state` passed in from `FilterableProductTable`.
+>>>>>>> c1c3d1db304adfa5446accb0312e60d515188414
 
 Нека помислим, какво точно искаме да се случи. Искаме да сме сигурни, че когато потребителя промени формата, обновяваме state-a с новите данни, въведени от потребителя. Тъй като компонентите трябва само да променят техния собствен state, `FilterableProductTable` ще подаде callbacks на `SearchBar`, който ще се стартира, когато state-а трябва да бъде ъпдейтнат. Може да използваме `onChange` event-a на инпутите, за да уведомим за него. Callbacks подадени от `FilterableProductTable` ще извикат `setState()`, и приложението ще се ъпдейтне.
 
