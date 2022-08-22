@@ -6,37 +6,115 @@ category: Reference
 permalink: docs/react-dom.html
 ---
 
+<<<<<<< HEAD
 Ако заредите React от `<script>` таг, тези API-та от най-високо ниво са достъпни чрез глобалната променлива `ReactDOM`. Ако използвате ES6 с npm, може да напишете `import ReactDOM from 'react-dom'`. Ако използвате ES5 с npm, може да напишете `var ReactDOM = require('react-dom')`.
+=======
+The `react-dom` package provides DOM-specific methods that can be used at the top level of your app and as an escape hatch to get outside the React model if you need to.
+
+```js
+import * as ReactDOM from 'react-dom';
+```
+
+If you use ES5 with npm, you can write:
+
+```js
+var ReactDOM = require('react-dom');
+```
+
+The `react-dom` package also provides modules specific to client and server apps:
+- [`react-dom/client`](/docs/react-dom-client.html)
+- [`react-dom/server`](/docs/react-dom-server.html)
+>>>>>>> 37cf98d075de3133b5ae69fe80fbecb6a742530a
 
 ## Преглед {#overview}
 
+<<<<<<< HEAD
 `react-dom` пакета предоставя DOM-специфични методи, които могат да се използват на високо ниво във вашето приложение и като авариен изход, ако се нуждаете да излезете от React модела. Повечето от вашите компоненти няма да се нуждаят от този модул.
+=======
+The `react-dom` package exports these methods:
+- [`createPortal()`](#createportal)
+- [`flushSync()`](#flushsync)
+>>>>>>> 37cf98d075de3133b5ae69fe80fbecb6a742530a
 
+These `react-dom` methods are also exported, but are considered legacy:
 - [`render()`](#render)
 - [`hydrate()`](#hydrate)
-- [`unmountComponentAtNode()`](#unmountcomponentatnode)
 - [`findDOMNode()`](#finddomnode)
-- [`createPortal()`](#createportal)
+- [`unmountComponentAtNode()`](#unmountcomponentatnode)
+
+> Note: 
+> 
+> Both `render` and `hydrate` have been replaced with new [client methods](/docs/react-dom-client.html) in React 18. These methods will warn that your app will behave as if it's running React 17 (learn more [here](https://reactjs.org/link/switch-to-createroot)).
 
 ### Поддръжка От Браузъра {#browser-support}
 
+<<<<<<< HEAD
 React поддържа всички популярни браузъри, включително Internet Explorer 9 и нагоре, въпреки че [се изискват някои библиотеки за съвместимост](/docs/javascript-environment-requirements.html) за по-стари браузъри като IE 9 и IE 10.
+=======
+React supports all modern browsers, although [some polyfills are required](/docs/javascript-environment-requirements.html) for older versions.
+>>>>>>> 37cf98d075de3133b5ae69fe80fbecb6a742530a
 
 > Бележка:
 >
+<<<<<<< HEAD
 > Не поддържаме по-стари браузъри, които не поддържат ES5 методите, но може да видите, че вашите приложения работят в по-стари браузъри, ако библиотеките за съвместимост като [es5-shim и es5-sham](https://github.com/es-shims/es5-shim) са добавени на страницата. Сами сте, ако решите да поемете по този път.
 
 * * *
+=======
+> We do not support older browsers that don't support ES5 methods or microtasks such as Internet Explorer. You may find that your apps do work in older browsers if polyfills such as [es5-shim and es5-sham](https://github.com/es-shims/es5-shim) are included in the page, but you're on your own if you choose to take this path.
+>>>>>>> 37cf98d075de3133b5ae69fe80fbecb6a742530a
 
 ## Референция {#reference}
 
-### `render()` {#render}
+### `createPortal()` {#createportal}
 
 ```javascript
-ReactDOM.render(element, container[, callback])
+createPortal(child, container)
 ```
 
+<<<<<<< HEAD
 Рендерира React елемент в DOM в предоставения `container` и връща [референция](/docs/more-about-refs.html) на компонента (или връща `null` за [компоненти без state](/docs/components-and-props.html#function-and-class-components)).
+=======
+Creates a portal. Portals provide a way to [render children into a DOM node that exists outside the hierarchy of the DOM component](/docs/portals.html).
+
+### `flushSync()` {#flushsync}
+
+```javascript
+flushSync(callback)
+```
+
+Force React to flush any updates inside the provided callback synchronously. This ensures that the DOM is updated immediately.
+
+```javascript
+// Force this state update to be synchronous.
+flushSync(() => {
+  setCount(count + 1);
+});
+// By this point, DOM is updated.
+```
+
+> Note:
+> 
+> `flushSync` can significantly hurt performance. Use sparingly.
+> 
+> `flushSync` may force pending Suspense boundaries to show their `fallback` state.
+> 
+> `flushSync` may also run pending effects and synchronously apply any updates they contain before returning.
+> 
+> `flushSync` may also flush updates outside the callback when necessary to flush the updates inside the callback. For example, if there are pending updates from a click, React may flush those before flushing the updates inside the callback.
+
+## Legacy Reference {#legacy-reference}
+### `render()` {#render}
+```javascript
+render(element, container[, callback])
+```
+
+> Note:
+>
+> `render` has been replaced with `createRoot` in React 18. See [createRoot](/docs/react-dom-client.html#createroot) for more info.
+
+Render a React element into the DOM in the supplied `container` and return a [reference](/docs/more-about-refs.html) to the component (or returns `null` for [stateless components](/docs/components-and-props.html#function-and-class-components)).
+>>>>>>> 37cf98d075de3133b5ae69fe80fbecb6a742530a
 
 Aко React елемента е бил рендериран в `container` преди това, ще направи ъпдейт на елемента и ще промени само DOM-а, така че да отрази последната версия на React елемента.
 
@@ -44,6 +122,7 @@ Aко React елемента е бил рендериран в `container` пр�
 
 > Бележка:
 >
+<<<<<<< HEAD
 > `ReactDOM.render()` контролира съдържанието на контейнера който сме подали. Всички съществуващи DOM елементи вътре са заместени, когато са извикани за пръв път. Последващите извикванията използват DОМ различаващия алгоритъм на React за ефикасни ъпдейти.
 >
 > `ReactDOM.render()` не променя контейнера (променя само децата на контейнера). Може да е възможно вкарването на компонент в съществуващ DOM елемент без да презаписва съществуващите деца.
@@ -53,16 +132,35 @@ Aко React елемента е бил рендериран в `container` пр�
 > [callback ref](/docs/more-about-refs.html#the-ref-callback-attribute) на главния компонент.
 >
 > Използвайки `ReactDOM.render()` да хидратирате контейнер рендериран на сървъра е препоръчано да не се изполва и ще бъде премахнато в React 17. Изполвайте [`hydrate()`](#hydrate) вместо това.
+=======
+> `render()` controls the contents of the container node you pass in. Any existing DOM elements inside are replaced when first called. Later calls use React’s DOM diffing algorithm for efficient updates.
+>
+> `render()` does not modify the container node (only modifies the children of the container). It may be possible to insert a component to an existing DOM node without overwriting the existing children.
+>
+> `render()` currently returns a reference to the root `ReactComponent` instance. However, using this return value is legacy
+> and should be avoided because future versions of React may render components asynchronously in some cases. If you need a reference to the root `ReactComponent` instance, the preferred solution is to attach a
+> [callback ref](/docs/refs-and-the-dom.html#callback-refs) to the root element.
+>
+> Using `render()` to hydrate a server-rendered container is deprecated. Use [`hydrateRoot()`](/docs/react-dom-client.html#hydrateroot) instead.
+>>>>>>> 37cf98d075de3133b5ae69fe80fbecb6a742530a
 
 * * *
 
 ### `hydrate()` {#hydrate}
 
 ```javascript
-ReactDOM.hydrate(element, container[, callback])
+hydrate(element, container[, callback])
 ```
 
+<<<<<<< HEAD
 Също като [`render()`](#render), но се използва да хидратира контейнер, на който HTML съдържанието е било рендерирано от [`ReactDOMServer`](/docs/react-dom-server.html). React ще закачи слушателите на събития към съществуващия документ.
+=======
+> Note:
+>
+> `hydrate` has been replaced with `hydrateRoot` in React 18. See [hydrateRoot](/docs/react-dom-client.html#hydrateroot) for more info.
+
+Same as [`render()`](#render), but is used to hydrate a container whose HTML contents were rendered by [`ReactDOMServer`](/docs/react-dom-server.html). React will attempt to attach event listeners to the existing markup.
+>>>>>>> 37cf98d075de3133b5ae69fe80fbecb6a742530a
 
 React очаква, че рендерираното съдържание е индентично между сървъра и клиента. Той може да изглади разликите в текстовото съдържание, но вие трябва да считате разликите като грешки и да ги оправите. В процес на програмиране, React предупреждава за разликите по време на хидратация. Няма гаранции, че разликата в атрибутите ще се изгладят, ако има разминавания. Това е важно поради съображения за бързодействие, защото в повечето приложения, разликите са рядкост и вадилирането на целия HTML ще бъде прекалено скъпо.
 
@@ -77,10 +175,18 @@ React очаква, че рендерираното съдържание е ин
 ### `unmountComponentAtNode()` {#unmountcomponentatnode}
 
 ```javascript
-ReactDOM.unmountComponentAtNode(container)
+unmountComponentAtNode(container)
 ```
 
+<<<<<<< HEAD
 Изтрива mounted React компонент от DOM и изчиства обработените събития и state. Ако никой компонент не е бил mounted в контейнера, извикването на тази функция не прави нищо. Връща `true`, ако компонента е бил unmounted и `false`, ако е нямало компонент да unmount.
+=======
+> Note:
+>
+> `unmountComponentAtNode` has been replaced with `root.unmount()` in React 18. See [createRoot](/docs/react-dom-client.html#createroot) for more info.
+
+Remove a mounted React component from the DOM and clean up its event handlers and state. If no component was mounted in the container, calling this function does nothing. Returns `true` if a component was unmounted and `false` if there was no component to unmount.
+>>>>>>> 37cf98d075de3133b5ae69fe80fbecb6a742530a
 
 * * *
 
@@ -91,7 +197,7 @@ ReactDOM.unmountComponentAtNode(container)
 > `findDOMNode` е аварийния изход използван да се достъпи основен DOM елемент. В повечето случаи, използването на този авариен начин се обезсърчава, защото пречупва абстракцията на компонента. [Отхвърлено е в `StrictMode`.](/docs/strict-mode.html#warning-about-deprecated-finddomnode-usage)
 
 ```javascript
-ReactDOM.findDOMNode(component)
+findDOMNode(component)
 ```
 Ако този компонент е бил mounted в DOM-a, този метод връща съответния браузър DOM елемент. Този метод е полезен за четене на стойности извън DOM-a, като стойности на полета на форма и да направи DOM измервания. **В повечето случаи, може да сложите ref на DOM елемента и да не използвате `findDOMNode` въобще.**
 
@@ -104,6 +210,7 @@ ReactDOM.findDOMNode(component)
 > `findDOMNode` не може да бъде използван във функционални компоненти.
 
 * * *
+<<<<<<< HEAD
 
 ### `createPortal()` {#createportal}
 
@@ -112,3 +219,5 @@ ReactDOM.createPortal(child, container)
 ```
 
 Създава портал. Порталите осигуряват начин да [ренденираме децата в DОМ елемент, който съществува извън йерархията на DOM компонента](/docs/portals.html).
+=======
+>>>>>>> 37cf98d075de3133b5ae69fe80fbecb6a742530a
