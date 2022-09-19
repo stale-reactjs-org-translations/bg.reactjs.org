@@ -35,11 +35,9 @@ function Greeting(props) {
   return <GuestGreeting />;
 }
 
-ReactDOM.render(
-  // Try changing to isLoggedIn={true}:
-  <Greeting isLoggedIn={false} />,
-  document.getElementById('root')
-);
+const root = ReactDOM.createRoot(document.getElementById('root')); 
+// Try changing to isLoggedIn={true}:
+root.render(<Greeting isLoggedIn={false} />);
 ```
 
 [**Опитайте примера в CodePen**](https://codepen.io/gaearon/pen/ZpVxNq?editors=0011)
@@ -110,10 +108,8 @@ class LoginControl extends React.Component {
   }
 }
 
-ReactDOM.render(
-  <LoginControl />,
-  document.getElementById('root')
-);
+const root = ReactDOM.createRoot(document.getElementById('root')); 
+root.render(<LoginControl />);
 ```
 
 [**Опитайте примера в CodePen**](https://codepen.io/gaearon/pen/QKzAgB?editors=0010)
@@ -122,7 +118,11 @@ ReactDOM.render(
 
 ### Логически оператор && {#inline-if-with-logical--operator}
 
+<<<<<<< HEAD
 Можете да [добавяме всякакви изрази в JSX](/docs/introducing-jsx.html#embedding-expressions-in-jsx), като ги заградите с фигурни скоби. Същото важи и за логическия оператор `&&`. Това може да бъде много удобен начин за условно рендериране на различни компоненти:
+=======
+You may [embed expressions in JSX](/docs/introducing-jsx.html#embedding-expressions-in-jsx) by wrapping them in curly braces. This includes the JavaScript logical `&&` operator. It can be handy for conditionally including an element:
+>>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd
 
 ```js{6-10}
 function Mailbox(props) {
@@ -140,10 +140,9 @@ function Mailbox(props) {
 }
 
 const messages = ['React', 'Re: React', 'Re:Re: React'];
-ReactDOM.render(
-  <Mailbox unreadMessages={messages} />,
-  document.getElementById('root')
-);
+
+const root = ReactDOM.createRoot(document.getElementById('root')); 
+root.render(<Mailbox unreadMessages={messages} />);
 ```
 
 [**Опитайте примера в CodePen**](https://codepen.io/gaearon/pen/ozJddz?editors=0010)
@@ -152,7 +151,24 @@ ReactDOM.render(
 
 Следователно ако условието е равно на `true`, елементът който е след `&&` винаги ще се рендерира. А ако е `false`, React ще го игнорира и няма да бъде рендериран.
 
+<<<<<<< HEAD
 ### If-Else използвайки "Условния Оператор" {#inline-if-else-with-conditional-operator}
+=======
+Note that returning a falsy expression will still cause the element after `&&` to be skipped but will return the falsy expression. In the example below, `<div>0</div>` will be returned by the render method.
+
+```javascript{2,5}
+render() {
+  const count = 0;
+  return (
+    <div>
+      {count && <h1>Messages: {count}</h1>}
+    </div>
+  );
+}
+```
+
+### Inline If-Else with Conditional Operator {#inline-if-else-with-conditional-operator}
+>>>>>>> 841d3d1b75491ce153a53d1887ab020458090bbd
 
 Друг начин за условно рендериране на елементи е да използвате "условния оператор" от JavaScript  [`condition ? true : false`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Conditional_Operator).
 
@@ -176,11 +192,10 @@ render() {
   const isLoggedIn = this.state.isLoggedIn;
   return (
     <div>
-      {isLoggedIn ? (
-        <LogoutButton onClick={this.handleLogoutClick} />
-      ) : (
-        <LoginButton onClick={this.handleLoginClick} />
-      )}
+      {isLoggedIn
+        ? <LogoutButton onClick={this.handleLogoutClick} />
+        : <LoginButton onClick={this.handleLoginClick} />
+      }
     </div>
   );
 }
@@ -232,10 +247,8 @@ class Page extends React.Component {
   }
 }
 
-ReactDOM.render(
-  <Page />,
-  document.getElementById('root')
-);
+const root = ReactDOM.createRoot(document.getElementById('root')); 
+root.render(<Page />);
 ```
 
 [**Опитайте примера в CodePen**](https://codepen.io/gaearon/pen/Xjoqwm?editors=0010)
