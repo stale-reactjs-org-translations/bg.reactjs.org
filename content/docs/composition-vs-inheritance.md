@@ -169,4 +169,8 @@ class SignUpDialog extends React.Component {
 
 Props и композиция ви дават цялата гъвкавост, от която се нуждаете, за да персонализирате вида и поведението на компонента по ясен и безопасен начин. Не забравяйте, че компонентите могат да приемат произволни props, включително примитивни стойности, React елементи или функции.
 
+<<<<<<< HEAD
 Ако искате да използвате повторно функционалността извън потребителския интерфейс между компонентите, предлагаме да го извлечете в отделен JavaScript модул. Компонентите могат да го import-нат и да използват тази функция, обект или клас, без да го разширяват.
+=======
+If you want to reuse non-UI functionality between components, we suggest extracting it into a separate JavaScript module. The components may import it and use that function, object, or class, without extending it.
+>>>>>>> 8fe817e61e5fe50020ed9379ce9e1c5a2cf476a9
