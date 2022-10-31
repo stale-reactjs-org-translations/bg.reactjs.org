@@ -64,27 +64,40 @@ const element = <Welcome name="Иван" />;
 
 Този код например показва „Здравейте, Иван“ на страницата:
 
-```js{1,5}
+```js{1,6}
 function Welcome(props) {
   return <h1>Здравейте, {props.name}</h1>;
 }
 
+<<<<<<< HEAD
 const element = <Welcome name="Иван" />;
 
 ReactDOM.render(
   element,
   document.getElementById('root')
 );
+=======
+const root = ReactDOM.createRoot(document.getElementById('root'));
+const element = <Welcome name="Sara" />;
+root.render(element);
+>>>>>>> e21b37c8cc8b4e308015ea87659f13aa26bd6356
 ```
 
-[](codepen://components-and-props/rendering-a-component)
+**[Try it on CodePen](https://codepen.io/gaearon/pen/YGYmEG?editors=1010)**
 
 Нека повторим какво се случва в този пример:
 
+<<<<<<< HEAD
 1. Използваме `ReactDOM.render()` с елемента `<Welcome name="Иван" />`.
 2. React използва `Welcome` компонента с `{name: 'Иван'}` като props.
 3. Нашия `Welcome` компонент връща `<h1>Здравейте, Иван</h1>` елемент като резултат.
 4. React DOM ефективно актуализира DOM, който съответства на `<h1>Здравейте, Иван</h1>`.
+=======
+1. We call `root.render()` with the `<Welcome name="Sara" />` element.
+2. React calls the `Welcome` component with `{name: 'Sara'}` as the props.
+3. Our `Welcome` component returns a `<h1>Hello, Sara</h1>` element as the result.
+4. React DOM efficiently updates the DOM to match `<h1>Hello, Sara</h1>`.
+>>>>>>> e21b37c8cc8b4e308015ea87659f13aa26bd6356
 
 >**Забележа:** Винаги започвайте имената на компонентите с главна буква.
 >
@@ -112,14 +125,9 @@ function App() {
     </div>
   );
 }
-
-ReactDOM.render(
-  <App />,
-  document.getElementById('root')
-);
 ```
 
-[](codepen://components-and-props/composing-components)
+**[Try it on CodePen](https://codepen.io/gaearon/pen/KgQKPr?editors=1010)**
 
 Обикновенно новите React приложения започват с един основен `App` компонент. В случаите, когато интегрирате React във вече съществуващо приложение, може да започнете отдолу-нагоре с малък компонент, като например `Button` и постепенно да стигнете до върха на йерархията.
 
@@ -153,7 +161,7 @@ function Comment(props) {
 }
 ```
 
-[](codepen://components-and-props/extracting-components)
+**[Try it on CodePen](https://codepen.io/gaearon/pen/VKQwEo?editors=1010)**
 
 Той приема `author` (като обект), `text` (низ), и `date` (дата) като props и описва коментар в уебсайт на социална медия.
 
@@ -231,9 +239,13 @@ function Comment(props) {
 }
 ```
 
-[](codepen://components-and-props/extracting-components-continued)
+**[Try it on CodePen](https://codepen.io/gaearon/pen/rrJNJY?editors=1010)**
 
+<<<<<<< HEAD
 Извличането на компоненти може да изглежда като трудна и груба работа в началото, но разполагайки с палитра от компоненти за многократна употреба се изплаща в по-големите приложения. Прието е ако част от вашият потребителски интерфейс се използва многократно (`Button`, `Panel`, `Avatar`) или е достатъчно сложен сам по себе си (`App`, `FeedStory`, `Comment`), да го приемем като добър кандидат за компонент за многократна употреба.
+=======
+Extracting components might seem like grunt work at first, but having a palette of reusable components pays off in larger apps. A good rule of thumb is that if a part of your UI is used several times (`Button`, `Panel`, `Avatar`), or is complex enough on its own (`App`, `FeedStory`, `Comment`), it is a good candidate to be extracted to a separate component.
+>>>>>>> e21b37c8cc8b4e308015ea87659f13aa26bd6356
 
 ## Props са Read-Only {#props-are-read-only}
 
