@@ -108,7 +108,7 @@ cd ..
 
 ```js
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import './index.css';
 ```
 
@@ -172,7 +172,11 @@ JSX идва с многото възможности на JavaScript. Може�
 
 Компонентът `ShoppingList` показва само вградени DOM компоненти като `<div />` и `<li />`. Но можете да създавате и рендерирате свои собствени React компоненти. Например, сега можем да използваме целия списък за пазаруване, като напишем `<ShoppingList />`. Всеки React компонент е капсулиран и може да работи самостоятелно; това ви позволява да изграждате сложни потребителски интерфейси от прости компоненти.
 
+<<<<<<< HEAD
 ## Разглеждане на началния код {#inspecting-the-starter-code}
+=======
+### Inspecting the Starter Code {#inspecting-the-starter-code}
+>>>>>>> e50e5634cca3c7cdb92c28666220fe3b61e9aa30
 
 Ако сте избрали да работите **в браузъра си** отворете този код в нов таб: **[Starter Code](https://codepen.io/gaearon/pen/oWWQNa?editors=0010)**. Ако пък ще работите **локално,** отворете `src/index.js` в папката на проекта (вече редактирахме този файл по време на секция [Технически детайли](#setup-option-2-local-development-environment)).
 
@@ -237,7 +241,7 @@ class Square extends React.Component {
 class Square extends React.Component {
   render() {
     return (
-      <button className="square" onClick={function() { alert('click'); }}>
+      <button className="square" onClick={function() { console.log('click'); }}>
         {this.props.value}
       </button>
     );
@@ -245,7 +249,11 @@ class Square extends React.Component {
 }
 ```
 
+<<<<<<< HEAD
 Ако натиснем бутона сега ще видим съобщението "click" от браузера.
+=======
+If you click on a Square now, you should see 'click' in your browser's devtools console.
+>>>>>>> e50e5634cca3c7cdb92c28666220fe3b61e9aa30
 
 >Забележка
 >
@@ -255,7 +263,7 @@ class Square extends React.Component {
 >class Square extends React.Component {
 >  render() {
 >    return (
->      <button className="square" onClick={() => alert('click')}>
+>      <button className="square" onClick={() => console.log('click')}>
 >        {this.props.value}
 >      </button>
 >    );
@@ -263,7 +271,11 @@ class Square extends React.Component {
 >}
 >```
 >
+<<<<<<< HEAD
 >Забележете как с `onClick={() => alert('click')}` предаваме *функция* като стойност на `onClick` prop-a. Тя се извиква само след натискане на бутона. Изспускането на `() =>` и използването на `onClick={alert('click')}` е често срещана грешка и би показала съобщението "click" всеки път, когато компонентът се рендерира.
+=======
+>Notice how with `onClick={() => console.log('click')}`, we're passing *a function* as the `onClick` prop. React will only call this function after a click. Forgetting `() =>` and writing `onClick={console.log('click')}` is a common mistake, and would fire every time the component re-renders.
+>>>>>>> e50e5634cca3c7cdb92c28666220fe3b61e9aa30
 
 Като следваща стъпка искаме компонентът `Square` да "помни", че е бил натиснат, и да се запълни с "X" маркер. За да запомнят неща, React компонентите използват **състояние (state)**.
 
@@ -282,7 +294,7 @@ class Square extends React.Component {
 
   render() {
     return (
-      <button className="square" onClick={() => alert('click')}>
+      <button className="square" onClick={() => console.log('click')}>
         {this.props.value}
       </button>
     );
@@ -453,11 +465,19 @@ class Square extends React.Component {
 
 Когато се кликнем на Square компонент, се извиква функцията `onClick`, предоставена от Board. Ето преглед на това как нещата работят:
 
+<<<<<<< HEAD
 1. `onClick` prop-a на DOM elementa `<button>` казва на React да настрои слушател на събития при натискане.
 2. Когато бутонът е натиснат, React ще извика функцията `onClick`, която е дефинирана в метода 'render()' на Square.
 3. Тази функция извиква `this.props.onClick()`. `onClick` на Square e дефиниран от Board компонента.
 4. Тъй като Board подава `onClick = {() => this.handleClick(i)}` на Square, той извиква `this.handleClick(i)` при кликване.
 5. Все още не сме дефинирали метода `handleClick()`, така че кодът ни не работи. Ако натиснем бутона сега ще видим екран в червено, предупреждаващ за грешка, например "this.handleClick is not a function".
+=======
+1. The `onClick` prop on the built-in DOM `<button>` component tells React to set up a click event listener.
+2. When the button is clicked, React will call the `onClick` event handler that is defined in Square's `render()` method.
+3. This event handler calls `this.props.onClick()`. The Square's `onClick` prop was specified by the Board.
+4. Since the Board passed `onClick={() => this.handleClick(i)}` to Square, the Square calls the Board's `handleClick(i)` when clicked.
+5. We have not defined the `handleClick()` method yet, so our code crashes. If you click a square now, you should see a red error screen saying something like "this.handleClick is not a function".
+>>>>>>> e50e5634cca3c7cdb92c28666220fe3b61e9aa30
 
 >Забележка
 >
@@ -526,7 +546,11 @@ class Board extends React.Component {
 
 ### Защо immutability е важна концепция {#why-immutability-is-important}
 
+<<<<<<< HEAD
 В предишния пример предложихме да използвате метода `.slice()`, за да създадете копие на масив `squares`, който да променим, вместо да модифицирате съществуващия вече масив. Сега ще обсъдим тази практика (immutability) и защо е важно да бъде разбрана.
+=======
+In the previous code example, we suggested that you create a copy of the `squares` array using the `slice()` method instead of modifying the existing array. We'll now discuss immutability and why immutability is important to learn.
+>>>>>>> e50e5634cca3c7cdb92c28666220fe3b61e9aa30
 
 Обикновено има два подхода за промяна на данните. Първият подход е да се *мутират* (mutate) данните чрез директна промяна на стойностите. Вторият подход е да се заменят данните с ново копие, което има желаните промени.
 
@@ -544,7 +568,7 @@ var player = {score: 1, name: 'Jeff'};
 var newPlayer = Object.assign({}, player, {score: 2});
 // Now player is unchanged, but newPlayer is {score: 2, name: 'Jeff'}
 
-// Or if you are using object spread syntax proposal, you can write:
+// Or if you are using object spread syntax, you can write:
 // var newPlayer = {...player, score: 2};
 ```
 
@@ -562,7 +586,11 @@ Immutability прави много по-лесни за изпълнение с�
 
 #### Определяне кога да пререндерираме в React {#determining-when-to-re-render-in-react}
 
+<<<<<<< HEAD
 Основното предимство на тази практика е, че помага за изграждането на _чисти (pure)_ компоненти в React. Лесно можем да определим кога данните са променени, което помага да се определи кога даден компонент изисква повторно рендериране.
+=======
+The main benefit of immutability is that it helps you build _pure components_ in React. Immutable data can easily determine if changes have been made, which helps to determine when a component requires re-rendering.
+>>>>>>> e50e5634cca3c7cdb92c28666220fe3b61e9aa30
 
 Можете да научите повече за `shouldComponentUpdate()` и как можете да изградите *чисти компоненти* като прочетете [Оптимизиране на производителността](/docs/optimizing-performance.html#example).
 
@@ -1045,7 +1073,13 @@ const doubled = numbers.map(x => x * 2); // [2, 4, 6]
 
 **[Виж целия код до този момент](https://codepen.io/gaearon/pen/EmmGEa?editors=0010)**
 
+<<<<<<< HEAD
 За всяки ход в историята на играта, ние създаваме елемент от списък `<li>`, който съдържа бутон `<button>`. Бутонът има `onClick` функция, която извиква метод, наречен `this.jumpTo()`. Все още не сме го имплементирали. За сега трябва да видим списък с ходовете, които са настъпили в играта, и съобщение в конзолата на devtools, което казва:
+=======
+As we iterate through `history` array, `step` variable refers to the current `history` element value, and `move` refers to the current `history` element index. We are only interested in `move` here, hence `step` is not getting assigned to anything.
+
+For each move in the tic-tac-toe game's history, we create a list item `<li>` which contains a button `<button>`. The button has a `onClick` handler which calls a method called `this.jumpTo()`. We haven't implemented the `jumpTo()` method yet. For now, we should see a list of the moves that have occurred in the game and a warning in the developer tools console that says:
+>>>>>>> e50e5634cca3c7cdb92c28666220fe3b61e9aa30
 
 > Warning:
 > Each child in an array or iterator should have a unique "key" prop. Check the render method of "Game".
@@ -1145,11 +1179,21 @@ class Game extends React.Component {
   }
 ```
 
+<<<<<<< HEAD
 Сега ще направим няколко промени в `handleClick` метода на Game, който се извиква, когато кликнете върху квадрат.
+=======
+Notice in `jumpTo` method, we haven't updated `history` property of the state. That is because state updates are merged or in more simple words React will update only the properties mentioned in `setState` method leaving the remaining state as is. For more info **[see the documentation](/docs/state-and-lifecycle.html#state-updates-are-merged)**.
+
+We will now make a few changes to the Game's `handleClick` method which fires when you click on a square.
+>>>>>>> e50e5634cca3c7cdb92c28666220fe3b61e9aa30
 
 Състоянието `stepNumber`, което добавихме, отразява хода, показван на потребителя. След като направим нов ход, трябва да актуализираме `stepNumber` като добавим `stepNumber: history.length` като част от аргумента към `this.setState`. Това гарантира, че няма да показваме същия ход след създаването на нов.
 
+<<<<<<< HEAD
 Ще заменим и четенето `this.state.history` с `this.state.history.slice(0, this.state.stepNumber + 1)`. Това гарантира, че ако "се върнем назад във времето" и след това направим нов ход от тази точка, ще изхвърлим цялата "бъдеща" история, която сега ще стане грешна.
+=======
+We will also replace reading `this.state.history` with `this.state.history.slice(0, this.state.stepNumber + 1)`. This ensures that if we "go back in time" and then make a new move from that point, we throw away all the "future" history that would now be incorrect.
+>>>>>>> e50e5634cca3c7cdb92c28666220fe3b61e9aa30
 
 ```javascript{2,13}
   handleClick(i) {
@@ -1194,7 +1238,11 @@ class Game extends React.Component {
 * Съхранява историята на играта в хода на играта,
 * Позволява на играчите да преглеждат историята на играта и да виждат предишни версии на дъската.
 
+<<<<<<< HEAD
 Добра работа! Надяваме се, че придобихте знание за това как работи React.
+=======
+Nice work! We hope you now feel like you have a decent grasp of how React works.
+>>>>>>> e50e5634cca3c7cdb92c28666220fe3b61e9aa30
 
 Вижте крайния резултат тук: **[Краен резултат](https://codepen.io/gaearon/pen/gWWZgR?editors=0010)**.
 
