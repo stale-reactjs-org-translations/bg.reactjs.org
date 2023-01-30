@@ -6,7 +6,20 @@ prev: hello-world.html
 next: rendering-elements.html
 ---
 
+<<<<<<< HEAD
 Разгледайте тази декларация на променлива:
+=======
+> Try the new React documentation.
+> 
+> These new documentation pages teach modern React and include live examples:
+>
+> - [Writing Markup with JSX](https://beta.reactjs.org/learn/writing-markup-with-jsx)
+> - [JavaScript in JSX with Curly Braces](https://beta.reactjs.org/learn/javascript-in-jsx-with-curly-braces)
+>
+> The new docs will soon replace this site, which will be archived. [Provide feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
+Consider this variable declaration:
+>>>>>>> 5647a9485db3426d62b5a8203f4499c01bcd789b
 
 ```js
 const element = <h1>Здравей, свят!</h1>;
@@ -33,6 +46,7 @@ React [не изисква](/docs/react-without-jsx.html) използванет
 В примера по-долу, ние декларираме променлива, наречена `name`, и след това я използваме в JSX, като я обгърнем във фигурни скоби:
 
 ```js{1,2}
+<<<<<<< HEAD
 const name = 'Иван Атанасов';
 const element = <h1>Здравей, {name}</h1>;
 
@@ -40,6 +54,10 @@ ReactDOM.render(
   element,
   document.getElementById('root')
 );
+=======
+const name = 'Josh Perez';
+const element = <h1>Hello, {name}</h1>;
+>>>>>>> 5647a9485db3426d62b5a8203f4499c01bcd789b
 ```
 
 Можете да поставите всeки валиден [JavaScript израз](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators#Expressions) в къдравите скоби в JSX. Например, `2 + 2`, `user.firstName` или `formatName(user)` са валидни JavaScript изрази.
@@ -61,14 +79,9 @@ const element = (
     Здравей, {formatName(user)}!
   </h1>
 );
-
-ReactDOM.render(
-  element,
-  document.getElementById('root')
-);
 ```
 
-[](codepen://introducing-jsx)
+**[Try it on CodePen](https://codepen.io/gaearon/pen/PGEjdG?editors=1010)**
 
 Разделяме JSX на няколко реда за четливост. Въпреки че не е необходимо, когато правите това, препоръчваме да го заградите в скоби, за да избегнете проблемите с [автоматичното въвеждане на точка и запетая](http://stackoverflow.com/q/2846283).
 
@@ -92,7 +105,7 @@ function getGreeting(user) {
 Можете да използвате кавички, за да укажете атрибути чрез низове:
 
 ```js
-const element = <div tabIndex="0"></div>;
+const element = <a href="https://www.reactjs.org"> link </a>;
 ```
 
 Можете също да използвате фигурни скоби, за да вградите JavaScript израз в атрибут:
@@ -181,5 +194,9 @@ const element = {
 
 >**Съвет:**
 >
+<<<<<<< HEAD
 
 >Препоръчваме ви да използвате ["Babel" езикова дефиниция](http://babeljs.io/docs/editors) за редактора, който сте избрали, така че и ES6 и JSX кодът да е с правилен syntax highlighting.
+=======
+>We recommend using the ["Babel" language definition](https://babeljs.io/docs/en/next/editors) for your editor of choice so that both ES6 and JSX code is properly highlighted.
+>>>>>>> 5647a9485db3426d62b5a8203f4499c01bcd789b
