@@ -8,11 +8,28 @@ prev: components-and-props.html
 next: handling-events.html
 ---
 
+<<<<<<< HEAD
 Тази страница представя концепцията за state(състояние) и lifecycle(жизнен цикъл) на компонентите в React. Можете да намерите [подробна информация за API(програмния интерфейс) на компонент тук](/docs/react-component.html).
 
 Спомнете си за примера с часовника [в един от предишните раздели](/docs/rendering-elements.html#updating-the-rendered-element). В [Рендериране на елементи](/docs/rendering-elements.html#rendering-an-element-into-the-dom), до сега научихме само един начин да актуализираме потребителския интерфейс. Извикваме `ReactDOM.render()` за да актуализираме резултата от рендерирането:
+=======
+> Try the new React documentation.
+> 
+> These new documentation pages teach modern React and include live examples:
+>
+> - [State: A Component's Memory](https://beta.reactjs.org/learn/state-a-components-memory)
+> - [Synchronizing with Effects](https://beta.reactjs.org/learn/synchronizing-with-effects)
+>
+> The new docs will soon replace this site, which will be archived. [Provide feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
 
-```js{8-11}
+This page introduces the concept of state and lifecycle in a React component. You can find a [detailed component API reference here](/docs/react-component.html).
+
+Consider the ticking clock example from [one of the previous sections](/docs/rendering-elements.html#updating-the-rendered-element). In [Rendering Elements](/docs/rendering-elements.html#rendering-an-element-into-the-dom), we have only learned one way to update the UI. We call `root.render()` to change the rendered output:
+>>>>>>> 47adefd30c46f486428d8231a68e639d62f02c9e
+
+```js{10}
+const root = ReactDOM.createRoot(document.getElementById('root'));
+  
 function tick() {
   const element = (
     <div>
@@ -20,10 +37,7 @@ function tick() {
       <h2>It is {new Date().toLocaleTimeString()}.</h2>
     </div>
   );
-  ReactDOM.render(
-    element,
-    document.getElementById('root')
-  );
+  root.render(element);
 }
 
 setInterval(tick, 1000);
@@ -35,7 +49,9 @@ setInterval(tick, 1000);
 
 Можем да започнем с капсулирането на това как часовника е визуализиран:
 
-```js{3-6,12}
+```js{5-8,13}
+const root = ReactDOM.createRoot(document.getElementById('root'));
+
 function Clock(props) {
   return (
     <div>
@@ -46,10 +62,7 @@ function Clock(props) {
 }
 
 function tick() {
-  ReactDOM.render(
-    <Clock date={new Date()} />,
-    document.getElementById('root')
-  );
+  root.render(<Clock date={new Date()} />);
 }
 
 setInterval(tick, 1000);
@@ -62,10 +75,7 @@ setInterval(tick, 1000);
 В идеалния случай ние бихме искали да напишем това само веднъж и `Clock` да се актуализира сам:
 
 ```js{2}
-ReactDOM.render(
-  <Clock />,
-  document.getElementById('root')
-);
+root.render(<Clock />);
 ```
 
 За да имплементираме това, ще трябва да добавим `state` към компонента `Clock`.
@@ -160,10 +170,7 @@ class Clock extends React.Component {
 3) Изтриваме `date` prop от `<Clock />` елемент:
 
 ```js{2}
-ReactDOM.render(
-  <Clock />,
-  document.getElementById('root')
-);
+root.render(<Clock />);
 ```
 
 По-късно ние ще добавим кода на таймера обратно към самия компонент.
@@ -187,10 +194,8 @@ class Clock extends React.Component {
   }
 }
 
-ReactDOM.render(
-  <Clock />,
-  document.getElementById('root')
-);
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<Clock />);
 ```
 
 [**Опитайте примера в CodePen**](https://codepen.io/gaearon/pen/KgQpJd?editors=0010)
@@ -296,10 +301,8 @@ class Clock extends React.Component {
   }
 }
 
-ReactDOM.render(
-  <Clock />,
-  document.getElementById('root')
-);
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<Clock />);
 ```
 
 [**Опитайте примера в CodePen**](https://codepen.io/gaearon/pen/amqdNA?editors=0010)
@@ -308,7 +311,11 @@ ReactDOM.render(
 
 Нека накратко да резюмираме какво се случва и реда, в който методите се изпълняват:
 
+<<<<<<< HEAD
 1) Когато `<Clock />` се подаде на `ReactDOM.render()`, React извиква конструктор метода на компонента `Clock`. Тъй като `Clock` трябва да визуализира текущото време, той инициализира `this.state` с обект съдържащ текущото време. В по-късен етап ще актуализираме `this.state`.
+=======
+1) When `<Clock />` is passed to `root.render()`, React calls the constructor of the `Clock` component. Since `Clock` needs to display the current time, it initializes `this.state` with an object including the current time. We will later update this state.
+>>>>>>> 47adefd30c46f486428d8231a68e639d62f02c9e
 
 2) React извиква метода `render()` на компонента `Clock`. По този начин React разбира, какво трябва да бъде визуализирано на екрана. След това React актуализира DOM дървото, така че да съответства на резултата от рендерирането на `Clock`.
 
@@ -420,12 +427,15 @@ this.setState(function(state, props) {
 Компонентът може да подаде своят state като prop към компонентите, които са му деца.
 
 ```js
+<<<<<<< HEAD
 <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
 ```
 
 Това важи също за дефинирани от потребителя компоненти:
 
 ```js
+=======
+>>>>>>> 47adefd30c46f486428d8231a68e639d62f02c9e
 <FormattedDate date={this.state.date} />
 ```
 
@@ -455,11 +465,6 @@ function App() {
     </div>
   );
 }
-
-ReactDOM.render(
-  <App />,
-  document.getElementById('root')
-);
 ```
 
 [**Опитайте примера в CodePen**](https://codepen.io/gaearon/pen/vXdGmd?editors=0010)
