@@ -9,7 +9,19 @@ redirect_from:
   - "docs/flux-todo-list.html"
 ---
 
+<<<<<<< HEAD
 Често множество от компоненти трябва да отразяват едни и същи тип данни. Препоръчваме тези данни да бъдат "изнесени" в state-а на близкият им общ родителски компонент. Нека видим пример за това.
+=======
+> Try the new React documentation.
+> 
+> These new documentation pages teach modern React and include live examples:
+>
+> - [Sharing State Between Components](https://beta.reactjs.org/learn/sharing-state-between-components)
+>
+> The new docs will soon replace this site, which will be archived. [Provide feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
+Often, several components need to reflect the same changing data. We recommend lifting the shared state up to their closest common ancestor. Let's see how this works in action.
+>>>>>>> ba290ad4e432f47a2a2f88d067dacaaa161b5200
 
 В тази секция, ще създадем температурен калкулатор, който ще пресмята дали водата ще кипне при дадена температура.
 
@@ -323,8 +335,12 @@ class Calculator extends React.Component {
 
 За да бъде "изнесен" даден state често това изисква повече код, спрямо подхода с друпосочен поток на данните, но като ползи получаваме, по-лесно изолиране и намиране на грешки в кода. Тъй като всеки state "живее" в конкретент компонент и само този компонент може да го променя, по този начин местата в кода в които може да има грешки свързани със съответния state значително намаляват. Също така може да бъде имплементирана всякаква логика, която да модифицира входните данни от потребителя.
 
+<<<<<<< HEAD
 Ако някакви данни могат да бъдат извлечени от props вместо от state, най-вероятно не би трябвало да са в state. Например, вместо да съхраняваме `celsiusValue` и `fahrenheitValue`, ние съхраняваме само последните промени на `temperature` и `scale`. Стойността за другата температурна скала винаги може да бъде изчислена от `render()` метода. Това ни позволява да приложим закръгляване на другото поле без да губим точността на входните данни от потребителя.
 
 Когато видите грешка в потребителския интерфейс, можете да използвате [React Developer Tools](https://github.com/facebook/react/tree/master/packages/react-devtools), за да анализирате props и да търсите нагоре в дървото от компоненти, докато не намерите компонента отговорен за промяната на state-а. Това ще ви позволи да проследявате грешките в кода до техния първоизточник:
+=======
+When you see something wrong in the UI, you can use [React Developer Tools](https://github.com/facebook/react/tree/main/packages/react-devtools) to inspect the props and move up the tree until you find the component responsible for updating the state. This lets you trace the bugs to their source:
+>>>>>>> ba290ad4e432f47a2a2f88d067dacaaa161b5200
 
 <img src="../images/docs/react-devtools-state.gif" alt="Monitoring State in React DevTools" max-width="100%" height="100%">

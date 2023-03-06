@@ -6,7 +6,20 @@ prev: conditional-rendering.html
 next: forms.html
 ---
 
+<<<<<<< HEAD
 Първо, нека да разгледаме как се преобразуват списъци в JavaScript.
+=======
+> Try the new React documentation.
+> 
+> These new documentation pages teach modern React and include live examples:
+>
+> - [Rendering Lists](https://beta.reactjs.org/learn/rendering-lists)
+>
+> The new docs will soon replace this site, which will be archived. [Provide feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
+
+First, let's review how you transform lists in JavaScript.
+>>>>>>> ba290ad4e432f47a2a2f88d067dacaaa161b5200
 
 Взимайки кода по-долу, ние използваме функцията [`map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) за да обходим списъка `numbers` и да удвоим стойностите на елементите в него. Присвояваме новия масив, върнат от `map()` на променливата `doubleled` и го принтираме:
 
@@ -33,13 +46,14 @@ const listItems = numbers.map((number) =>
 );
 ```
 
+<<<<<<< HEAD
 Добавяме целия `listItems` списък в `<ul>` елемент и го [рендерираме в DOM](/docs/rendering-elements.html#rendering-an-element-into-the-dom):
+=======
+Then, we can include the entire `listItems` array inside a `<ul>` element:
+>>>>>>> ba290ad4e432f47a2a2f88d067dacaaa161b5200
 
 ```javascript{2}
-ReactDOM.render(
-  <ul>{listItems}</ul>,
-  document.getElementById('root')
-);
+<ul>{listItems}</ul>
 ```
 
 [**Опитай в CodePen**](https://codepen.io/gaearon/pen/GjPyQr?editors=0011)
@@ -64,10 +78,8 @@ function NumberList(props) {
 }
 
 const numbers = [1, 2, 3, 4, 5];
-ReactDOM.render(
-  <NumberList numbers={numbers} />,
-  document.getElementById('root')
-);
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<NumberList numbers={numbers} />);
 ```
 
 Когато изпълните този код, ще получите предупреждение, че трябва да бъде предоставен ключ за елементите от списъка. Ключ ("key") е специален низ атрибут, който трябва да включите, когато създавате списъци с елементи. Ще обсъдим защо е важно това в следващия раздел.
@@ -86,12 +98,6 @@ function NumberList(props) {
     <ul>{listItems}</ul>
   );
 }
-
-const numbers = [1, 2, 3, 4, 5];
-ReactDOM.render(
-  <NumberList numbers={numbers} />,
-  document.getElementById('root')
-);
 ```
 
 [**Опитай в CodePen**](https://codepen.io/gaearon/pen/jrXYRR?editors=0011)
@@ -130,7 +136,11 @@ const todoItems = todos.map((todo, index) =>
 );
 ```
 
+<<<<<<< HEAD
 Не препоръчваме да използвате индекси за ключове, ако редът на елементите може да се промени. Това може да повлияе негативно на производителността и да предизвика проблеми със state-a на компонента. Разгледайте статията на Робин Покорни за [подробно обяснение на отрицателните въздействия от използването на индекс като ключ](https://medium.com/@robinpokorny/index-as-a-key-is-an-anti-pattern-e0349aece318). Ако изберете да не присвоявате ключове, когато изброявате елементи, React ще използва по подразбиране индекси като ключове.
+=======
+We don't recommend using indexes for keys if the order of items may change. This can negatively impact performance and may cause issues with component state. Check out Robin Pokorny's article for an [in-depth explanation on the negative impacts of using an index as a key](https://robinpokorny.com/blog/index-as-a-key-is-an-anti-pattern/). If you choose not to assign an explicit key to list items then React will default to using indexes as keys.
+>>>>>>> ba290ad4e432f47a2a2f88d067dacaaa161b5200
 
 Ето [по-подробно обяснение защо са необходими ключове](/docs/reconciliation.html#recursing-on-children), ако се интересувате от повече информация.
 
@@ -165,12 +175,6 @@ function NumberList(props) {
     </ul>
   );
 }
-
-const numbers = [1, 2, 3, 4, 5];
-ReactDOM.render(
-  <NumberList numbers={numbers} />,
-  document.getElementById('root')
-);
 ```
 
 **Пример: правилно използване на ключове**
@@ -185,8 +189,7 @@ function NumberList(props) {
   const numbers = props.numbers;
   const listItems = numbers.map((number) =>
     // Correct! Key should be specified inside the array.
-    <ListItem key={number.toString()}
-              value={number} />
+    <ListItem key={number.toString()} value={number} />
   );
   return (
     <ul>
@@ -194,12 +197,6 @@ function NumberList(props) {
     </ul>
   );
 }
-
-const numbers = [1, 2, 3, 4, 5];
-ReactDOM.render(
-  <NumberList numbers={numbers} />,
-  document.getElementById('root')
-);
 ```
 
 [**Опитай в CodePen**](https://codepen.io/gaearon/pen/ZXeOGM?editors=0010)
@@ -208,7 +205,11 @@ ReactDOM.render(
 
 ### Kлючовете трябва да бъдат уникални само между съседни компоненти {#keys-must-only-be-unique-among-siblings}
 
+<<<<<<< HEAD
 Ключовете, използвани в масиви, трябва да бъдат уникални измежду съседни компоненти. Те не трябва да бъдат уникални за цялото приложение. Можем да използваме същите ключове, когато произвеждаме два различни масива:
+=======
+Keys used within arrays should be unique among their siblings. However, they don't need to be globally unique. We can use the same keys when we produce two different arrays:
+>>>>>>> ba290ad4e432f47a2a2f88d067dacaaa161b5200
 
 ```js{2,5,11,12,19,21}
 function Blog(props) {
@@ -240,10 +241,9 @@ const posts = [
   {id: 1, title: 'Hello World', content: 'Welcome to learning React!'},
   {id: 2, title: 'Installation', content: 'You can install React from npm.'}
 ];
-ReactDOM.render(
-  <Blog posts={posts} />,
-  document.getElementById('root')
-);
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<Blog posts={posts} />);
 ```
 
 [**Опитай в CodePen**](https://codepen.io/gaearon/pen/NRZYGN?editors=0010)
