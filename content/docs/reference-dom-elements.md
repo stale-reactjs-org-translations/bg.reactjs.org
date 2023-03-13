@@ -14,8 +14,25 @@ redirect_from:
   - "tips/dangerously-set-inner-html.html"
 ---
 
+<<<<<<< HEAD
 React внедрява независима от браузъра DOM система целяща постигането на производителност и съвместимост с различните браузъри. Възползвахме се от отдалата се възможност
 за да 'изчистим' някои несъответствия в употребата на DOM дървото от различните браузъри.
+=======
+> Try the new React documentation.
+> 
+> These new documentation pages teach modern React and include live examples:
+>
+> - [Common components (e.g. `<div>`)](https://beta.reactjs.org/reference/react-dom/components/common)
+> - [`<input>`](https://beta.reactjs.org/reference/react-dom/components/input)
+> - [`<option>`](https://beta.reactjs.org/reference/react-dom/components/option)
+> - [`<progress>`](https://beta.reactjs.org/reference/react-dom/components/progress)
+> - [`<select>`](https://beta.reactjs.org/reference/react-dom/components/select)
+> - [`<textarea>`](https://beta.reactjs.org/reference/react-dom/components/textarea)
+>
+> The new docs will soon replace this site, which will be archived. [Provide feedback.](https://github.com/reactjs/reactjs.org/issues/3308)
+
+React implements a browser-independent DOM system for performance and cross-browser compatibility. We took the opportunity to clean up a few rough edges in browser DOM implementations.
+>>>>>>> 19aa5b4852c3905757edb16dd62f7e7506231210
 
 В React наименованията на всички свойства и атрибути (включително и манипулаторите на събития) се изписват в camelCase конвенцията. Например, HTML атрибута `tabindex` отговаря
 на атрибута `tabIndex` когато бива използван в React. Изключения са атрибутите `aria-*` и `data-*`, които задължително трябва да бъдат изписани с малки букви. Например можете да оставите атрибута `aria-label` като `aria-label`.
@@ -60,7 +77,12 @@ function MyComponent() {
 
 ### selected {#selected}
 
+<<<<<<< HEAD
 Атрибута `selected` се използва от `<option>` компоненти. Използва се за да зададете дали компонента е избран. Това е полезно при изграждането на контролирани компоненти.
+=======
+If you want to mark an `<option>` as selected, reference the value of that option in the `value` of its `<select>` instead.
+Check out ["The select Tag"](/docs/forms.html#the-select-tag) for detailed instructions.
+>>>>>>> 19aa5b4852c3905757edb16dd62f7e7506231210
 
 ### style {#style}
 
@@ -119,10 +141,18 @@ React автоматично ще добави 'px' наставка до опр
 
 При използването на server-side React рендериране се изписва предупредително съобщение в случаите когато сървъра и клиента рендерират различно съдържание. Въпреки това, в някои редки случаи гарантирането на пълно съвпадение е много трудно или дори невъзможно. Например, очаква се да има разлика между времевите клейма на сървъра и клиента.
 
+<<<<<<< HEAD
 Ако зададете стойност `true` на `suppressHydrationWarning`, React няма да ви предупреждава за разлики в атрибутите и съдържанието на въпросния елемент. Това работи само едно ниво надолу и е предназначено да се използва като авариен изход. Не прекалявайте с употребата му. Може да прочетете повече за хидрадацията в [`документацията на ReactDOM.hydrate()`](/docs/react-dom.html#hydrate).
 
 ### value {#value}
 Атрибута `value` се поддържа от `<input>` и `<textarea>` компоненти. Можете да го използвате за да заложите стойността на въпросния компонент. Това е полезно при изгражането на контролирани компоненти. `defaultValue` е неконтрилируемия еквивалент, който задава стойността на компонента при първоначалното му закачане.
+=======
+If you set `suppressHydrationWarning` to `true`, React will not warn you about mismatches in the attributes and the content of that element. It only works one level deep, and is intended to be used as an escape hatch. Don't overuse it. You can read more about hydration in the [`ReactDOM.hydrateRoot()` documentation](/docs/react-dom-client.html#hydrateroot).
+
+### value {#value}
+
+The `value` attribute is supported by `<input>`, `<select>` and `<textarea>` components. You can use it to set the value of the component. This is useful for building controlled components. `defaultValue` is the uncontrolled equivalent, which sets the value of the component when it is first mounted.
+>>>>>>> 19aa5b4852c3905757edb16dd62f7e7506231210
 
 ## All Supported HTML Attributes {#all-supported-html-attributes}
 
@@ -131,9 +161,15 @@ React автоматично ще добави 'px' наставка до опр
 React винаги е предоставял JavaScript-ориентирано API към DOM дървото. Тъй като React компонентите често приемат едновременно както персонализирани, така и свързани с DOM дървото props, React използва `camelCase` конвенцията, водейки се по примера на DOM API:
 
 ```js
+<<<<<<< HEAD
 <div tabIndex="-1" />      // Също като node.tabIndex в DOM API
 <div className="Button" /> // Също като node.className в DOM API
 <input readOnly={true} />  // Също като node.readOnly в DOM API
+=======
+<div tabIndex={-1} />      // Just like node.tabIndex DOM API
+<div className="Button" /> // Just like node.className DOM API
+<input readOnly={true} />  // Just like node.readOnly DOM API
+>>>>>>> 19aa5b4852c3905757edb16dd62f7e7506231210
 ```
 
 Тези props работят подобно на съответстващите им HTML атрибути, с изключение на специалните случаи документирани по-горе.
